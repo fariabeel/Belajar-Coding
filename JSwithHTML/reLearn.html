@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1 id="a">
+        <button id="b"></button>
+        <button id="c"></button>
+    </h1>
+
+        <script>
+            window.addEventListener("resize",function(){document.getElementById("a").style.color="blue"})
+            document.getElementById('b').addEventListener('click',function(){alert("button first")},false)
+            document.getElementById('a').addEventListener('click',a,false)
+            function a(){alert('h1')}
+            document.getElementById('a').removeEventListener('click',a)
+
+            
+
+
+
+        </script>
+</body>
+</html>

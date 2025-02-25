@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Margin</Title>
+        <style>
+            *{font-family:Arial, Helvetica, sans-serif;}
+            .decor{
+                border: 5px solid;
+                padding: 20px;
+                width: fit-content;
+                height:fit-content;
+            }
+            .margin{
+                /* all side */
+                margin: 5px
+            }
+            .margin0{
+                margin: 10px auto;
+            }
+            .margin1{
+                margin: 10px 20px 50px;
+            }
+            .margin2{
+                margin: 10px 20px 40px auto;
+                /* or
+                margin-top: 10px;
+                margin-right: 20px:
+                margin-bottom: 40px;
+                margin-left: auto; */
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="decor margin">Genos</h1>
+        <h1 class="decor margin0">Kazuma</h1>
+        <h1 class="decor margin1">Cid</h1>
+        <h1 class="decor margin2">argggh</h1>
+    </body>
+</html>

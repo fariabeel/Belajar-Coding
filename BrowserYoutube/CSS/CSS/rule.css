@@ -1,0 +1,52 @@
+* {
+    font-family: arial;
+}
+
+
+i {
+    color: green;
+}
+
+/* diambil yang paling terakhir */
+i {
+    color: red; /* final take */
+}
+
+
+b {
+    color:pink; /* level 1 */
+}
+
+p b{
+    color: brown !important /* isekai level */
+}
+
+p b{
+    color: blue; /* level 2 */
+}
+
+
+/* study case */
+p{
+    font-size: 100%;
+}
+
+b {
+    font-size: 150%;
+}
+
+p#pendahuluan {
+    font-size:75%; /* more specific */
+}
+
+/* inheritance */
+body {
+    color:violet;
+    padding: 10px;
+}
+
+.intro {
+    border: 1px solid red;
+    background-color: #e4e0e0;
+    padding: inherit;
+}

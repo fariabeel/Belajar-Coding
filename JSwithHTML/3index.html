@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <style>
+            .a {
+                background-color: aqua;
+                width: 100px;
+            }
+        </style>
+    </head>
+
+    <body onload="checkCookies()"> <!--search onload and onunload again!-->
+
+
+        <p id="cookies">rrr</p>
+        <h1 onclick="changeText(this)">Event</h1>
+
+
+        <button
+        onclick="displayDate()">
+        Event</button>
+
+
+        <p id="demo"></p>
+        <button id="button">Event</button> 
+        <br><br>
+
+
+        <input type="text" id="fname" oninput="upperCase()">
+        <br> <br>
+
+
+        <input type="text" id="fname0" onchange="upperCase0()">
+
+
+        <h1 
+        onmouseover="mOver(this)"
+        onmouseout="mOut(this)"
+        class="a"
+        >Mouse</h1>
+
+
+        <script>
+            function changeText(id) {
+                id.innerHTML = 'wow!';
+            };
+
+
+            function displayDate() {
+                document.getElementById("demo").innerHTML=Date();
+            }
+
+            document.getElementById("button").onclick=displayDate;
+
+
+            function checkCookies(){
+                let text="";
+                if (navigator.cookieEnabled == true) {
+                    text = "Cookies enabled"
+                }
+                else {
+                    text = "Cookies unabled"
+                }
+                document.getElementById("cookies").innerHTML=text;
+            }
+            
+            
+            function upperCase() {
+                const x = document.getElementById("fname");
+                x.value = x.value.toUpperCase();
+            }
+            
+            
+            function upperCase0() {
+                const x = document.getElementById("fname0");
+                x.value = x.value.toUpperCase();
+            }
+
+
+            function mOver(obj) {
+                obj.innerHTML = "in"
+            }
+
+
+            function mOut(obj) {
+                obj.innerHTML = "out"
+            }
+
+
+        </script>
+    </body>
+</html>

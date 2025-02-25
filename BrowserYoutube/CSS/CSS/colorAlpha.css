@@ -1,0 +1,31 @@
+body {
+    background-color: #efefef;
+    color: #efefef;
+}
+
+#article{
+    background-color: #888888;
+    padding:20px;
+}
+h1{
+     background-color: rgb(100,100,90);
+     padding: 10px;
+}
+/* rgb alpha (rgba) */
+h2{
+    background-color: rgba(102, 102, 102, 1);
+    padding: 10px;
+}
+/* HSL */
+/* hue 0-360 */
+/* saturation 0% - 100% */
+/* lightness 0% - 100% */
+p.paragraf-1{
+    padding:10px;
+    background-color: hsl(0, 0%, 30%);
+}
+/* HSL alpha (hsla) */
+p.paragraf-2{
+    padding:10px;
+    background-color: hsla(0, 0%, 30%,0.5);
+}

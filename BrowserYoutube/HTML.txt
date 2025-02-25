@@ -1,0 +1,143 @@
+REFERENCE 1index.html
+
+doctype.
+html.
+head.
+title.
+body.
+hr.
+h1--h6.
+u.
+i.
+sub. will down
+sup. will up
+br.
+p.
+strong.
+em.italic's twin
+q.
+blockquote.
+abbr.
+acronym. abbr's twin
+cite same with italic.
+dfn same with italic.
+del.
+ins.
+a link the id '' that can go to the link.
+ol.
+b.
+
+_______________________________
+REFERENCE 2index.html
+
+two list inside ordered list.
+two list inside unordered list.
+two list inside unordered list inside unordered list.
+dt and dd inside dl.
+explain:
+dd is no space in front.
+dt is space in front.
+
+_______________________________
+REFERENCE 3index.html
+
+a link to google.com.
+
+48, 49 line's task must be like this:
+unordered list
+ list a to 1index file
+ list a to index file in Test folder
+unordered list
+ends of program.
+
+_______________________________
+REFERENCE 4table.html.
+
+'' textarea name text id text cols 30 rows 10.
+
+'' h1, center.
+br twice.    
+
+do this:
+table 
+ tr
+  td '1'
+  td '2'
+ tr
+ tr
+  td '3'
+  td '4'
+ tr
+table
+task: table thick 1, center. ends of program.
+
+br twice.
+''h1 center.
+br twice.
+
+do this:
+table
+ tr
+  th 'MONDAY'
+  td 'again?'
+  td 'why!'
+ tr
+ tr
+  th 'NIGHT SUNDAY'
+  td 'hell yeah!'
+  td 'nice'
+ tr
+table
+task: table thick 1, center. ends of program.
+
+br twice.
+do this:
+table
+ th 'MONDAY'
+ th 'NIGHT SUNDAY'
+  tr
+   td 'WHY again?'
+   td 'nicee!!'
+  tr
+ends of program.
+
+br twice.
+do this:
+table
+ th'MONDAY'
+ th'SUNDAY'
+ th row span 2'LIFE'
+ tr
+  td col span 2'NO LEARN!!'
+ tr
+table
+ends of program.
+
+_______________________________
+REFERENCE 5form.html
+
+text input. 
+submit button input.
+password input.
+2 radio that can't choose both with label.
+checkbox with label.
+select with 2 list.
+input file.
+
+_______________________________
+REFERENCE 6images.html
+
+h1 center.
+img middle source some photo alt REFERENCE
+title draw.
+
+_______________________________
+REFERENCE 7video.html
+
+video controls width 100%, with poster,
+preload none.
+
+_______________________________
+REFERENCE 8voice.html
+
+audio that's autoplay.

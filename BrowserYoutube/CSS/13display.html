@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Display Element</title>
+        <style>
+            *{font-family: tahoma;
+            }
+            p{display:inline;
+            }
+            b{display:block;
+            }
+            span{
+                background-color:rgba(255,200,0,0.5);
+                width:100px;
+                height:100px;
+                text-align: center;
+                padding:10px;
+                border:1px solid;
+            }
+            /* inline */
+            span.inline{
+                display: inline;
+            }
+            /* block */
+            span.block{
+                display: block;
+            }
+            /* inline-block */
+            span.inline-block{
+                display: inline-block;
+            }
+            /* flex */
+            .flex-container{
+                background-color: aqua;
+                display:flex;
+                flex-wrap:wrap;
+                height:200px;
+                justify-content:center;
+            }
+            .flex-item{
+                display:flex;
+                background-color: azure;
+                width:100px;
+                height:100px;
+                margin:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Display Property</h1>
+        </div>
+                <h2>>Display: inline</h2>
+                <p>Lorem ipsum dolor sit met consectetur 
+                    adipisicing elit. Explicabo laborum 
+                    nostrum eius unde temporibus obcaecati, 
+                    at autem sequi illo. Quaerat eos facere 
+                    voluptates sequi pariatur et qui molestias 
+                    neque at <span class="inline">box</span>
+                    <span class="inline">box0</span>
+                </p>
+                <h2>Display: block</h2>
+                <p>Lorem ipsum dolor sit met consectetur 
+                    adipisicing elit. Explicabo laborum 
+                    nostrum eius unde temporibus obcaecati, 
+                    at autem sequi illo. Quaerat eos facere 
+                    voluptates sequi pariatur et qui molestias 
+                    neque at <span class="block">box</span>
+                    <span class="block">box0</span>
+                </p>
+                <h2>Display: inline-block</h2>
+                <p>Lorem ipsum dolor sit met consectetur 
+                    adipisicing elit. Explicabo laborum 
+                    nostrum eius unde temporibus obcaecati, 
+                    at autem sequi illo. Quaerat eos facere 
+                    voluptates sequi pariatur et qui molestias 
+                    neque at <span class="inline-block">box</span>
+                    <span class="inline-block">box0</span>
+                </p>
+            <h2>Display: flex</h2>
+            <div class="flex-container">
+                <div class="flex-item">box</div>
+                <div class="flex-item">box</div>
+                <div class="flex-item">box</div>
+                <div class="flex-item">box</div>
+                <div class="flex-item">box</div>
+                <div class="flex-item">box</div>
+            </div>
+        <h2>Example</h2>
+        <p>ldjfs<b>s</b></p>
+        <p>lfjslfjs</p>
+        <p>fdjfksj</p>
+
+    </body>
+</html>

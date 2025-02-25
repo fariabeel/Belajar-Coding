@@ -1,0 +1,458 @@
+REFERENCE 0.html
+
+''h1 color hsl with random color size, 40px center.
+
+h1 color rgb with random color, size 40px center but internal method.
+
+''h1 center.
+
+REFERENCE 1.html
+with internal method:
+p with color brown, Arial.
+h1 with color blueviolet.
+b with color chocolate.
+i with color olive and background color yellow.
+div with background color burlywood.
+''p ''i ''b ''h1.
+
+
+REFERENCE 2external.html
+
+link to styles file in css folder in css folder
+called external method.
+''p ''i ''b ''h1
+
+
+REFERENCE 3cascderule.html
+
+link to 0.css
+div.intro< ''h1 p#a< a 'real'i wow 'fj'b > >;
+
+css file:
+
+all font is arial with 1 specific keyword
+clue 1+3+2+2;
+
+color i green;
+color i red;
+color b pink;
+color p b brown with isekai level;
+color p b blue;
+p font size is 100%;
+b font size is 150%;
+p#a font size is 75%;
+body color violet padding 10px;
+id intro border 1 px with solid red
+background color random
+padding is inherit;
+
+
+REFERENCE 4selector.html
+
+link to 0.css;
+''h1  p0<''b, i1< ''b >, > ''h2;
+
+''i.a ''li#a h4<''b> p ''h2 ''h2  ''h4 ''h2 
+all in unordered list;
+
+CSS file:
+
+all font is Arial;
+h1 chocolate; h2 darkblue; 
+li.a aqua; #a red;
+b child h4 mediumvioletred;
+b child p lightcoral;
+p b blue;
+p+h2 indianred;
+h3~h2 violet;
+
+
+REFERENCE 5color.html
+
+'real'h1; link 0.css; 'real'h2;
+'p<a br a br a br a br a br a br a>;
+
+CSS file:
+
+h1 darkcyan; h2 id ee3380; p rgb 255 0 0;
+body background dddbd; 
+h1 background darkgreen;
+h2 background darkkhaki;
+p background rgb 104 228 236;
+
+
+REFERENCE 6colorAlpha
+link to css;
+div#article< ''h1 color white, ''h2
+p.paragraf-1<'' br '' br '' br '' br '' br '' br ''>
+p.paragraf-2<'' br '' br '' br '' br '' br '' br ''> 
+>
+
+CSS file:
+body background efefef color efefef;
+#article background 888888 padding 20px;
+h1 background rgb 100 100 90 padding 10px;
+h2 background rgba 102 102 102 1 padding 10px;
+p.paragraf-1 padding 10px backgorund hsl 0 0% 30%;
+p.paragraf-2 padding 10px
+backgorund hsla 0 0% 30% 0.5;
+
+
+REFERENCE 7text.html
+
+body<
+''h1; ''p.credit; 
+
+'Buy'a.link href: https://www.gramedia.com/products/jujutsu-kaisen-03?srsltid=AfmBOorOH6BfbWUTJNb8PvmkJ7cbEY3Nm1-etsQZ6_ZInPCFIFQf4_WB ;
+br br
+
+p.a<Aoi Todo dan Mai Zenin dari Akademi Jujutsu Kyoto muncul di hadapan Fushiguro dan Kugisaki. Tiba-tiba saja Todo langsung melontarkan pertanyaan tak terduga. Kira-kira apa, ya, jawaban Fushiguro untuk pertanyaan Todo? Sementara itu, Itadori pergi ke sebuah tempat untuk berlatih kemampuan bertarungnya.>
+>
+
+style<
+
+body 
+font verdana;
+h1 font georgia, font weight normal, align center,
+letter spacing 0.1em;
+
+.link 
+font 1.3em, '
+font Arial Helvetica sans-serif,
+decoration text none, 
+transform text lowercase,
+background rgb 196 235 247,
+color rgb 0 4 255;
+
+.link hover red;
+.link active aquamarine;
+.link visited orangered;
+
+.cerdit 
+weight font bold, style of font italic,
+decoration text underline, 
+transform text capitalize, align center,
+text shadow 6px 10px 4px;
+
+
+REFERENCE 8box.html
+body<
+'''p'div.box
+
+div.box0<
+'title'h2
+'lorem'p
+    >
+div.tired<
+''p
+''h6
+    >
+>
+
+
+REFERENCE 9boxmodel.html
+body<
+div.container<
+'BOX'p.content
+    >
+>
+
+style<
+*
+font family Arial Helvetica sans-serif;
+
+.content
+font-size 36px,
+background bisque,
+align center;
+
+.container
+backgorund aquamarine,
+width 240px, height 180px,
+border 2px solid red;
+
+.content
+width 100px, height 40px,
+border 20px solid red, padding 10px, 
+margin 40px;
+>
+
+REFERENCE 10border.html
+body<
+'Border Style'h1.border;
+'Border solid above side'p#above-solid;
+'Border solid left side'p#left-solid;
+'Border solid left side'p#bottom-dotted;
+'Border solid left side'p#left-double;
+'Border solid left side'p#right-dashed;
+'Border size'h2.border0;
+'Border size'h2.border1;
+>
+
+style<
+.border 
+border 2px solid brown,
+bottom border width 4px;
+
+#above-solid
+top border width 4px,
+top border style solid;
+
+#left-solid
+left border width 4px,
+left border style solid,
+border color blueviolet;
+
+#bottom-dotted
+left border width 4px,
+bottom border style dotted,
+border color crimson;
+
+#left-double
+left border width 4px,
+left border style double,
+border color: crimson;
+
+#right-dashed
+right border width 4px,
+right border style dashed,
+border color crimson;
+
+.border0
+border width 20px 5px,
+border color darkgreen,
+border style solid;
+
+.border1
+border color darkgreen,
+border style solid,
+border width 5px 25px 10px 20px;
+>
+
+
+REFERENCE 11padding.html
+body<
+h1 4 times with class border and class
+padding, padding0, padding1, padding2;
+>
+
+style<
+* font family verdana geneva tahoma sans-serif;
+
+.border border 1px solid;
+
+h1
+width 100px, height 50px, align center;
+
+.padding
+background color cyan, 20px padding;
+
+.padding0
+background color burlywood, 20px 50px padding;
+
+.padding1
+background color aquamarine, 5px 20px 50px padding;
+
+.padding2
+background color aquamarine, 5px 10px 20px 50px padding;
+>
+
+
+REFERENCE 12margin.html
+body<
+h1.decor*4 with class margin, margin0, margin1,
+margin2;
+>
+
+style<
+* font Arial, Helvetica, Sans-serif;
+
+.decor
+border 5px solid, padding 20px,
+width fit-content, height fit-content;
+
+.margin
+5px margin;
+
+.margin0
+10px auto margin;
+
+.margin1
+10px 20px 50px margin;
+
+.margin2
+10px 20px 40px auto margin;
+>
+
+REFERENCE 13display.html
+body<
+div.header<'Display Property'h1>;
+'Display: inline'h2;
+p<lorem 'box'span.inline 'box0'span.inline>
+
+'Display: block'h2
+p<lorem 'box'span.block 'box0'span.block>
+
+'Display: inline-block'h2
+p<lorem 'box'span.inline-block 
+        'box0'span.inline-block
+
+'Display: flex'h2
+div.flex-container<'box'div.flex-item*6>
+
+'Example'h2
+p<'' ''b>
+''p
+''p
+>
+
+style<
+* font tahoma;
+p inline display;
+b block display;
+
+span
+bacgkround rgba 255 200 0 0.5,
+width 100px, height 100px, align center,
+10px padding, 1px solid Border
+
+span.inline
+display inline;
+
+span.block
+display block;
+
+span.inline-block
+display inline-block;
+
+.flex-container
+background aqua, display flex,
+flex wrap wrap, height 200px,
+content justify center;
+
+flex-item
+display flex, background azure,
+width 100px, height 100px, 10px margin;
+>
+
+REFERENCE 14list.html
+body<
+'Balado'h1
+'Balado flavour ingredient'p
+ol<
+'tomato'li
+'big red chilly'li
+'garlic'li
+'shallot'li
+'sugar'li
+'salt'li
+    >
+
+'List panjang'h1
+ul<
+'lorem'li
+'lorem'li
+'lorem'li
+    >
+'List shorthand'h1
+ol.short< 'lorem'li >
+ul.short< 'lorem'li >
+>
+
+
+REFERENCE 15table.html
+body<
+'Book Price'h1
+table<
+    tr<
+        'Writer'th 
+        'Title'th 
+        'Publish'th
+        >
+    tr<
+        'Gege Akutami'td 
+        'Jujutsu Kaisen'td 
+        '2017'td
+        >
+    tr.odd<
+        'Tatsuki Fujimoto'td
+        'Chainsaw Man'td
+        '2019'td
+        >
+>
+    
+style<
+body font verdana, color #223311;
+
+table width 400px, align center, 
+border collapse collapse;
+
+th,td 
+7px 10px 10px 10px, font size 104%;
+
+th 
+top border 1px solid darkorange,
+bottom border 2px solid black;
+
+.odd
+backgorund #dddddd;
+
+tr:hover backgorund rgb 241 224 224;
+
+
+REFERENCE 16form.html
+body<
+'Form'h1
+form with action=""<
+text input id email;
+text input id instagram;
+text input id web;
+submit input id submit;
+    >
+
+style<
+
+input
+font size 120%, color darkslategray,
+backgorund rgb 206 235 252,
+1px solid rgb 253 255 153 border,
+border radius 100px,
+5px 5px 5px 30px, display block,
+bottom margin 5px, bacgkround repeat no repeat,
+background size 20px, background position 8px;
+
+input:focus backgorund #cbf3fd;
+
+input#email
+background image url https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731_640.png;
+
+input#instagram
+background image url https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/640px-Instagram_logo_2022.svg.png
+
+input#web
+backgorund image url https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReEN-uhB6OSwMZTUKqo8v2gfyHjAetjI540Q&s;
+
+input#submit
+color #efefef, 1px 1px 5px #ffffff,
+backgorund darkslategrey,
+5px 10px 5px 10px padding;
+
+input#submit:hover
+color rgb 172 172 172, backgorund white;
+
+
+REFERENCE 17image.html
+body<
+'Image'h1;
+div<
+img.img.align-right src https://images8.alphacoders.com/128/1283309.jpg 
+alt=Denji;
+'lorem'p
+>
+
+div<
+img.align-left.img-medium src https://images8.alphacoders.com/128/1283309.jpg 
+alt=Denji;
+'lorem'p
+>
+>

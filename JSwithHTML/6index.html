@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        p{
+            padding: 50px;
+            border: 10px;
+            background-color: aqua;
+        }
+    </style>
+    <p id="1">b</p>
+
+    <button id="2" onclick="c()">Remove the event</button>
+
+    <script>
+        document.getElementById("1").addEventListener("mouseover",function(){document.getElementById("1").innerHTML="a"})
+        document.getElementById("1").addEventListener("mouseout",function(){document.getElementById("1").innerHTML="b"})
+
+        document.getElementById("1").addEventListener("click",a)
+
+        function a(){document.getElementById("1").innerHTML="clicked"}
+
+
+        function c(){document.getElementById("1").removeEventListener("click",a)}
+
+    </script>
+</html>

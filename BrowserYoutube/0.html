@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Multi kolom</title>
+		<style>
+			*{
+				box-sizing: border-box;
+				font-family: Arial;
+			}
+			.header{
+				background-color: #efefef;
+				padding: 15px;
+			}
+			.menu{
+				margin-top: 10px;
+			}
+			.menu ul{
+				list-style-type: none;
+				margin: 0px;
+				padding: 0px;
+			}
+			.menu li{
+				padding: 10px;
+				background-color: coral;
+				margin-bottom: 10px;
+				color: aliceblue;
+				box-shadow: 0 3px 3px rgba(0,0,0,0.5);
+			}
+			.menu li:hover{
+				background-color: chocolate;
+			}
+			.content{
+				margin-top: 10px;
+			}
+			.col-4{
+				width: 33.33%;
+			}
+			.col-8{
+				width: 66.66%;
+			}
+			[class*="col-"] {
+				float: left;
+				padding: 10px;
+			}
+			@media only screen and (
+				max-width: 600px) {
+					body{
+						background-color: lightblue;
+					}
+					[class*="col-"]{
+						width: 100%;
+					}
+				}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+            <h1 align="center">Belzerg</h1>
+        </div>
+        <div class="container">
+        <div class="menu col-4">
+                <ul>
+                    <li>The Country</li>
+                    <li>The Cities</li>
+                    <li>The Foods</li>
+                    <li>The Attractions</li>
+                </ul>
+            </div>
+            <div class="content col-8">
+                <h1>The Country</h1>
+                <p>Nestled in a fantastical realm teeming with magic and mythical creatures, Axel is the bustling metropolis of the Kingdom of Axis.</p> 
+                
+                <p>This kingdom is a land of stark contrasts, where towering castles and quaint villages coexist amidst sprawling forests and treacherous dungeons. The citizens of Axis are a hardy and adventurous bunch, ever eager to seek their fortunes in the nearby dungeon or engage in spirited tavern brawls.</p>
+            </div>
+        </div>
+	</body>
+</html>

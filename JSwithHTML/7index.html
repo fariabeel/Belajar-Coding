@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    <h1 id="h1">bbb</p>
+    </h1>
+    <p id="p"></p>
+
+
+    <p id="1"></p>
+    <p id="a">wow</p><br><br>
+
+
+    -------------------------------------------------------------------------------------- <br><br>
+
+
+    <p id="demo"></p> 
+    <!-- p of line 16 will duplicate a whole document -->
+    
+    
+    <script>
+
+        document.getElementById("p").innerHTML=document.getElementById("h1").childNodes[0].nodeValue// or firstChild.nodeValue;
+
+
+        document.getElementById("1").innerHTML=document.getElementById("a").innerHTML;
+
+
+        document.getElementById("demo").innerHTML=document.documentElement.innerHTML;// or document.body.innerHTML
+    </script>
+
+    
+    <p id="p0"></p>
+    <p id="p1"></p>
+
+
+    <script>
+
+        document.getElementById("p0").innerHTML=document.getElementById("demo").nodeName;
+
+
+        document.getElementById("p1").innerHTML=document.getElementById("p0").nodeType;
+        //learn again about nodeType
+    </script>
+</html>

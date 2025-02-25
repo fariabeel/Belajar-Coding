@@ -1,0 +1,60 @@
+<html>
+    <style>
+        .a{
+            background: #D94A38;
+            width: 150px;
+            height: 45px;
+            padding: 40px;
+        }
+
+
+    </style>
+    <body>
+        <h1
+        onmousedown="mDown(this)"
+        onmouseup="mUp(this)"
+        class="a"
+        >Mouse</h1>
+
+
+        <button id="a">Event Listener</button>
+        <p id="b"></p>
+
+
+        <button id="c">Event Listener</button><br><br> 
+
+
+        <button id="d">Event Listener</button><br><br>
+
+        <script>
+            function mDown(obj) {
+                obj.style.backgroundColor= "#1ec5e5"
+                obj.innerHTML = "release it"
+            }
+
+            function mUp(obj) {
+                obj.style.backgroundColor= "#D94A38"
+                obj.innerHTML = "released"
+            }
+
+
+            document.getElementById("a").addEventListener("click",displayTriger);
+
+            function displayTriger() {
+                document.getElementById("b").innerHTML="triggered";
+            }
+
+
+            document.getElementById("c").addEventListener("click",function(){alert("sup dude")})
+
+
+            document.getElementById("d").addEventListener("click",trigger)
+            document.getElementById("d").addEventListener("click",document.getElementById("b").style.color="blue")//not in it uses
+
+            function trigger() {
+                document.getElementById("b").innerHTML="changed"
+            };
+
+        </script>
+    </body>
+</html>

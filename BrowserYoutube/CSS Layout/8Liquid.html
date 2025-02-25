@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Liquid Layout</title>
+    <style>
+        body{
+            font-family:Arial;
+            width: 90%;
+            margin:10px auto;
+            box-sizing: border-box;
+        }
+        .header{
+            text-align: center;
+        }
+        #feature img{
+            width: 30%;
+        }
+        #content{
+            overflow: auto;
+        }
+        #nav, #feature, #footer{
+            background-color: burlywood;
+            padding: 10px;
+            text-align: center; 
+            margin-top: 5px;
+            margin-bottom:5px;
+        }
+        .column, .column0, .column1{
+            background-color: burlywood;
+            width:30%;
+            float: left;
+            margin-right:1.%;
+            margin-left:1%;
+            padding:0.66%;
+        }
+        .column{
+            margin-left:0px;
+        }
+        .column3{
+            margin-left:0px;
+        }
+        #content h3{
+            text-align: center;
+        }
+        li{
+            display: inline;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Logo</h1>
+            <div id="nav">
+                <ul>
+                    
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            <div id="feature">
+                <h2>Feature</h2>
+                <img src="https://i.pinimg.com/564x/a6/5b/9a/a65b9a4d53aa4803acd4ab232aeb98d7.jpg" alt="Aki Hayakawa">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum unde incidunt fugiat ipsum suscipit nobis excepturi numquam ab autem minima nesciunt, assumenda illo minus commodi velit provident quidem vitae. Omnis?
+                Nam itaque vel quibusdam impedit. Quam placeat vitae porro, quo optio iure repellendus? Iure, atque, dolor distinctio eius sit mollitia non ullam aliquid ab nobis velit minima at exercitationem aut?
+                Eum nostrum provident sunt quo illo distinctio ipsum maxime cumque sit ab. Quod aut quas deleniti debitis, quidem pariatur maxime doloribus perspiciatis autem labore, consequuntur, et voluptatum ad! Pariatur, nam.</p>
+            </div>
+            <div class="article column">
+                <h3>column</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugit nihil atque rem laborum eligendi impedit dicta, perferendis possimus temporibus sed cupiditate. Corrupti reiciendis dolor aperiam ratione libero ipsa! Accusamus?</p>
+            </div>
+            <div class="article column0">
+                <h3>Column 0</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugit nihil atque rem laborum eligendi impedit dicta, perferendis possimus temporibus sed cupiditate. Corrupti reiciendis dolor aperiam ratione libero ipsa! Accusamus?</p>
+            </div>
+            <div class="article column1">
+                <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugit nihil atque rem laborum eligendi impedit dicta, perferendis possimus temporibus sed cupiditate. Corrupti reiciendis dolor aperiam ratione libero ipsa! Accusamus?</p>
+            </div>
+        </div>
+        <div id="footer">
+            <p>&copy; copyright 2021</p>
+        </div>
+    </body>
+</html>

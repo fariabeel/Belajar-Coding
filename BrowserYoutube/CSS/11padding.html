@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Padding</title>
+        <style>
+            *{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            .border{
+                border: 1px solid;
+            }
+            h1{
+                width:100px;
+                height:50px;
+                text-align: center;
+            }
+            .padding{
+                background-color: cyan;
+                padding: 20px;
+            }
+            .padding0{
+                background-color:burlywood;
+                padding:20px 50px
+            }
+            .padding1{
+                 background-color: aquamarine;
+                 /* the order is above, left, right, bottom */
+                 padding: 5px 20px 50px;
+            }
+            .padding2{
+                background-color: aquamarine;
+                /* the order is top, right, bottom, left */
+                padding: 5 px 10 px 20 px 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="border padding">Kirito</h1>
+        <h1 class="border padding0">stark</h1>
+        <h1 class="border padding1">kira</h1>
+        <h1 class="border padding2">denji</h1>
+    </body>
+</html>

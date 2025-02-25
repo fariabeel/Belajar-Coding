@@ -1,0 +1,444 @@
+REFERENCE 0relative.html
+body<
+'Relative Position'h1
+'lorem'p
+'lorem'p.relative 
+'lorem'p
+>
+
+style<
+p
+position relative, 100px top,
+backgorund aqua;
+
+.relative
+position relative, 50px left, 50px top,
+background coral;
+
+--------------------------------------------1
+
+REFERENCE 1Absolute.html
+body<
+'Absolute Position'h1
+'lorem'p
+'lorem'p.absolute
+'lorem'p
+'lorem*10'p
+>
+
+style<
+p
+backgorund aqua;
+
+.absolute
+position absolute,
+200px top,
+50px left,
+backgorund coral;
+
+--------------------------------------------2
+
+REFERENCE 2Fixed.html
+body<
+div.fixed<
+'Fixed Position'h1
+    >
+div.container<
+'lorem'p 
+'lorem'p.fixed
+'lorem'p 
+'lorem*7'p 
+
+style<
+* font tahoma;
+p background aqua;
+
+.Fixed
+position fixed, 0px top, 0px left, 
+100% width, 100px height, background coral;
+
+.container
+top margin 100px;
+>
+
+--------------------------------------------3
+
+REFERENCE 3Sticky.html
+body<
+div.header< 'Sticky Position'h1 >
+'Title Article 1'h2.title
+'lorem'p
+'lorem'p 
+'Title Article 2'h2.title0
+'lorem'p 
+'lorem'p 
+p< 
+'Title Article 3'h2.title1
+    >
+'lorem*8'p 
+>
+
+style<
+* font tahoma, box sizing border box;
+
+h2
+backgorund coral, height 40px, padding 5px,
+bottom border 1px solid;
+
+.title1
+position sticky, 0px top;
+
+.title
+position sticky, 0px top;
+
+.title0
+position sticky, 40px top;
+
+--------------------------------------------4
+
+REFERENCE 4Z-Index.html
+body<
+div.header< 'Header'h1 >
+div.container<
+'Article 1'h2
+'lorem'p
+'lorem*6'
+    >
+>
+
+style<
+body font Arial;
+
+.header
+backgorund coral, position fixed, 0px top,
+100% width, z-index 3;
+
+.container
+position relative
+100px top, z-index 2;
+
+--------------------------------------------5
+
+REFERENCE 5Float.html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            body{
+                font-family:a;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>It's short story</h1>
+    </body>
+copy it!;
+
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+
+style<
+* font a; 
+h1 font Arial;
+p font Arial align justify;
+
+blockquote
+font georgia, font style italic,
+1px solid bottom border, 1px solid top border,
+109px width, 10px padding, float right, 10px margin;
+>
+
+</head>
+
+<body></body>
+''blockquote
+p< 
+lorem*2; quo.lorem>
+</html>
+
+--------------------------------------------6
+
+REFERENCE 6MultiColum.html
+body<
+div.header< 'Best Website'h1>
+
+div.container<
+div.coloum-content<
+'Light Yagami'h2#article
+'lorem*4'p 
+'L. Lawliet'h2#article0
+'lorem*4'p 
+'River Nate'h2#article1
+'lorem*4'p 
+    >
+
+div.coloum-menu<
+ul<
+li< 'Light Yagami'a href article >
+li< 'L.Lawliet'a href article0 >
+li< 'River Nate'a href article1 >
+        >
+    >
+>
+
+style<
+* tahoma, box sizing border box;
+
+.header
+backgorund burlywood, fixed, 
+top 0px,
+left 0px, 
+width 100%, 
+10px padding, 100px height,
+2 z-index;
+
+.header h1 50 left margin;
+
+.container
+1 z-index, relative,
+100px top, 
+max-width 100px,
+0px auto 0px auto margin;
+
+.coloum-content 500px width, left float;
+
+.coloum-menu 
+width 190px,
+left margin 10px,
+backgorund aquamarine,
+left float, 
+10px padding;
+
+.coloum-menu ul list style type none;
+>
+
+--------------------------------------------7
+
+REFERENCE 7FixedWidth.html
+body<
+div#header<
+'logo'h1
+
+div#nav<
+ul<
+li< 'Home'a href'' >
+li< 'Products'a href'' >
+li< 'Services'a href'' >
+li< 'About'a href'' >
+li< 'Contact'a href'' >
+            >
+        >
+    >
+div#header
+
+div#content<
+div#highlight<
+'hightlight'h2 center;
+img src https://assets.ggwp.id/2023/06/jadwal-tayang-anime-frieren-featured-640x360.jpg, alt frieren;
+
+'lorem*2'p 
+div.article<
+'Column One'h3
+'lorem'p
+        >
+div.article<
+'Column Two'h3
+'lorem'p
+        >
+div.article<
+'Column Three'h3
+'lorem'p
+            >
+        >
+    >
+
+div#footer< '&copy;Copyright 2021'p >
+>
+
+style<
+body 0 auto margin;
+#header center;
+
+li
+style type none, 40px right padding;
+
+#nav,#highlight,#footer
+align center, 10px padding, 
+backgorund #dddcdc, 10 px margin;
+
+#nav li inline display, 5px padding;
+#highlight img width 70%;
+
+.article
+float left, 280px width, 10px margin,
+200px height, justify align;
+
+#content 100% height, overflow auto;
+>
+
+--------------------------------------------8
+
+REFERENCE 8Liquid.html
+body<
+div.header<
+'logo'h1
+
+div#nav<
+ul<
+li< 'Home'a href'' >
+li< 'Products'a href'' >
+li< 'Services'a href'' >
+li< 'About'a href'' >
+li< 'Contact'a href'' >
+            >ul
+        >div#nav
+    >div#header
+
+div#content<
+div#feature<
+'hightlight'h2 center;
+img src https://i.pinimg.com/564x/a6/5b/9a/a65b9a4d53aa4803acd4ab232aeb98d7.jpg, alt Aki Hayakawa;
+
+'lorem*2'p 
+
+div.article column<
+'Column'h3
+'lorem'p
+        >
+div.article column0<
+'Column 0'h3
+'lorem'p
+        >
+div.article column1<
+'Column 1'h3
+'lorem'p
+            >
+        >
+    >
+
+div#footer< '&copy;Copyright 2021'p >
+>
+
+style<
+body
+font arial, 90% width, 10px auto margin, 
+box sizing border box;
+
+.header center;
+#feature img 30% width;
+#content overflow auto;
+
+#nav #feature #footer
+backgorund burlywood,
+10px padding,
+center,
+5px top margin,
+5px bottom margin;
+
+.column .column0 .column1
+bacgkround burlywood,
+30% width,
+left float,
+1.% right margin,
+1% left margin,
+0.66% padding;
+
+.column 0px left margin;
+
+.column3 0px left margin;
+
+#content h3 center;
+
+li inline display;
+>
+
+--------------------------------------------9
+
+REFERENCE 9Grid.html
+body<
+div#header<
+'logo'h1
+
+div#nav<
+ul<
+li< 'Home'a href'' >
+li< 'Products'a href'' >
+li< 'Services'a href'' >
+li< 'About'a href'' >
+li< 'Contact'a href'' >
+            >ul
+        >div#nav
+    >div#header
+
+div.grid-container<
+'1'div.grid-item.item
+'2'div.grid-item
+'3'div.grid-item.item1
+'4'div.grid-item
+'5'div.grid-item.item3
+'6'div.grid-item
+'7'div.grid-item
+'8'div.grid-item
+'9'div.grid-item
+        >div.grid-container
+    >div#header
+
+div#footer< '&copy;Copyright 2021'p >
+>body
+
+
+style<
+body width 90%, 0 auto margin, font Arial;
+h1 center;
+
+#nav #footer
+backgorund #efefef,
+10px padding,
+5px margin,
+center;
+
+li display inline, 5px padding;
+
+.grid-container 
+display grid,
+1% margin,
+bacgkround #efefef,
+grid template columns 10% 30% auto;
+grid template rows 100px 100px auto;
+gap 10px 10px;
+
+.grid-item
+bacgkround antiquewhite,
+1px solid grey border,
+center,
+20px padding;
+
+.item .item1
+grid column start 1,
+grid column end 3;
+
+.item3
+grid row start 3,
+grid row end 5;
+>
+
+--------------------------------------------10-1
+meta 
+name viewport 
+content width=device-width initial-scale=1.0;
+
+body<
+img src https://i.pinimg.com/564x/a6/5b/9a/a65b9a4d53aa4803acd4ab232aeb98d7.jpg
+alt Aki Hayakawa
+alt Hayakawa Aki
+100% width;
+
+'lorem'p
+>
+
+--------------------------------------------10-2
+
+look the video again!!

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Table</title>
+    <style>
+        body{
+            font-family: verdana;
+            color:#223311;
+        }
+        table{
+            width: 400px;
+            text-align: center;
+            /* border-spacing: 10px; */
+            border-collapse:collapse;
+        }
+        th,td{
+            padding: 7px 10px 10px 10px;
+            font-size: 104%;
+        }
+        th{
+            border-top: 1px solid darkorange;
+            border-bottom: 2px solid black;
+        }
+        .odd{
+            background-color: #dddddd;
+        }
+        tr:hover{
+            background-color: rgb(241, 224, 224);
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Book Price</h1>
+        <table>
+            <tr>
+                <th>Writer</th>
+                <th>Title</th>
+                <th>Publish</th>
+            </tr>
+            <tr>
+                <td>Gege Akutami</td>
+                <td>Jujutsu Kaisen</td>
+                <td>2017</td>
+            </tr>
+            <tr class="odd">
+                <td>Tatsuki Fujimoto</td>
+                <td>Chainsaw Man</td>
+                <td>2019</td>
+            </tr>
+        </table>
+    </body>
+</html>

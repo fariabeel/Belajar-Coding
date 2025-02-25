@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        
+        <div id="div1">
+            <p id="p1">a</p>
+            <p id="p2">b</p>
+        </div>
+
+
+        <div id="div2">
+            <p id="a">lfjjkfk</p>
+            <p id="b">afalfja</p>
+        </div>
+        
+        <script>
+        const para = document.createElement("p");
+        const node = document.createTextNode("This is new.");
+        para.appendChild(node);
+
+        const element = document.getElementById("div1");
+        element.appendChild(para);
+        
+        // remove() search again!
+        let dope = document.getElementById("p1"); dope.remove()
+
+        const parent = document.getElementById("div2");
+        const child = document.getElementById("a");
+        parent.removeChild(child);
+
+
+        const bb = document.createElement("h6");
+        const aa = document.createTextNode("jfwwwkdkdkl");
+        bb.appendChild(aa);
+
+        const cc = document.getElementById("div2");
+        cc.appendChild(bb);
+
+        const a2 = document.createElement("h4").appendChild(document.createTextNode("wowowoooo"));
+        document.getElementById("div2").appendChild(a2);
+        
+        const a1 = document.getElementById("div2");
+        const b2 = document.getElementById("b")
+        a1.replaceChild(a2, b2)
+         </script>
+    </body>
+</html>
