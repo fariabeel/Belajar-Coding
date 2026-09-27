@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    
+<style>
+
+* {font-family: arial}
+
+.box{
+    height: 50px;
+    width: 70px;
+    background: lightcoral;
+    box-sizing: border-box;
+    border: 2px solid black;
+    color: white;
+    padding-top: 13px;
+    text-align: center;
+}
+
+.width {transition: width 2s; padding: 0}
+
+span {
+    padding: 13px;
+    color: white;
+    display: block;
+}
+
+.width:hover {width: 400px}
+
+/* atas iki contoh contoh seng gak apik */
+
+.bigger {
+    height: 50px;
+    width: 50px;
+    background: lightgreen;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 15px;
+    transition: height 2s, width 2s;
+}
+
+.bigger:hover {height: 150px; width: 150px}
+
+.div {
+    height: 120px; width: 400px
+}
+.ease-in-out {
+    padding-left: 20px;
+    text-align: left; 
+    transition: padding 2s; 
+    transition-timing-function: ease-in-out;
+}
+
+.ease-in-out:hover {padding-left: 200px}
+
+.ease-out {
+    padding-left: 20px;
+    text-align: left; 
+    transition: padding 2s;
+    transition-timing-function: ease-out
+}
+
+.ease-out:hover {padding-left: 200px}
+
+/*
+other transition-timing-function value:
+
+ease - slow start, then fast, then end slowly (this is default)
+linear - same speed start to end
+ease-in - slow start
+ease-out - slow end
+ease-in-out - slow start and end
+cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function
+*/
+
+.delayed {transition: width 2s; transition-delay: 0.3s}
+.delayed:hover {width: 400px}
+
+.rotate {transition: width 2s, height 2s, transform 2s, padding 2s}
+.rotate:hover {
+    width: calc(50px*6);
+    height: calc(50px*6);
+    transform: rotate(180deg);
+    padding-top: 140px
+}
+
+.one-by-one {
+    width: 120px;
+    transition-property: width;
+    transition-duration: 2s;
+    transition-delay: 0.2s;
+}
+
+.one-by-one:hover {width: 400px}
+
+.shorthand {transition: width 2s ease 0.2s; width: 100px}
+.shorthand:hover {width: 400px}
+
+</style>
+
+<p class="width box"><span>width</span></p>
+<p class="bigger">bigger</p>
+
+<div class="box div">
+<p class="ease-in-out">ease-in-out</p>
+<p class="ease-out">ease-out</p>
+</div>
+
+<p class="delayed box">delayed</p>
+<p class="rotate box">rotate</p>
+<p class="one-by-one box">one-by-one</p>
+<p class="shorthand box">shorthand</p>
+
+</html>

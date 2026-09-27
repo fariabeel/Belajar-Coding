@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    .parent{
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        background: aquamarine;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        opacity: 0
+    }
+
+    .parent.anjass {
+        opacity: 1
+    }
+
+    body {
+        height: 1000px
+    }
+</style>
+
+<div class="parent">
+    parent
+</div>
+
+<p id="param"></p>
+
+<script>
+    const observing = new IntersectionObserver(([entry]) => {
+        entry.target.classList.toggle("anjass",entry.isIntersecting)
+    }, {
+        rootMargin: "0px 0px 0px 0px"
+    })
+
+    const cards = document.querySelectorAll(".parent")
+    cards.forEach(card => {
+        observing.observe(card)
+    })
+
+</script>
+
+</html>

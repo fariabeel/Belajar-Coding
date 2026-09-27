@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enhanced RPG - Fast & Dynamic</title>
+</head>
+<style>
+/* --- Base Styles --- */
+@font-face {
+    font-family: pixel;
+    src: url(Delicatus-e9OLl.ttf)
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: rgb(20, 20, 30);
+    font-family: pixel;
+}
+.hfont {
+    font-family: pixel;
+    font-size: 20px;
+}
+
+/* --- Player UI --- */
+#player-stats {
+    padding: 10px;
+    position: relative;
+    color: white;
+    z-index: 10;
+    text-shadow: 1px 1px 2px black;
+}
+#health {color: #ff5e5e; font-size: 25px; font-weight: bold; user-select: none;}
+#hp {display: inline; font-size: 25px;}
+#mana {color: #5ea1ff; font-size: 25px; font-weight: bold; user-select: none;}
+#mp {display: inline; font-size: 25px;}
+#exp-bar-container {
+    width: 200px;
+    height: 8px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+    margin: 5px 0;
+}
+#exp-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffa500);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+#player-status-effects {
+    margin-top: 5px;
+    height: 25px;
+}
+
+/* --- Combo Counter --- */
+#combo-counter {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: yellow;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px black;
+    z-index: 10;
+    display: none;
+}
+#combo-text {
+    font-family: pixel;
+    font-weight: bold;
+}
+
+/* --- Combat Buttons --- */
+#combat {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+}
+
+.combat-button {
+    width: 120px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+    color: white;
+    font-family: pixel;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    position: relative;
+    overflow: hidden;
+}
+.combat-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+.combat-button:active {
+    transform: translateY(0);
+}
+.combat-button.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#skillList {
+    position: absolute;
+    left: 50%;
+    bottom: 130px;
+    transform: translateX(-50%);
+    display: none;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    border: 2px solid white;
+    z-index: 10;
+    width: 400px;
+    text-align: center;
+}
+.skillItem {
+    padding: 8px 15px;
+    margin: 4px 0;
+    cursor: pointer;
+    user-select: none;
+    color: white;
+    background: rgba(50, 50, 80, 0.5);
+    border: 1px solid #5ea1ff;
+    font-family: pixel;
+    transition: all 0.2s ease;
+}
+.skillItem:hover {
+    background: rgba(80, 80, 130, 0.8);
+}
+.skillItem.disabled {
+    background: rgba(80, 80, 80, 0.5);
+    border-color: gray;
+    color: gray;
+    cursor: not-allowed;
+}
+
+/* --- Stage & Enemy Display --- */
+#stage-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    z-index: 1;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+#enemy-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#enemy-sprite {
+    max-width: 60%;
+    max-height: 60%;
+    filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.7));
+    transition: all 0.3s ease;
+}
+
+#enemy-name {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 32px;
+    user-select: none;
+    text-shadow: 3px 3px 5px black;
+    font-weight: bold;
+    z-index: 3;
+}
+#enemy-bar-container {
+    position: absolute;
+    width: 80%;
+    height: 15px;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 3;
+}
+#enemy-parameter {
+    background: linear-gradient(90deg, #ff3333, #ff5e5e);
+    height: 100%;
+    width: 100%;
+    transition: width 0.3s ease;
+}
+#enemy-status-effects {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 25px;
+    z-index: 3;
+}
+
+/* --- Status Effect Styling --- */
+.status-effect {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    margin: 0 2px;
+    user-select: none;
+    font-weight: bold;
+}
+.buff {
+    background: linear-gradient(135deg, #00a86b, #00cc88);
+}
+.debuff {
+    background: linear-gradient(135deg, #8B0000, #B22222);
+}
+.dot-effect {
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* --- Damage Animation (Flash) --- */
+@keyframes damaged { 
+    0% {opacity: 0}
+    50% {opacity: 0.5}
+    100% {opacity: 0}
+}
+#damage-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,0,0,0.5) 0%, rgba(255,0,0,0) 70%);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* --- Screen Shake Animation --- */
+.screenshake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+}
+@keyframes shake {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
+  40%, 60% { transform: translate3d(8px, 0, 0); }
+}
+
+/* --- Attack Effects --- */
+.attack-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 4;
+    pointer-events: none;
+    animation: attack-effect 0.5s ease-out forwards;
+}
+@keyframes attack-effect {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* --- Floating Damage Popup --- */
+.damage-popup {
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    opacity: 1;
+    animation: float-up 1.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 20;
+}
+.damage-popup.player-damage {
+    left: 100px;
+    top: 50px;
+    color: white;
+    animation: float-up-player 1.5s ease-out forwards;
+}
+.damage-popup.crit {
+    color: yellow;
+    font-size: 36px;
+    animation: float-up-center 1.5s ease-out forwards;
+}
+.heal-popup {
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #00FF00;
+    text-shadow: 2px 2px 4px black;
+    opacity: 1;
+    animation: float-up-player 1.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 20;
+}
+.mp-popup {
+    position: absolute;
+    left: 100px;
+    top: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5ea1ff;
+    text-shadow: 2px 2px 4px black;
+    opacity: 1;
+    animation: float-up-player 1.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 20;
+}
+.exp-popup {
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px black;
+    opacity: 1;
+    animation: float-up-right 1.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 20;
+}
+@keyframes float-up {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-100px); }
+}
+@keyframes float-up-center {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -100px); }
+}
+@keyframes float-up-player {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-80px); }
+}
+@keyframes float-up-right {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-80px); }
+}
+
+/* --- Level Up Effect --- */
+.level-up-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    font-weight: bold;
+    opacity: 0;
+    z-index: 30;
+    pointer-events: none;
+    animation: level-up 2s ease-out forwards;
+}
+@keyframes level-up {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    30% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    70% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+/* --- Combat Log --- */
+#combat-log {
+    position: absolute;
+    bottom: 150px;
+    left: 20px;
+    width: 300px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+    overflow-y: auto;
+    color: white;
+    font-family: pixel;
+    font-size: 14px;
+    z-index: 10;
+}
+#combat-log p {
+    margin: 5px 0;
+    animation: fade-in 0.3s ease;
+}
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Overlay Screens --- */
+.overlay-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 80px;
+    z-index: 100;
+}
+.start-button, .restart-button {
+    font-size: 30px;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: pixel;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.start-button:hover, .restart-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0   10px 20px rgba(0,0,0,0.4);
+}
+
+/* --- Boss Indicator --- */
+.boss-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px red;
+    z-index: 10;
+    display: none;
+}
+</style>
+
+<div id="game-start-screen" class="hfont overlay-screen" style="display: flex;">
+    <div>
+        <p>ENHANCED RPG</p>
+        <p style="font-size: 30px;">Fast & Dynamic Combat</p>
+        <button class="start-button hfont" onclick="startGameWithAudio()">START GAME</button>
+    </div>
+</div>
+
+<div id="gameplay" style="display: none;">
+    <div id="player-stats">
+        <div id="health" class="hfont">HP: <div id="hp" class="hfont"></div></div>
+        <div id="mana" class="hfont">MP: <div id="mp" class="hfont"></div></div>
+        <div id="exp-bar-container">
+            <div id="exp-bar"></div>
+        </div>
+        <div id="player-status-effects"></div>
+    </div>
+    
+    <div id="combo-counter">
+        <div id="combo-text">COMBO: 0x</div>
+    </div>
+    
+    <div id="boss-indicator" class="boss-indicator">BOSS BATTLE!</div>
+
+    <div id="stage-display">
+        <div id="damage-display"></div>
+        <div id="enemy-container">
+            <img id="enemy-sprite" src="">
+        </div>
+        <div id="enemy-name" class="hfont"></div>
+        <div id="enemy-bar-container">
+            <div id="enemy-parameter"></div>
+        </div>
+        <div id="enemy-status-effects"></div>
+    </div>
+
+    <div id="combat">
+        <button id="attack" class="combat-button">ATTACK</button>
+        <button id="skill" class="combat-button">SKILLS</button>
+        <div id="skillList"></div>
+    </div>
+
+    <div id="combat-log"></div>
+</div>
+
+<div id="WIN" class="hfont overlay-screen">
+    <div>
+        <p>🏆 VICTORY! 🏆</p>
+        <p id="final-score" style="font-size: 30px;"></p>
+        <button class="restart-button hfont" onclick="restartGame()">PLAY AGAIN</button>
+    </div>
+</div>
+<div id="LOSE" class="hfont overlay-screen">
+    <div>
+        <p>💀 GAME OVER 💀</p>
+        <button class="restart-button hfont" onclick="restartGame()">TRY AGAIN</button>
+    </div>
+</div>
+
+<audio id="snd-bgm" loop></audio>
+<audio id="snd-player-attack"></audio>
+<audio id="snd-enemy-attack"></audio>
+<audio id="snd-take-damage"></audio>
+<audio id="snd-player-heal"></audio>
+<audio id="snd-player-buff"></audio>
+<audio id="snd-win"></audio>
+<audio id="snd-lose"></audio>
+<audio id="snd-crit"></audio>
+<audio id="snd-level-up"></audio>
+
+<script>
+// --- Game Data ---
+const stages = [
+    {
+        name: "Bahblin",
+        maxHealth: 80,
+        currentHealth: 80,
+        defense: 3,
+        attack: 15,
+        expReward: 20,
+        sprite: "https://i.imgur.com/eGkYq6p.png",
+        statusEffects: [],
+        abilities: [
+            { type: "attack", name: "Scratch", damage: 15, chance: 1.0 }
+        ]
+    },
+    {
+        name: "Giant Slime",
+        maxHealth: 120,
+        currentHealth: 120,
+        defense: 5,
+        attack: 20,
+        expReward: 40,
+        sprite: "https://i.imgur.com/k4QY7bH.png",
+        statusEffects: [],
+        abilities: [
+            { type: "attack", name: "Body Slam", damage: 18, chance: 0.7 },
+            { type: "heal", name: "Self Repair", amount: 25, chance: 0.3 }
+        ]
+    },
+    {
+        name: "Stone Golem",
+        maxHealth: 180,
+        currentHealth: 180,
+        defense: 8,
+        attack: 25,
+        expReward: 60,
+        sprite: "https://i.imgur.com/WAn3s0c.png",
+        statusEffects: [],
+        abilities: [
+            { type: "attack", name: "Slam", damage: 22, chance: 0.7 },
+            { type: "buff", name: "Harden", effect: "defense_up", value: 1.5, turns: 3, chance: 0.3 }
+        ]
+    },
+    {
+        name: "DARK WIZARD",
+        maxHealth: 250,
+        currentHealth: 250,
+        defense: 6,
+        attack: 30,
+        expReward: 100,
+        sprite: "https://i.imgur.com/pYqf4a3.png",
+        statusEffects: [],
+        abilities: [
+            { type: "attack", name: "Fireball", damage: 35, chance: 0.7 },
+            { type: "debuff", name: "Curse", effect: "attack_down", value: 0.7, turns: 2, chance: 0.3 }
+        ],
+        isBoss: true
+    }
+];
+
+// Player dengan sistem level dan stat progression
+const basePlayerStats = {
+    maxHp: 100,
+    maxMp: 30,
+    baseAttack: 15,
+    defense: 5,
+    critChance: 0.1,
+    critMultiplier: 1.5
+};
+
+const levelUpStats = {
+    hpGain: 20,
+    mpGain: 10,
+    attackGain: 2,
+    defenseGain: 1
+};
+
+const player = {
+    level: 1,
+    exp: 0,
+    expToNextLevel: 100,
+    ...JSON.parse(JSON.stringify(basePlayerStats)),
+    currentHp: basePlayerStats.maxHp,
+    currentMp: basePlayerStats.maxMp,
+    statusEffects: [],
+    comboCount: 0,
+    lastAttackTime: 0
+};
+
+// Skill player yang lebih variatif
+const playerSkills = [
+    {
+        id: "IronFist",
+        name: "Iron Fist",
+        type: "attack",
+        damageMultiplier: 1.8,
+        mpCost: 10,
+        cooldown: 2,
+        currentCooldown: 0,
+        description: "Powerful punch (180% ATK), 10 MP",
+        effect: "knockback" // Added effect
+    },
+    {
+        id: "Heal",
+        name: "Heal",
+        type: "heal",
+        healAmount: 40,
+        mpCost: 15,
+        cooldown: 3,
+        currentCooldown: 0,
+        description: "Heal 40 HP, 15 MP"
+    },
+    {
+        id: "Focus",
+        name: "Focus",
+        type: "buff",
+        effect: "attack_up",
+        value: 1.5,
+        turns: 3,
+        mpCost: 8,
+        cooldown: 4,
+        currentCooldown: 0,
+        description: "Increase ATK (150%) for 3 turns, 8 MP"
+    },
+    {
+        id: "PoisonDart",
+        name: "Poison Dart",
+        type: "debuff",
+        effect: "poison",
+        value: 8,
+        turns: 3,
+        mpCost: 12,
+        cooldown: 3,
+        currentCooldown: 0,
+        description: "Poison enemy (8 DMG/turn) for 3 turns, 12 MP"
+    },
+    {
+        id: "ManaDrain",
+        name: "Mana Drain",
+        type: "mp_steal",
+        mpAmount: 15,
+        mpCost: 5,
+        cooldown: 4,
+        currentCooldown: 0,
+        description: "Steal 15 MP from enemy, 5 MP"
+    }
+];
+
+// --- Global State ---
+let currentStageIndex = 0;
+let currentEnemy = stages[currentStageIndex];
+let isPlayerTurn = true;
+let gameActive = false;
+let comboTimeout = null;
+
+// --- Sound Effects ---
+const soundFiles = {
+    bgm: "https://vgmsite.com/soundtracks/final-fantasy-vi-snes-game-sound-fx/jizbqqag/02%20-%20The%20Decisive%20Battle.mp3",
+    playerAttack: "https://vgmsite.com/soundtracks/classic-rpg-sound-effects/dglknykf/12%20-%20Melee%20Miss.mp3",
+    enemyAttack: "https://vgmsite.com/soundtracks/classic-rpg-sound-effects/swjclwgw/03%20-%20Enemy%20Physical%20Attack.mp3",
+    takeDamage: "https://vgmsite.com/soundtracks/classic-rpg-sound-effects/xixxevgo/06%20-%20Player%20Damage.mp3",
+    playerHeal: "https://vgmsite.com/soundtracks/final-fantasy-vi-snes-game-sound-fx/xuvcffdl/27%20-%20Heal.mp3",
+    playerBuff: "https://vgmsite.com/soundtracks/final-fantasy-vi-snes-game-sound-fx/vjclgysb/29%20-%20Protect.mp3",
+    win: "https://vgmsite.com/soundtracks/classic-rpg-sound-effects/kplclvjw/39%20-%20Victory.mp3",
+    lose: "https://vgmsite.com/soundtracks/classic-rpg-sound-effects/jfrsryve/09%20-%20Defeat.mp3",
+    crit: "https://vgmsite.com/soundtracks/classic-rpg-sound-effects/mqtdrfyf/43%20-%20Critical%20Hit.mp3",
+    levelUp: "https://vgmsite.com/soundtracks/final-fantasy-vi-snes-game-sound-fx/uwdqhnsn/19%20-%20Level%20Up.mp3"
+};
+
+// Preload sounds
+function preloadSounds() {
+    for (const [key, src] of Object.entries(soundFiles)) {
+        const audio = document.getElementById(`snd-${key}`);
+        if (audio) {
+            audio.src = src;
+        }
+    }
+}
+
+// --- DOM Elements ---
+const hpElement = document.getElementById("hp");
+const mpElement = document.getElementById("mp");
+const expBarElement = document.getElementById("exp-bar");
+const playerStatsElement = document.getElementById("player-stats");
+const playerStatusElement = document.getElementById("player-status-effects");
+const enemyNameElement = document.getElementById("enemy-name");
+const enemyParameterElement = document.getElementById("enemy-parameter");
+const enemyStatusElement = document.getElementById("enemy-status-effects");
+const enemySpriteElement = document.getElementById("enemy-sprite");
+const damageDisplayElement = document.getElementById("damage-display");
+const stageDisplayElement = document.getElementById("stage-display");
+const skillListElement = document.getElementById("skillList");
+const combatLogElement = document.getElementById("combat-log");
+const attackButton = document.getElementById("attack");
+const skillButton = document.getElementById("skill");
+const comboCounterElement = document.getElementById("combo-counter");
+const comboTextElement = document.getElementById("combo-text");
+const bossIndicatorElement = document.getElementById("boss-indicator");
+
+// --- Sound Functions ---
+function playSound(soundId, volume = 0.5) {
+    try {
+        const sound = document.getElementById(`snd-${soundId}`);
+        if (sound) {
+            sound.pause();
+            sound.currentTime = 0;
+            sound.volume = volume;
+            sound.play().catch(e => {
+                console.log(`Playback blocked for ${soundId}: `, e);
+            });
+        }
+    } catch (e) {
+        console.warn("Audio error:", e);
+    }
+}
+
+function stopSound(soundId) {
+    try {
+        const sound = document.getElementById(`snd-${soundId}`);
+        if (sound) {
+            sound.pause();
+            sound.currentTime = 0;
+        }
+    } catch (e) {}
+}
+
+// --- Visual Effects ---
+function triggerScreenShake() {
+    const gameElement = document.getElementById("gameplay");
+    gameElement.classList.add("screenshake");
+    setTimeout(() => {
+        gameElement.classList.remove("screenshake");
+    }, 500);
+}
+
+function showDamagePopup(amount, type = 'damage', target = 'enemy') {
+    const popup = document.createElement('div');
+    popup.innerHTML = Math.round(amount);
+    
+    // Determine where to show the popup based on target
+    const container = target === 'player' ? playerStatsElement : stageDisplayElement;
+    
+    if (type === 'damage') {
+        popup.classList.add('damage-popup');
+        if (target === 'player') popup.classList.add('player-damage');
+    } else if (type === 'crit') {
+        popup.innerHTML = `CRIT! ${Math.round(amount)}`;
+        popup.classList.add('damage-popup', 'crit');
+        triggerScreenShake();
+    } else if (type === 'heal') {
+        popup.innerHTML = `+${Math.round(amount)}`;
+        popup.classList.add('heal-popup');
+    } else if (type === 'mp') {
+        popup.innerHTML = `+${Math.round(amount)} MP`;
+        popup.classList.add('mp-popup');
+    } else if (type === 'exp') {
+        popup.innerHTML = `+${Math.round(amount)} EXP`;
+        popup.classList.add('exp-popup');
+    }
+    
+    container.appendChild(popup);
+    
+    // Remove element after animation
+    setTimeout(() => {
+        popup.remove();
+    }, 1500);
+}
+
+function createAttackEffect(type) {
+    const effect = document.createElement('div');
+    effect.classList.add('attack-effect');
+    
+    // Set different effects based on type
+    if (type === 'player') {
+        effect.style.backgroundImage = 'url("https://i.imgur.com/3GtRk9m.png")'; // Sword slash
+    } else if (type === 'enemy') {
+        effect.style.backgroundImage = 'url("https://i.imgur.com/X8gA0c9.png")'; // Impact effect
+    } else if (type === 'fire') {
+        effect.style.backgroundImage = 'url("https://i.imgur.com/Jk8xH9q.png")'; // Fire effect
+    }
+    
+    stageDisplayElement.appendChild(effect);
+    
+    // Remove after animation
+    setTimeout(() => {
+        effect.remove();
+    }, 500);
+}
+
+function showLevelUpEffect() {
+    const effect = document.createElement('div');
+    effect.classList.add('level-up-effect');
+    effect.innerHTML = 'LEVEL UP!';
+    document.getElementById('gameplay').appendChild(effect);
+    
+    // Remove after animation
+    setTimeout(() => {
+        effect.remove();
+    }, 2000);
+}
+
+// --- Combo System ---
+function updateCombo() {
+    const now = Date.now();
+    if (now - player.lastAttackTime < 3000) { // 3 second combo window
+        player.comboCount++;
+    } else {
+        player.comboCount = 1;
+    }
+    
+    player.lastAttackTime = now;
+    
+    // Show combo counter if combo > 1
+    if (player.comboCount > 1) {
+        comboCounterElement.style.display = 'block';
+        comboTextElement.textContent = `COMBO: ${player.comboCount}x`;
+        
+        // Add combo damage bonus
+        const comboBonus = 1 + (player.comboCount * 0.05); // 5% bonus per combo
+        player.comboMultiplier = Math.min(comboBonus, 2.0); // Cap at 2x damage
+    } else {
+        comboCounterElement.style.display = 'none';
+        player.comboMultiplier = 1.0;
+    }
+    
+    // Reset combo after timeout
+    if (comboTimeout) clearTimeout(comboTimeout);
+    comboTimeout = setTimeout(() => {
+        player.comboCount = 0;
+        comboCounterElement.style.display = 'none';
+    }, 3000);
+}
+
+// --- Logging & UI Updates ---
+function logMessage(message) {
+    const p = document.createElement('p');
+    p.innerHTML = `${message}`;
+    combatLogElement.prepend(p);
+    
+    // Limit log entries
+    while (combatLogElement.children.length > 10) {
+        combatLogElement.removeChild(combatLogElement.lastChild);
+    }
+}
+
+function updateUI() {
+    // Player Stats
+    player.currentHp = Math.max(0, Math.min(player.currentHp, player.maxHp));
+    player.currentMp = Math.max(0, Math.min(player.currentMp, player.maxMp));
+    
+    hpElement.innerHTML = `${player.currentHp}/${player.maxHp}`;
+    mpElement.innerHTML = `${player.currentMp}/${player.maxMp}`;
+    
+    // EXP Bar
+    const expPercent = (player.exp / player.expToNextLevel) * 100;
+    expBarElement.style.width = `${expPercent}%`;
+    
+    updateStatusEffectsUI(player, playerStatusElement);
+    
+    // Enemy Stats
+    currentEnemy.currentHealth = Math.max(0, Math.min(currentEnemy.currentHealth, currentEnemy.maxHealth));
+    enemyNameElement.innerHTML = currentEnemy.name;
+    
+    const healthPercent = (currentEnemy.currentHealth / currentEnemy.maxHealth) * 100;
+    enemyParameterElement.style.width = `${Math.max(0, healthPercent)}%`;
+    
+    // Update enemy sprite
+    enemySpriteElement.src = currentEnemy.sprite;
+    
+    updateStatusEffectsUI(currentEnemy, enemyStatusElement);
+    
+    // Boss indicator
+    if (currentEnemy.isBoss) {
+        bossIndicatorElement.style.display = 'block';
+    } else {
+        bossIndicatorElement.style.display = 'none';
+    }
+    
+    // Skills
+    updateSkillList();
+}
+
+function updateStatusEffectsUI(target, element) {
+    element.innerHTML = '';
+    target.statusEffects.forEach(effect => {
+        const effectDiv = document.createElement('div');
+        effectDiv.classList.add('status-effect', 'hfont');
+        
+        // Set effect type
+        if (effect.id === 'attack_up' || effect.id === 'defense_up') {
+            effectDiv.classList.add('buff');
+        } else {
+            effectDiv.classList.add('debuff');
+        }
+        
+        // Add pulse animation for DOT effects
+        if (effect.id === 'poison') {
+            effectDiv.classList.add('dot-effect');
+        }
+        
+        let effectName = effect.id.toUpperCase().replace('_', ' ');
+        effectDiv.innerHTML = `${effectName} (${effect.turns})`;
+        effectDiv.title = `${effect.turns} turns remaining`;
+        element.appendChild(effectDiv);
+    });
+}
+
+function updateSkillList() {
+    skillListElement.innerHTML = '';
+    playerSkills.forEach(skill => {
+        const skillDiv = document.createElement('div');
+        skillDiv.id = skill.id;
+        skillDiv.classList.add('skillItem', 'hfont');
+        
+        let isDisabled = skill.currentCooldown > 0 || player.currentMp < skill.mpCost;
+        
+        if (isDisabled) {
+            skillDiv.classList.add('disabled');
+        } else {
+            skillDiv.addEventListener('click', () => handleSkill(skill));
+        }
+        
+        let skillText = skill.name;
+        if (skill.currentCooldown > 0) {
+            skillText += ` (CD: ${skill.currentCooldown})`;
+        } else {
+            skillText += ` (MP: ${skill.mpCost})`;
+        }
+        
+        skillDiv.innerHTML = skillText;
+        skillDiv.title = skill.description;
+        skillListElement.appendChild(skillDiv);
+    });
+}
+
+// --- Status Effect Logic ---
+function applyStatusEffect(target, effectId, turns, value) {
+    const existingEffect = target.statusEffects.find(e => e.id === effectId);
+    if (existingEffect) {
+        existingEffect.turns = turns;
+        logMessage(`${target.name || 'You'} refreshed ${effectId.toUpperCase()}!`);
+    } else {
+        target.statusEffects.push({ id: effectId, turns: turns, value: value });
+        logMessage(`${target.name || 'You'} gained ${effectId.toUpperCase()}!`);
+    }
+    
+    // Play appropriate sound
+    if (effectId === 'attack_up' || effectId === 'defense_up') {
+        playSound('player-buff');
+    }
+}
+
+function tickStatusEffects(target) {
+    for (let i = target.statusEffects.length - 1; i >= 0; i--) {
+        const effect = target.statusEffects[i];
+        
+        // Apply effect damage/tick
+        if (effect.id === 'poison') {
+            const poisonDmg = effect.value;
+            if (target === player) {
+                player.currentHp -= poisonDmg;
+                showDamagePopup(poisonDmg, 'damage', 'player');
+            } else {
+                target.currentHealth -= poisonDmg;
+                showDamagePopup(poisonDmg, 'damage', 'enemy');
+            }
+            logMessage(`**POISON** deals ${poisonDmg} DMG to ${target.name || 'you'}.`);
+        }
+        
+        // Reduce turn count
+        effect.turns--;
+        
+        // Remove expired effects
+        if (effect.turns <= 0) {
+            logMessage(`${effect.id.toUpperCase()} on ${target.name || 'you'} has expired.`);
+            target.statusEffects.splice(i, 1);
+        }
+    }
+}
+
+function getStatModifier(target, statType) {
+    let modifier = 1.0;
+    
+    if (statType === 'attack') {
+        const buff = target.statusEffects.find(e => e.id === 'attack_up');
+        if (buff) modifier *= buff.value;
+        const debuff = target.statusEffects.find(e => e.id === 'attack_down');
+        if (debuff) modifier *= debuff.value;
+    } 
+    else if (statType === 'defense') {
+        const buff = target.statusEffects.find(e => e.id === 'defense_up');
+        if (buff) modifier *= buff.value;
+        const debuff = target.statusEffects.find(e => e.id === 'defense_down');
+        if (debuff) modifier *= debuff.value;
+    }
+    
+    return modifier;
+}
+
+// --- Combat Logic ---
+function handleDamage(source, target, baseDamage) {
+    let finalDamage = baseDamage;
+    let message = "";
+    const isCritical = (source === player) && (Math.random() < player.critChance);
+    
+    // Apply stat modifiers
+    const attackMod = getStatModifier(source, 'attack');
+    const defenseMod = getStatModifier(target, 'defense');
+    
+    let modifiedDamage = baseDamage * attackMod;
+    let targetDefense = (target === player) ? player.defense : target.defense;
+    let modifiedDefense = targetDefense * defenseMod;
+    
+    // Apply combo multiplier for player attacks
+    if (source === player && player.comboMultiplier) {
+        modifiedDamage *= player.comboMultiplier;
+    }
+    
+    // Player Attack
+    if (source === player) {
+        finalDamage = Math.max(1, modifiedDamage - modifiedDefense);
+        
+        if (isCritical) {
+            finalDamage = finalDamage * player.critMultiplier;
+            message = `**CRITICAL HIT!** You hit ${target.name} for **${Math.round(finalDamage)}** DMG!`;
+            showDamagePopup(finalDamage, 'crit');
+            playSound("crit", 0.8);
+            createAttackEffect('player');
+        } else {
+            message = `You hit ${target.name} for ${Math.round(finalDamage)} DMG.`;
+            showDamagePopup(finalDamage, 'damage');
+            createAttackEffect('player');
+        }
+        
+        finalDamage = Math.round(finalDamage);
+        target.currentHealth -= finalDamage;
+        playSound("player-attack");
+    } 
+    // Enemy Attack
+    else {
+        finalDamage = Math.max(1, modifiedDamage - modifiedDefense);
+        finalDamage = Math.round(finalDamage);
+        
+        player.currentHp -= finalDamage;
+        message = `${source.name} hits you for **${finalDamage}** DMG.`;
+        
+        // Visual and audio effects for enemy attack
+        playSound("enemy-attack");
+        playSound("take-damage");
+        triggerScreenShake();
+        showDamagePopup(finalDamage, 'damage', 'player');
+        createAttackEffect('enemy');
+    }
+    
+    logMessage(message);
+    
+    // Damage flash animation
+    if (target === currentEnemy) {
+        damageDisplayElement.style.animation = "damaged 0.2s";
+        setTimeout(() => {damageDisplayElement.style.animation = "none"}, 200);
+    }
+    
+    updateUI();
+}
+
+function reduceSkillCooldowns() {
+    playerSkills.forEach(skill => {
+        if (skill.currentCooldown > 0) {
+            skill.currentCooldown--;
+            if(skill.currentCooldown === 0) {
+                logMessage(`**${skill.name}** is ready!`);
+            }
+        }
+    });
+}
+
+function handleTurnEnd() {
+    // Apply status effect ticks
+    tickStatusEffects(player);
+    if (checkGameOver()) return;
+    
+    tickStatusEffects(currentEnemy);
+    if (checkGameOver()) return;
+    
+    // Reduce skill cooldowns
+    reduceSkillCooldowns();
+    
+    // Restore a small amount of MP each turn
+    player.currentMp = Math.min(player.maxMp, player.currentMp + 2);
+    
+    isPlayerTurn = true;
+    logMessage("Your turn!");
+    updateUI();
+}
+
+function chooseEnemyAction() {
+    const abilities = currentEnemy.abilities;
+    const rand = Math.random();
+    let cumulativeChance = 0;
+    
+    for (const action of abilities) {
+        cumulativeChance += action.chance;
+        if (rand <= cumulativeChance) {
+            logMessage(`${currentEnemy.name} uses **${action.name}**!`);
+            
+            switch (action.type) {
+                case "attack":
+                    handleDamage(currentEnemy, player, action.damage);
+                    break;
+                case "heal":
+                    const heal = action.amount;
+                    currentEnemy.currentHealth = Math.min(currentEnemy.maxHealth, currentEnemy.currentHealth + heal);
+                    logMessage(`${currentEnemy.name} heals ${heal} HP.`);
+                    playSound("player-heal");
+                    updateUI();
+                    break;
+                case "buff":
+                    applyStatusEffect(currentEnemy, action.effect, action.turns, action.value);
+                    playSound("player-buff");
+                    updateUI();
+                    break;
+                case "debuff":
+                    applyStatusEffect(player, action.effect, action.turns, action.value);
+                    updateUI();
+                    break;
+            }
+            return;
+        }
+    }
+}
+
+function enemyTurn() {
+    isPlayerTurn = false;
+    setTimeout(() => {
+        if (checkGameOver()) return;
+        
+        chooseEnemyAction();
+        
+        if (checkGameOver()) return;
+        
+        handleTurnEnd();
+        
+    }, 800);
+}
+
+// --- Level & Experience System ---
+function gainExp(amount) {
+    player.exp += amount;
+    showDamagePopup(amount, 'exp');
+    logMessage(`Gained ${amount} EXP!`);
+    
+    // Check for level up
+    if (player.exp >= player.expToNextLevel) {
+        levelUp();
+    }
+    
+    updateUI();
+}
+
+function levelUp() {
+    player.level++;
+    player.exp = player.exp - player.expToNextLevel;
+    player.expToNextLevel = Math.floor(player.expToNextLevel * 1.2); // Increase required EXP
+    
+    // Increase stats
+    player.maxHp += levelUpStats.hpGain;
+    player.maxMp += levelUpStats.mpGain;
+    player.baseAttack += levelUpStats.attackGain;
+    player.defense += levelUpStats.defenseGain;
+    
+    // Fully heal player on level up
+    player.currentHp = player.maxHp;
+    player.currentMp = player.maxMp;
+    
+    // Visual and audio effects
+    showLevelUpEffect();
+    playSound("level-up");
+    logMessage(`**LEVEL UP!** You are now level ${player.level}!`);
+}
+
+function nextStage() {
+    currentStageIndex++;
+    if (currentStageIndex < stages.length) {
+        currentEnemy = stages[currentStageIndex];
+        // Reset enemy health and status
+        currentEnemy.currentHealth = currentEnemy.maxHealth;
+        currentEnemy.statusEffects = [];
+        
+        // Reward player with MP and experience
+        player.currentMp = Math.min(player.maxMp, player.currentMp + 15);
+        gainExp(currentEnemy.expReward / 2); // Half EXP for stage completion
+        
+        logMessage(`**STAGE ${currentStageIndex + 1}: ${currentEnemy.name} appears!** MP restored.`);
+        
+        isPlayerTurn = true;
+        updateUI();
+    } else {
+        // Game completed
+        stopSound("bgm");
+        playSound("win");
+        document.getElementById("final-score").textContent = `Final Score: Level ${player.level} | ${player.exp} EXP`;
+        document.getElementById("WIN").style.display = "flex";
+        document.getElementById("gameplay").style.display = "none";
+        gameActive = false;
+    }
+}
+
+function checkGameOver() {
+    if (player.currentHp <= 0) {
+        stopSound("bgm");
+        playSound("lose");
+        document.getElementById("LOSE").style.display = "flex";
+        document.getElementById("gameplay").style.display = "none";
+        gameActive = false;
+        return true;
+    }
+    if (currentEnemy.currentHealth <= 0) {
+        logMessage(`**${currentEnemy.name} is defeated!**`);
+        
+        // Reward player with experience
+        gainExp(currentEnemy.expReward);
+        
+        // Short delay before next stage
+        setTimeout(() => nextStage(), 1000);
+        return true;
+    }
+    return false;
+}
+
+// --- Event Handlers ---
+skillButton.addEventListener("click", () => {
+    if (!gameActive || !isPlayerTurn) {
+        logMessage("Wait for your turn!");
+        return;
+    }
+    
+    if (skillListElement.style.display === "block") {
+        skillListElement.style.display = "none";
+    } else {
+        skillListElement.style.display = "block";
+        updateSkillList();
+    }
+});
+
+attackButton.addEventListener("click", () => {
+    if (!gameActive || !isPlayerTurn) {
+        logMessage("Wait for your turn!");
+        return;
+    }
+    
+    isPlayerTurn = false;
+    skillListElement.style.display = "none";
+    
+    // Update combo system
+    updateCombo();
+    
+    const baseDamage = player.baseAttack;
+    handleDamage(player, currentEnemy, baseDamage);
+    
+    if (checkGameOver()) return;
+    
+    enemyTurn();
+});
+
+function handleSkill(skill) {
+    if (!gameActive || !isPlayerTurn) {
+        logMessage("Wait for your turn!");
+        return;
+    }
+    
+    if (player.currentMp < skill.mpCost) {
+        logMessage(`Not enough MP for **${skill.name}**! (Need ${skill.mpCost})`);
+        return;
+    }
+    
+    if (skill.currentCooldown > 0) {
+        logMessage(`**${skill.name}** is on cooldown! (${skill.currentCooldown} turns left)`);
+        return;
+    }
+    
+    isPlayerTurn = false;
+    skillListElement.style.display = "none";
+    player.currentMp -= skill.mpCost;
+    skill.currentCooldown = skill.cooldown;
+    
+    logMessage(`You use **${skill.name}**!`);
+    
+    // Update combo for offensive skills
+    if (skill.type === "attack" || skill.type === "debuff") {
+        updateCombo();
+    }
+    
+    // Skill logic
+    switch (skill.type) {
+        case "attack":
+            const baseDamage = player.baseAttack * skill.damageMultiplier;
+            handleDamage(player, currentEnemy, baseDamage);
+            
+            // Additional effect for certain skills
+            if (skill.effect === "knockback") {
+                logMessage(`${currentEnemy.name} is knocked back!`);
+                // Visual effect for knockback
+                enemySpriteElement.style.transform = "translateX(20px)";
+                setTimeout(() => {
+                    enemySpriteElement.style.transform = "translateX(0)";
+                }, 200);
+            }
+            break;
+            
+        case "heal":
+            const heal = skill.healAmount;
+            player.currentHp = Math.min(player.maxHp, player.currentHp + heal);
+            logMessage(`You heal **${heal}** HP.`);
+            playSound("player-heal", 0.8);
+            showDamagePopup(heal, 'heal', 'player');
+            updateUI();
+            break;
+            
+        case "buff":
+            applyStatusEffect(player, skill.effect, skill.turns, skill.value);
+            updateUI();
+            break;
+            
+        case "debuff":
+            applyStatusEffect(currentEnemy, skill.effect, skill.turns, skill.value);
+            updateUI();
+            break;
+            
+        case "mp_steal":
+            const mpAmount = skill.mpAmount;
+            player.currentMp = Math.min(player.maxMp, player.currentMp + mpAmount);
+            logMessage(`You steal **${mpAmount}** MP from ${currentEnemy.name}.`);
+            showDamagePopup(mpAmount, 'mp', 'player');
+            updateUI();
+            break;
+    }
+    
+    if (checkGameOver()) return;
+    
+    enemyTurn();
+}
+
+// --- Game Start & Restart ---
+function startGameWithAudio() {
+    document.getElementById("game-start-screen").style.display = "none";
+    document.getElementById("gameplay").style.display = "block";
+    preloadSounds();
+    playSound("bgm", 0.3);
+    gameStart();
+}
+
+function gameStart() {
+    // Reset game state
+    player.level = 1;
+    player.exp = 0;
+    player.expToNextLevel = 100;
+    
+    // Reset player stats
+    Object.assign(player, JSON.parse(JSON.stringify(basePlayerStats)));
+    player.currentHp = player.maxHp;
+    player.currentMp = player.maxMp;
+    player.statusEffects = [];
+    player.comboCount = 0;
+    player.lastAttackTime = 0;
+    
+    // Reset skills
+    playerSkills.forEach(s => s.currentCooldown = 0);
+    
+    // Reset stages
+    stages.forEach(stage => {
+        stage.currentHealth = stage.maxHealth;
+        stage.statusEffects = [];
+    });
+    
+    currentStageIndex = 0;
+    currentEnemy = stages[currentStageIndex];
+    isPlayerTurn = true;
+    gameActive = true;
+    
+    // Clear combat log
+    combatLogElement.innerHTML = '';
+    
+    logMessage("Enhanced RPG - Fast & Dynamic Combat!");
+    logMessage("Defeat all enemies to win!");
+    
+    updateUI();
+}
+
+function restartGame() {
+    // Hide win/lose screens
+    document.getElementById("WIN").style.display = "none";
+    document.getElementById("LOSE").style.display = "none";
+    
+    // Show gameplay
+    document.getElementById("gameplay").style.display = "block";
+    
+    // Stop any sounds and restart BGM
+    stopSound("win");
+    stopSound("lose");
+    playSound("bgm", 0.3);
+    
+    // Start new game
+    gameStart();
+}
+
+// Initialize the game
+preloadSounds();
+</script>
+
+</html>

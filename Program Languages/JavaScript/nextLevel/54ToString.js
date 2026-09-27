@@ -1,0 +1,5 @@
+console.log([1,2,3].toString())
+console.log(new Date().toString())
+console.log((1).toString())
+console.log((10).toString(2))
+console.log(function(){console.log("duarr")}.toString())

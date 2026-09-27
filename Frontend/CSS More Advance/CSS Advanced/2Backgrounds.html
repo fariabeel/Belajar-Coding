@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+*{font-family: Arial, Helvetica, sans-serif;}
+#background {
+    background-image: url(Shinzou.png), 
+                      url(attackkkk.jpg), /* top */
+                      url(Shinzou.png); /* above */
+    background-size: contain;
+    background-position: top left, top right, top right;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+/* or */
+
+#shorthand {
+    background: url(Shinzou.png) right top no-repeat, 
+                url(attackkkk.jpg) left top no-repeat,
+                url(Shinzou.png) left top no-repeat;
+    background-size: contain;
+    text-align: center;
+}
+
+.size {
+    background: url(Shinzou.png) right top no-repeat, 
+                url(attackkkk.jpg) left top no-repeat;
+    background-size: 100px 156px; /* width, height */
+    height: 155px;
+}
+.size span {
+    position: absolute;
+    left: 50%;
+    top: 150px
+}
+
+.two-values-size {background-size: 120px 100px;} /* width, height */
+.two-values-size span{top: 290px; left: 41%}
+
+#different-size{
+    width: 100%;
+    height: 84px;
+    background: url(Shinzou.png) left top no-repeat,
+                url(attackkkk.jpg) center top no-repeat,
+                url(Shinzou.png) top right no-repeat;
+    background-size: 60px, 30px, 40px;
+}
+
+.background-origin {
+    border: solid;
+    text-align: center;
+    padding: 50px;
+    background: url(https://thumb.viva.id/vivabanyuwangi/665x374/2025/03/01/67c29eecec34a-saitama-one-punch-man-karakter-paling-overpower-di-dunia-anime_banyuwangi.jpg) no-repeat;
+    background-size: 200px
+}
+
+/* 
+border-box - background image starts from upper left corner of  border
+content-box - starts from upper left corner of  content 
+padding-box - (default) starts from upper left corner of padding edge
+*/
+.border-box {background-origin: border-box}
+.content-box {background-origin: content-box}
+.padding-box {background-origin: padding-box}
+
+.background-clip {
+    border: 10px dotted;
+    text-align: center;
+    margin-top: 60px;
+    padding: 50px;
+    background: url(https://thumb.viva.id/vivabanyuwangi/665x374/2025/03/01/67c29eecec34a-saitama-one-punch-man-karakter-paling-overpower-di-dunia-anime_banyuwangi.jpg) no-repeat;
+    background-size: cover
+}
+
+/* 
+border-box - (default) background is painted to outside edge of border
+padding-box - background is painted to outside edge of padding
+content-box - background is painted within content box
+*/
+.padding-box0{background-clip: padding-box}
+.content-box0{background-clip: content-box}
+
+</style>
+
+<p id="background">background</p>
+<p id="shorthand">shorthand</p>
+<p class="size"><span>size</span></p>
+<p class="size two-values-size"><span>two-values-size</span></p>
+
+<p style="text-align: center;">different size</p>
+<p id="different-size">
+
+<p style="margin-top: 60px">background-origin</p>
+<p class="background-origin">normal</p>
+<p class="background-origin border-box">border-box</p>
+<!-- look closely at border-box to get the different -->
+<p class="background-origin content-box">content-box</p>
+<p class="background-origin padding-box">padding-box = normal</p>
+<br>
+
+<p>background-clip</p>
+<p class="background-clip">normal / border-box</p>
+<p class="background-clip padding-box0">padding-box</p>
+<p class="background-clip content-box0">content-box</p>
+
+</html>

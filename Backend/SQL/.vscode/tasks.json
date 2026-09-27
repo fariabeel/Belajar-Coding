@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "sqlproj: Build Local AnjaSs Server",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"d:/Downloads/coder/Backend/SQL/Local AnjaSs Server/Local AnjaSs Server.sqlproj"
+			],
+			"problemMatcher": "$sqlproj-problem-matcher",
+			"isBackground": true,
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "Builds the Local AnjaSs Server SQL project"
+		}
+	]
+}

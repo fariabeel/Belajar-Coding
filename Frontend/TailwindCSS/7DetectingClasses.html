@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<!-- go to react first -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style type="text/tailwindcss">
+    @source "."; /* scanning file that doesn't scan */
+    @import "tailwindcss" source(".");  /* setting base path */
+    @source not "."; /* ignoring file to scan */
+    @import "tailwindcss" source(none); /* disabling automatic detection. useful if want to register source explicitly like @source "../admin";*/
+    @source inline("underline"); /* generates certain class names that don’t exist in your content files */
+    @source inline("{hover:,focus:,}underline"); /* classes with variants */
+    @source inline("{hover:,}bg-red-{50,{100..900..100},950}"); /* generate multiple classes at once */
+    @source not inline("{hover:,focus:,}bg-red-{50,{100..900..100},950}"); /* prevent specific classes from being generated */
+
+</style>
+
+<div class="underline">underline</div>
+</html>

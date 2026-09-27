@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<style> 
+p[border] { 
+    border: 10px solid transparent;
+    padding: 15px
+}
+
+p[img] {border-image: url("border.png") 30 round}
+p[img1] {border-image: url(border.png) 30 stretch}
+p[img2] {border-image: url(border.png) 50 round}
+p[img3] {border-image: url(border.png) 20% round}
+p[img4] {border-image: url(border.png) 30% round}
+
+/* 
+border-image = shorthand property of the border-image-source, border-image-slice, border-image-width, border-image-outset and border-image-repeat properties. 
+*/
+
+</style>
+
+<p border img>border img</p>
+<p border img1>border img1</p>
+<p border img2>border img2</p>
+<p border img3>border img3</p>
+<p border img4>border img4</p>
+
+</html>

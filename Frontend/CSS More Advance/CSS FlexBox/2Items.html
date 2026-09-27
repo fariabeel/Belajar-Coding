@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.flex {
+    background: rgb(209, 209, 209); 
+    display: flex; 
+    height: 50px;
+    margin: 10px
+}
+.item {
+    background: dodgerblue;
+    width: 20px; 
+    margin: 9px; 
+    color: white
+}
+
+.item0 { /* flex-shrink, the width must be wider that can make shrink */
+    background: dodgerblue;
+    width: 60px; 
+    margin: 9px; 
+    color: white
+}
+
+.align-self {
+    background: rgb(209, 209, 209); 
+    display: flex; 
+    height: 100px;
+    margin: 10px
+}
+
+</style>
+
+the child automatically become flex items
+<div class="flex">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+</div>
+
+order (look at this elements code)
+<div class="flex">
+    <div class="item" style="order: 3">1</div>
+    <div class="item" style="order: 1">2</div>
+    <div class="item" style="order: 2">3</div>
+    <!-- default 0 -->
+</div>
+
+flex-grow (look at this elements code)
+<div class="flex">
+    <div class="item" style="flex-grow: 1">1</div>
+    <div class="item" style="flex-grow: 1">2</div>
+    <div class="item" style="flex-grow: 4">3</div> 
+    <!--grow three times faster. default 0-->
+</div>
+
+flex-shrink (look at this elements code)
+<div class="flex">
+    <div class="item0">1</div>
+    <div class="item0">2</div>
+    <div class="item0" style="flex-shrink: 0">3</div> 
+    <div class="item0">4</div>
+    <div class="item0">5</div>
+    <div class="item0">6</div> 
+    <div class="item0">7</div>
+    <div class="item0">8</div>
+    <div class="item0">9</div> 
+    <div class="item0">10</div>
+    <div class="item0">11</div>
+    <!-- default 1 -->
+</div>
+
+flex-basis (look at this elements code)
+<div class="flex">
+    <div class="item">1</div>
+    <div class="item" style="flex-basis: 300px">2</div>
+    <div class="item">3</div> 
+</div>
+
+flex (shorthand) (look at this elements code)
+<div class="flex"> <!-- flex-grow, flex-shrink, and flex-basis shorthand -->
+    <div class="item">1</div>
+    <div class="item" style="flex: 0 0 200px">2</div>
+    <div class="item">3</div> 
+    <!-- not growable, not shrinkable, basis 200px -->
+</div>
+
+align-self (look at this elements code)
+<div class="align-self">
+    <div class="item">1</div>
+    <div class="item" style="align-self: center">2</div>
+    <!-- override align-item property -->
+    <div class="item" style="align-self: flex-end">3</div>
+    <div class="item" style="align-self: flex-start">4</div>
+</div>
+
+</html>

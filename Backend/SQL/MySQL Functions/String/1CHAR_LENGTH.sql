@@ -1,0 +1,1 @@
+-- select char_length('wassup beijing') as stringLength;

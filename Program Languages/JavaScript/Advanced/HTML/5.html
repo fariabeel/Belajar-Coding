@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+<p id="demos"></p>
+
+<script>
+
+let objB = {fName: "Lewis", lName: "Eustance", 
+display: function() {
+
+document.getElementById("demo").innerHTML = 
+this.fName + " " + this.lName
+}} 
+
+objB.display()
+
+
+
+objB = {fName: "Lewis", lName: "Eustance", 
+display: function() {
+
+document.getElementById("demos").innerHTML = 
+this.fName + " " + this.lName
+}} 
+
+setTimeout(objB.display)
+// syntax error, go to next 5Sub.html
+</script>
+
+</html>

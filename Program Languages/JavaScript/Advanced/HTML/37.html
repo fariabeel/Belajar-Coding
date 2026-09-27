@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+
+<script>
+
+if (Window.isOriginIsolated) {
+    buffer = new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT)
+} else {
+    buffer = new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT)
+}
+
+let sharedArray = new Int32Array(buffer)
+
+sharedArray[0] = 10
+
+
+</script>
+
+</html>

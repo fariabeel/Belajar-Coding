@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+
+<script>
+
+objA = {fName: "Lewis", lName: "Eustance", 
+display: function() {
+
+document.getElementById("demo").innerHTML = 
+this.fName + " " + this.lName
+}} 
+
+let display = objA.display.bind(objA)
+setTimeout(display)
+
+</script>
+
+</html>

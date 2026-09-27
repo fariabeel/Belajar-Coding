@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+#ul{
+    list-style-type:armenian
+    /* Some of the values are for unordered lists, and some for ordered lists. */
+}
+#ul1{
+    list-style-image:url("../../../Downloads/favicon.ico")
+}
+
+#ul2{list-style-position: inside}
+#ul3{list-style-position: outside}
+
+#ul4{
+    list-style-type: none
+    /* 
+    list has default margin and padding. To remove this, add margin:0 and padding:0
+    */
+}
+
+#ul5{
+    list-style: url("../../../Downloads/favicon.ico") inside
+    /* like this */
+}
+
+#styling{
+    background-color: rgb(0, 128, 255);
+    padding: 5px
+}
+#styling li{
+    background-color: rgb(155, 252, 241);
+    padding: 3px;
+    list-style-position: inside;
+    color: rgb(0, 128, 255);
+    margin: 3px
+}
+
+/* 
+shorthand order:
+
+list-style-type
+list-style-position
+list-style-image
+
+one property missing, default value for missing property will be inserted, if any.
+ */
+
+</style>
+
+<ul id="ul"><li>ul</li></ul>
+<ul id="ul1"><li>Shinzou o sasageyooo!!</li></ul>
+<ul id="ul2"><li>ul2</li></ul>
+<ul id="ul3"><li>ul3</li></ul>
+<ul id="ul4"><li>ul4</li></ul>
+<ul id="ul5"><li>ul5</li></ul>
+
+<ul id="styling">
+    <li>list</li>
+    <li>wow</li>
+    <li>real</li>
+</ul>
+
+</html>

@@ -1,0 +1,24 @@
+$bgcolor: red;
+$width: 100px;
+
+/* good */
+.demo { // inline comment not copied in css file
+    color: $bgcolor;
+    background-color: aquamarine;
+    width: $width;
+}
+
+.scope {
+    $bgcolor: aquamarine;
+    background: $bgcolor
+}
+
+.demo0 { // still same color with the first
+    background: $bgcolor;
+}
+
+.global {
+    $bgcolor: lightgreen !global; // overwrite
+    background: $bgcolor
+}
+.demo1 {background: $bgcolor}

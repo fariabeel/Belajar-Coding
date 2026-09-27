@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/tailwindcss">
+        @import "tailwindcss";
+
+        @theme {
+            --breakpoint-xs: 31.25rem;
+            --breakpoint-crazy-diamond: 40rem;
+            /* --breakpoint-sm: 100rem; also can */
+
+            --breakpoint-xl: intitial; /* breakpoint removed */
+            /* --breakpoint-*: initial; remove all breakpoint */
+        }
+
+        .rectangle {
+            @apply bg-red-300 size-5 mt-1;
+        }
+    </style>
+
+    <!-- x <= 640px, x >= 640px, x >= 768px, x >= 1024px -->
+    <div class="bg-red-300 m-auto size-5 sm:size-30 md:size-50 lg:size-80"></div>
+    <!-- there's xl: (x >= 1280px) and 2xl: (x >= 1536px) -->
+
+    <!-- no scroll bar -->
+     <div class="bg-red-300 max-w-130 h-4"></div>
+
+    <div class="sm:max-md:flex sm:max-md:flex-row">
+        <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+    </div>
+
+    <div class="rectangle xs:max-crazy-diamond:size-10!"></div>
+    <div class="rectangle min-[640px]:bg-yellow-300!"></div> <br>
+
+    <!-- breakpoint based on parent -->
+    <div class="@container w-202"> <!-- please set width to 112!!! -->
+        <div class="rectangle @md:bg-yellow-300!"></div>
+        <div class="rectangle @max-md:bg-yellow-300!"></div>
+        <div class="rectangle @md:@max-[800px]:bg-yellow-300!"></div>
+    </div>
+
+    <div class="@container/wow w-50"> <!-- please set width to 250!!! -->
+        <div class="@container">
+            <div class="@[1000px]/wow:text-yellow-400">it was far from top parent</div>
+        </div>
+    </div>
+
+</html>

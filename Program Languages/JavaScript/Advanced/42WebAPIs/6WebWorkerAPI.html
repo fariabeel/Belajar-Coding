@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo">-</p>
+<button onclick="Working()">start</button>
+<button onclick="Pause()">pause</button>
+<button onclick="New()">start new</button>
+
+<script>
+
+// 
+
+let w
+
+function Working() {
+    if(typeof(w) == "undefined") {
+        w = new Worker("workers.js")
+        w.onmessage = function(event) {
+            document.getElementById("demo").innerHTML = event.data
+        }
+    } else {
+        w.postMessage("resume")
+    }
+
+}
+
+function Pause() {
+    w.postMessage("pause")
+}
+
+function New() {
+    w.terminate()
+    w = undefined
+    document.getElementById("demo").innerHTML = "-"
+}
+
+</script>
+</html>

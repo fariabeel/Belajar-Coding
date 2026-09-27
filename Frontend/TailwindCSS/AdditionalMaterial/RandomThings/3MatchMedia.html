@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+        span {
+            width:100000000000000000000000px
+        }
+    </style>
+
+<span class="span"></span>
+
+    <script>
+        let mql = window.matchMedia("(width <= 600px)");
+        document.querySelector(".span").innerText = mql.matches;
+    </script>
+
+</html>

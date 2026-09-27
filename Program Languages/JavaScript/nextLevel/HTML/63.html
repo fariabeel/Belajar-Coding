@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<p id="param"></p>
+
+<script>
+
+eval ("x = 5") // strict cannot, must be defined
+alert(x)
+
+eval("var y = 50") // defining using var, strict cannot
+alert(y)
+
+eval("let z = 9") // eval cannot declare using let
+
+document.getElementById("param").innerHTML = "worked"
+
+function noStrict(){ alert(this) }
+noStrict()
+
+function strict(){ 
+    "use strict"
+    alert(this) 
+}
+strict()
+
+</script>
+
+</html>

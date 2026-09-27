@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+ol{
+    counter-reset: section;
+    list-style-type: none;
+}
+li::before {
+  counter-increment: section;
+  content: counters(section,".") " ";
+}
+
+</style>
+
+<ol>
+    <li 1>
+        <ol>
+            <li 1.1>
+                <ol>
+                    <li 1.1.1>k</li>
+                    <li 1.1.2></li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+    <li 2></li>
+    <li 3></li>
+</ol>
+
+</html>

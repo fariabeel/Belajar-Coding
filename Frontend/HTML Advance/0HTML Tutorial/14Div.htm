@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+#div {
+ width: 100px;
+ height: 130px;
+ padding-top: 1px;
+ padding-left:20px;
+ margin: auto;
+ background-color: #FFF4A3;
+}
+
+#container{width:100%}
+#div0{width:33%; float: left}
+
+#inline{display: inline-block; width: 32.8%}
+
+#container0{display: flex}
+#flex{width: 33%}
+
+#grid{display: grid; grid-template-columns: 33% 33% 33%}
+
+</style>
+
+<div id=div>
+ <p>wowooooo</p>
+ <p>wuwu</p>
+ <p>seggssss</p>
+</div> 
+
+<br>
+
+<div>
+<div style="background-color:#FFF4A3;" id=div0>
+<p>awaaaaaaaaaa</p>
+</div>
+
+<div style="background-color:#FFC0C7;" id=div0>
+<p>awaaaaaaaaaa</p>
+</div>
+
+<div id=container>
+
+<div style="background-color:#D9EEE1;" id=div0>
+<p>awaaaaaaaaaa</p>
+</div>
+
+</div> 
+
+<br>
+<p>.</p>
+<!-- inline-block cannot spacing by <br> -->
+
+<div>
+
+ <div style="background-color:#FFF4A3;" id=inline>
+  <p>dfaaffff<p>
+ </div>
+<div style="background-color:#FFC0C7;" id=inline>
+  <p>dfaaffff<p>
+ </div>
+<div style="background-color:#D9EEE1;" id=inline>
+  <p>dfaaffff<p>
+ </div>
+
+</div>
+
+<br>
+
+<div id=container0>
+
+ <div style="background-color:#FFF4A3;" id=flex>
+  <p>flex-display</p>
+ </div>
+ <div style="background-color:#FFC0C7;" id=flex>
+  <p>flex-display</p>
+ </div>
+ <div style="background-color:#D9EEE1;" id=flex>
+  <p>flex-display</p>
+ </div>
+
+</div>
+
+<br>
+
+<div id=grid>
+
+ <div style="background-color:#FFF4A3;">
+  <p>grid-display</p>
+ </div>
+ <div style="background-color:#FFC0C7;">
+  <p>grid-display</p>
+ </div>
+ <div style="background-color:#D9EEE1;">
+  <p>grid-display</p>
+ </div>
+
+</html>

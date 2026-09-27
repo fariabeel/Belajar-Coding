@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @import "tailwindcss"; /* to inline import CSS files, including Tailwind itself */
+        @theme { --color-aquamarine: aquamarine }
+        @utility a { background: var(--color-red-300) }
+        @variant dark (&:where(.dark, .dark *));
+
+        .dark {
+            @variant dark {
+                background: black
+            }
+
+            @apply after:content-['_real'] after:text-white
+        }
+
+        .alpha {
+            @apply h-1;
+            background: --alpha(var(--color-gray-950) / 20%);
+            margin-top: --spacing(1);
+            /* calc(var(--spacing) * 4),
+            class="py-[calc(--spacing(4)-1px)]" */
+        }
+
+        /* don't know the use of @reference */
+
+        /* @config "../../tailwind.config.js"; load a legacy JavaScript-based configuration file */
+        /* @plugin "@tailwindcss/typography"; load a legacy JavaScript-based plugin */
+        
+
+    </style>
+
+    <div class="text-(--color-aquamarine) dark a">real</div>
+    <div class="alpha"></div>
+</html>

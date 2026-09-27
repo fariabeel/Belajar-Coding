@@ -1,6 +1,0 @@
-<form
-        action="index.html"
-        oninput="x.value=parseInt(a.value)+parseInt(b.value)"
-        ></form>
-        <form action="index.html" validate></form>
-        <br />

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=initialSpeed.0">
+    <title>Document</title>
+    <style>
+
+        #box {
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            left: 50%;
+            background: red;
+            position: absolute;
+        }
+
+        #add {
+            font-size: 40px;
+            display: inline-block;
+            width: 40px
+        }
+
+        #minus {
+            font-size: 40px;
+            display: inline-block;
+            width: 40px;
+        }
+
+        #parameter {
+            text-align: center;
+            width: 85px;
+            font-size: 40px
+        }
+
+        #leftWall {
+            width: 2px;
+            height: 100%;
+            background: black;
+            position: absolute;
+            top: 0;
+            left: 120px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="speedDisplay">
+        <div id="parameter"></div>
+        <button id="minus">-</button>
+        <button id="add">+</button>
+        <p id="demo"></p>
+    </div>
+    <div id="box"></div>
+
+    <div id="leftWall"></div>
+
+</body>
+
+<script>
+
+    const player = document.getElementById("box")
+
+    // movement variable
+    let x = 0
+    let y = 0
+    let initialSpeed = 0
+    let xSpeed = 0
+    let ySpeed = 0
+    let move = {
+    d: false,
+    a: false,
+    w: false,
+    s: false
+    }
+
+    document.getElementById("parameter").innerHTML = initialSpeed
+    document.getElementById("minus").addEventListener("click", () => {
+        initialSpeed -= 1
+        document.getElementById("parameter").innerHTML = initialSpeed
+})
+    document.getElementById("add").addEventListener("click", () => {
+        initialSpeed += 1
+        document.getElementById("parameter").innerHTML = initialSpeed})
+
+    setInterval(() => {
+        x += xSpeed; y += ySpeed
+        const maxX = (window.innerWidth / 2) - 25;
+        const maxY = (window.innerHeight / 2) - 25;
+
+        // Batasi X
+        if (x > maxX - 5) { x = maxX - 5 }
+        else if (x < -maxX + 97) { x = -maxX + 97 }
+
+        // Batasi Y
+        if (y > maxY - 5) { y = maxY - 5 }
+        else if (y < -maxY - 25) { y = -maxY - 25}
+        // -------------------------
+        player.style = `left: calc(50% + ${x}px); top: calc(50% + ${y}px)`
+    },1)
+
+    // document.addEventListener also can
+    window.addEventListener("keydown", (inp) => { 
+
+        switch (inp.key) {
+            case "d":
+                if ( move.d == false ) { xSpeed = initialSpeed; move.d = true }
+                break;
+            case "a":
+                if ( move.a == false ) { xSpeed = -initialSpeed; move.a = true }
+                break;
+            case "w":
+                if ( move.w == false ) { ySpeed = -initialSpeed; move.w = true }
+                break;
+            case "s":
+                if ( move.s == false ) { ySpeed = initialSpeed; move.s = true }
+                break;
+        }
+
+    })
+
+    window.addEventListener("keyup", (inp) => {
+
+        switch (inp.key) {
+            case "d":
+                move.d = false
+                if ( move.a == true ) { xSpeed = -initialSpeed }
+                else { xSpeed = 0 }
+                break;
+            case "a":
+                move.a = false
+                if ( move.d == true ) { xSpeed = initialSpeed }
+                else { xSpeed = 0 }
+                break;
+            case "w":
+                move.w = false
+                if ( move.s == true ) { ySpeed = initialSpeed }
+                else { ySpeed = 0 }
+                break;
+            case "s":
+                move.s = false
+                if (move.w == true) { ySpeed = -initialSpeed }
+                else { ySpeed = 0 }
+                break;
+        }
+    })
+
+</script>
+
+</html>

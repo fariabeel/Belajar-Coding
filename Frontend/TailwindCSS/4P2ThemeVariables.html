@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+    @import "tailwindcss";
+    @import "./theme.css";
+
+    div {
+        color: var(--color-red-400)
+    }
+    </style>
+
+<!-- what? maybe should in postcss-->
+<div class="bg-rod">roarrrr</div>
+
+<script>
+    let styles = getComputedStyle(document.documentElement);
+    let shadow = styles.getPropertyValue("--shadow-xl");
+</script>
+
+</html>

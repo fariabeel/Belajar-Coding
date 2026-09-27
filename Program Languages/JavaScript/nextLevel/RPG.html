@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+@font-face {
+    font-family: pixel;
+    src: url(Delicatus-e9OLl.ttf)
+}
+.hfont {
+    font-family: pixel;
+    font-size: 20px;
+}
+html {background: rgb(255, 127, 52)}
+
+/* player */
+
+#health {color: red; cursor:default; user-select: none; font-size: 25px}
+#hp {display: inline; font-size: 25px}
+
+/* combat */
+
+#combat {
+    text-align: center;
+    position: absolute;
+    bottom: 120px;
+    cursor: pointer;
+}
+
+.combatLayout {
+    display: inline-block;
+    width: 80px;
+}
+
+#attack {border: 1px solid; user-select: none}
+#attack:hover #attack-display {transform: translateY(-1px)}
+
+#skillList {
+    position: absolute;
+    left: 100px;
+    display: none
+}
+#skill {border: 1px solid; user-select: none}
+#skill:hover #skill-display {transform: translateY(-1px)}
+/* display enemy */
+
+#stage-display {
+    background: url("https://pbs.twimg.com/media/G3ta9ZkXAAAHsE_.jpg") no-repeat center;
+    width: 100%;
+    height: 300px;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50%),calc(-50%))
+}
+#enemy-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50%),calc(-50% - 189px));
+    color: green;
+    font-size: 50px;
+    user-select: none;
+}
+#enemy-bar {
+    position: absolute;
+    width: 90%;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50%),calc(-50% - 159px));
+    border: 3px solid;
+}
+#enemy-parameter {
+    background: red;
+    height: 10px;
+}
+
+@keyframes damaged { 
+    0% {opacity: 0}
+    50% {opacity: 0.35}
+    100% {opacity: 0}
+}
+
+#damage-display {
+    background: red;
+    height: 300px;
+    width: 297px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+}
+
+#WIN {
+    font-size: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none
+}
+
+#LOSE {
+    font-size: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none
+}
+
+</style>
+
+<div id="gameplay">
+<div id="health" class="hfont">HP: <div id="hp" class="hfont"></div></div>
+<div id="combat" class="hfont">
+    <div id="attack" class="combatLayout"><div id="attack-display">attack</div></div>
+
+    <div id="skill" class="combatLayout"><div id="skill-display">skill</div></div>
+    <div id="skillList">
+        <div id="IronFist">Iron Fist</div>
+    </div>
+</div>
+
+<div id="stage-display">
+    <div id="enemy-name" class="hfont"></div>
+    <div id="enemy-bar"><div id="enemy-parameter"></div></div>
+    <div id="damage-display"></div>
+</div>
+</div>
+
+<div id="WIN" class="hfont" >anjass</div>
+<div id="LOSE" class="hfont" >cupu lu</div>
+
+<script>
+    // player
+    let hp = document.getElementById("hp")
+    let hpParameter = 1000
+    let attack = document.getElementById("attack")
+    hp.innerHTML = hpParameter
+
+    // foes
+    let enemyName = document.getElementById("enemy-name")
+    let enemyParameter = document.getElementById("enemy-parameter")
+    let damageDisplay = document.getElementById("damage-display")
+    let enemyHealth = 100
+    enemyName.innerHTML = "bahblin"
+
+    // combat
+    let skillAnim = document.getElementById("skill-display")
+    let skillList = document.getElementById("skillList")
+    let skillListBool = false
+    let ironFist = document.getElementById("IronFist")
+
+    document.getElementById("skill").addEventListener("click",() => {
+        if (skillListBool == false) {
+        skillList.style.display = "block"
+        skillListBool = true
+        }
+        else {
+        skillList.style.display = "none"
+        skillListBool = false
+        }
+    })
+    
+    attack.addEventListener("click",() => {
+        setTimeout(() => {
+            damageDisplay.style.animation = "damaged 0.1s"
+            enemyParameter.style.width = `${(enemyHealth -= 10)}%`
+            hpParameter -= 15
+            hp.innerHTML = hpParameter
+            if (enemyHealth <= 0) {
+                document.getElementById("WIN").style.display = "block"
+                document.getElementById("gameplay").style.display = "none"
+            }
+            if (hpParameter <= 0) {
+                document.getElementById("LOSE").style.display = "block"
+                document.getElementById("gameplay").style.display = "none"
+            }
+        },10)
+        setTimeout(() => {damageDisplay.style.animation = "none"},111)
+    })
+
+    ironFist.addEventListener("click", () => {
+        setTimeout(() => {
+            damageDisplay.style.animation = "damaged 0.1s"
+            enemyHealth -= 90
+            hpParameter -= 15
+            hp.innerHTML = hpParameter
+            if (enemyHealth <= 0) {
+                document.getElementById("WIN").style.display = "block"
+                document.getElementById("gameplay").style.display = "none"
+            }
+            if (hpParameter <= 0) {
+                document.getElementById("LOSE").style.display = "block"
+                document.getElementById("gameplay").style.display = "none"
+            }
+            if (hpParameter > 0) {
+                enemyParameter.style.width = `${(enemyHealth)}%`
+            }
+        },10)
+        setTimeout(() => {damageDisplay.style.animation = "none"},111)
+    })
+
+
+
+</script>
+
+</html>

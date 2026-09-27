@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+*{font-family: Arial, Helvetica, sans-serif}
+#table{border: 1px solid; border-collapse: collapse}
+
+.padding{padding: 5px}
+
+.horizontal-divider{
+    border-bottom: 1px solid; 
+    text-align: left
+}
+.divider-table{border-collapse: collapse;}
+
+.hover:hover{background-color: aquamarine;}
+.hover-table{
+    border-collapse: collapse; 
+    width: 100px; 
+    text-align: left;
+}
+
+.stripped:nth-child(even){background-color: #baf3fd;}
+.stripped-border{border-collapse: collapse;}
+
+.color-border{border-collapse: collapse}
+.color{background-color: #04AA6D; color: white}
+
+</style>
+
+<table id="table">
+    <caption>no style</caption>
+    <tr>
+        <th id="table">th</th>
+        <th id="table">th</th>
+        <th id="table">th</th>
+    </tr>
+    <tr>
+        <td id="table">td</td>
+        <td id="table">td</td>
+        <td id="table">td</td>
+    </tr>
+    <tr>
+        <td id="table">td</td>
+        <td id="table">td</td>
+        <td id="table">td</td>
+    </tr>
+</table> <br>
+
+<table id="table">
+    <caption>padding</caption>
+    <tr>
+        <th id="table" class="padding">th</th>
+        <th id="table" class="padding">th</th>
+        <th id="table" class="padding">th</th>
+    </tr>
+    <tr>
+        <td id="table" class="padding">td</td>
+        <td id="table" class="padding">td</td>
+        <td id="table" class="padding">td</td>
+    </tr>
+    <tr>
+        <td id="table" class="padding">td</td>
+        <td id="table" class="padding">td</td>
+        <td id="table" class="padding">td</td>
+    </tr>
+</table> <br>
+
+<table class="divider-table">
+    <caption>horizontal divider</caption>
+    <tr>
+        <th class="horizontal-divider">th</th>
+        <th class="horizontal-divider">th</th>
+        <th class="horizontal-divider">th</th>
+    </tr>
+    <tr>
+        <td class="horizontal-divider">td</td>
+        <td class="horizontal-divider">td</td>
+        <td class="horizontal-divider">td</td>
+    </tr>
+    <tr>
+        <td class="horizontal-divider">td</td>
+        <td class="horizontal-divider">td</td>
+        <td class="horizontal-divider">td</td>
+    </tr>
+</table> <br>
+
+<table class="hover-table">
+    <caption>hover</caption>
+    <tr class="hover">
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+    </tr>
+    <tr class="hover">
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+    <tr class="hover">
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+</table> <br>
+ 
+<table class="stripped-border">
+    <caption>stripped</caption>
+    <tr class="stripped">
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+    </tr>
+    <tr class="stripped">
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+    <tr class="stripped">
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+    <tr class="stripped">
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+</table> <br>
+
+<table class="color-border">
+    <caption>color</caption>
+    <tr>
+        <th class="color">th</th>
+        <th class="color">th</th>
+        <th class="color">th</th>
+    </tr>
+    <tr>
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+    <tr>
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+</table> <br>
+
+</html>

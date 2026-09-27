@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+<p id="demos"></p>
+
+<script> // script must be at bottom
+
+let elem = document.getElementById("demo") // accessing dom is slow. access it once as variable
+elem.innerHTML = "real"
+
+elem = document.getElementById("demos")
+let firstName = "real"
+let lastName = "noName"
+
+// avoid unnecessary variable
+let fullName = firstName + " " + lastName
+elem.innerHTML = fullName
+
+//instead
+elem.innerHTML = firstName + " " + lastName
+
+// if possible use this
+/*
+window.onload = function() {
+  const element = document.createElement("script");
+  element.src = "myScript.js";
+  document.body.appendChild(element);
+};
+*/
+
+</script>
+
+</html>

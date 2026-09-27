@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<button onclick="change()">click</button>
+<p></p>
+<p></p>
+<script>
+    let a = 1
+    function change() {a=2; document.getElementsByTagName("p")[1].innerHTML = a}
+    document.getElementsByTagName("p")[0].innerHTML = a
+</script>
+</html>

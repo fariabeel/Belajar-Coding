@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+/* 
+selector:pseudo-class {property: value;} 
+A pseudo-class is used to define a special state of an element.*/
+#p {display: none}
+#tooltip:hover #p {display: block}
+#firstchild:first-child {color: blue}
+p i:first-child {font-weight: bolder}
+p:first-child #firstchild0{font-weight: 900}
+q:lang(no){quotes: "~" "~"}
+/* 
+:lang pseudo-class allows you to define special rules for different languages. 
+*/
+
+</style>
+
+<p id="firstchild">first child</p>
+
+<div id="tooltip">
+    hover it!
+    <p id="p">paragraph</p>
+</div>
+
+<p id="firstchild">not first child</p>
+
+<div style="border: 1px solid">
+    <p id="firstchild">first child</p>
+    <p id="firstchild">not first child</p>
+</div>
+
+<p id="firstchild">not first child</p>
+
+<div style="border: 1px solid">
+    <span>span</span>
+    <p id="firstchild">not first child</p>
+</div>
+
+<p style="border: 1px solid">
+    <i>strong</i>, <i>not strong</i>
+</p>
+
+<div style="border: 1px solid">
+    <p><em id="firstchild0">strong</em> and <em id="firstchild0">strong</em></p>
+    <p><em id="firstchild0">not strong</em> and <em id="firstchild0">not strong</em></p>
+</div>
+
+<q lang="no">lang="no"</q>
+
+</html>

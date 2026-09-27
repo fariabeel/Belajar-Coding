@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+a[href] {text-decoration: none; color: coral}
+/* 
+The [attribute] selector is used to select elements with a specified attribute. 
+*/
+a[href="https://www.youtube.com"] {color: red}
+p[title~="al"]{color: red}
+p[title|="rook"]{color: red}
+p[title^="top"]{color: red}
+p[title$="est"]{color: red}
+p[title*="xa"]{color: red}
+
+</style>
+
+<a href="https://www.google.com">Google</a> <br>
+<a href="https://www.youtube.com">youtube</a>
+<hr>
+~=
+<p title="al rep">al rep</p>
+<p title="real al">real al</p>
+<p title="alreal">alreal</p>
+<hr>
+|=
+<p title="rookie rook">rookie rook</p>
+<p title="rook-kie">rook-kie</p>
+<p title="rook-">rook-</p>
+<p title="rook">rook</p>
+<p title="kie-rook">kie-rook</p>
+<hr>
+^= (startswith)
+<p title="topaz">topaz</p>
+<p title="top">top</p>
+<p title="desktop">desktop</p>
+<hr>
+$= (endswith)
+<p title="best">best</p>
+<p title="establish">establish</p>
+<hr>
+*= (contains)
+<p title="xa">xa</p>
+<p title="abraxases.">abraxases.</p>
+<p title="xsa">xsa</p>
+
+
+</html>

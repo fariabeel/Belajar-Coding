@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+
+        .ol li:nth-child(-n + 3) {
+            color: red;
+        } .inline { display: inline }
+
+        .ol0 li:nth-child(-n + 3) {
+            color: red;
+        }
+
+
+        .ol li:nth-child(-n + 2 of li.sub) {
+            color: blue;
+        }
+
+        .olsub0 li:nth-child(-n + 2 of li.sub) {
+            color: blue;
+        }
+
+        li:nth-child(even of .noted) {
+        background-color: tomato;
+        border-bottom-color: seagreen;
+        }
+
+        .striped-list li:nth-child(even) {
+            background: aquamarine
+        }
+
+        .striped-list-fixed li:nth-child(even of :not([hidden])) {
+            background: aquamarine;
+        }
+
+        table tbody tr:nth-child(4) {background: green }
+        table tbody tr.fixed :nth-child(4) {background: green }
+
+    </style>
+
+    <ol class="ol">
+        <li>targeted</li>
+        <li>targeted</li>
+        <li>targeted</li>
+        <li>nice</li>
+        <li class="sub">sub</li>
+        <li class="sub">sub</li>
+        <li>nice</li> 
+    </ol>
+
+    <ol class="ol0">
+        <li>targeted</li>
+        <li>targeted</li>
+        <p class="inline">distrupted</p>
+        <li>not targeted</li>
+    </ol>
+
+    <ol class="olsub0">
+        <li class="sub">sub</li>
+        <p class="inline">distrupted</p>
+        <li class="sub">no effect</li>
+    </ol>
+
+    <ul>
+        <li class="noted">noted</li>
+        <li class="noted">noted</li>
+        <li class="noted">noted</li>
+        <li class="noted">noted</li>
+        <li class="noted">noted</li>
+        <li class="noted">noted</li>
+    </ul>
+
+    <ul class="striped-list">
+        there's a hidden list
+        <li>a list</li>
+        <li hidden>a list</li>
+        <li>a list</li>
+        <li>a list</li>
+        <li>a list</li>
+    </ul>
+
+    <ul class="striped-list-fixed">
+        there's a hidden list
+        <li>a list</li>
+        <li hidden>a list</li>
+        <li>a list</li>
+        <li>a list</li>
+        <li>a list</li>
+    </ul>
+
+    <table>
+        <thead> <th>1</th> <th>2</th> <th>3</th> <th>4</th> </thead>
+        <tbody>
+            <tr> <th>tr</th> <td>two</td> <td>three</td> <td>four</td> </tr>
+            <tr class="fixed"> <th>tr</th> <td>two</td> <td>three</td> <td>four</td> </tr>
+        </tbody>
+    </table>
+
+
+</html>

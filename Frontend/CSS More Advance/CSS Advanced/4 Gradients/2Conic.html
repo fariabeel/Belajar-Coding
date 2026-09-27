@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+/*
+By default, angle is 0deg. If no degree is specified, the colors will be spread equally around the center point.
+*/
+
+div{
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    padding-top: 90px;
+    text-align: center;
+    float: left
+}
+
+.three-colors {background-image: conic-gradient(red,yellow,green)}
+
+.five-colors {
+    background-image: conic-gradient(red,yellow,green,blue,black);
+}
+
+.three-colors-and-deg {
+    background-image: conic-gradient(red 45deg, yellow 90deg, green 210deg)
+}
+
+.pie {
+    background-image: conic-gradient(red, yellow, green, blue, black);
+    border-radius: 50%
+}
+
+.pie0 {
+    background-image: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg, green 180deg, green 270deg, blue 270deg, blue 360deg);
+    border-radius: 50%
+}
+
+.specified-angle {
+    background: conic-gradient(from 90deg, red, yellow, green);
+    border-radius: 50%;
+}
+
+.specified-center-position {
+    background: conic-gradient(at 60% 45%, red, yellow, green);
+    border-radius: 50%
+}
+
+.repeating {
+    background: repeating-conic-gradient(red 10%, yellow 20%);
+    border-radius: 50%
+}
+
+.repeating-startsstops {
+    background: repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue 20deg 30deg);
+    border-radius: 50%
+}
+
+</style>
+
+<div class="three-colors">three-colors</div>
+<div class="five-colors">five-colors</div>
+<div class="three-colors-and-deg">three-colors-and-deg</div>
+<div class="pie">pie</div>
+<div class="pie0">pie0</div>
+<div class="specified-angle">from-90deg</div>
+<div class="specified-center-position">specified-center-position</div>
+<div class="repeating">repeating</div>
+<div class="repeating-startsstops">repeating-startsstops</div>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<canvas id="myCanvas" width="200" height="100" style="border:0.1px solid black;"></canvas>
+<script>
+var c= document.getElementById("myCanvas");
+var ctx= c.getContext("2d");
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+</script>
+
+<canvas height="100" width="200" style="border: 1px solid black" id="Canvas"></canvas>
+<script>
+var c=document.getElementById("Canvas");
+var ctx=c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+ctx.stroke();
+</script>
+
+<canvas height="100" width="200" style="border: 1px solid black" id="0canvas"></canvas>
+<script>
+var c = document.getElementById("0canvas");
+var ctx = c.getContext("2d");
+ctx.font="30px Arial";
+ctx.fillText("Hello World", 10, 50);
+</script>
+
+<canvas height="100" width="200" style="border: 1px solid #d3d3d3;" id="1canvas"></canvas>
+<script>
+var c = document.getElementById("1canvas");
+var ctx = c.getContext("2d");
+ctx.font = "30px Arial";
+ctx.strokeText("Hello World", 10, 50);
+</script>
+
+<canvas height="100" width="200" id="2canvas" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+var c = document.getElementById("2canvas");
+var ctx = c.getContext("2d");
+
+var grd = ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"white");
+
+ctx.fillStyle=grd;
+ctx.fillRect(10,10,150,80);
+</script>
+
+<canvas height="100" width="200" style="border: 1px solid #d3d3d3;" id="3canvas"></canvas>
+<script>
+var c = document.getElementById("3canvas")
+var ctx = c.getContext("2d");
+
+var grd = ctx.createRadialGradient(75,50,5,90,60,100);
+grd.addColorStop(0,"red")
+grd.addColorStop(1,"white");
+
+ctx.fillStyle=grd;
+ctx.fillRect(10,10,150,80);
+</script>
+
+
+<img id="img" src="file:///D:/Downloads/coder/Browser/BrowserYoutube/HTML/Video/wallpaperflare.com_wallpaper (5).jpg" width="149.75" height="84">
+
+<canvas height="100" width="200" style="border: 1px solid #d3d3d3;" id="4canvas"></canvas>
+
+<script>
+//broken
+var c = document.getElementById("4canvas");
+var ctx = c.getContext("2d");
+var img = document.getElementById("img");
+ctx.drawImage(img,10,10);
+
+</script>
+
+</html>

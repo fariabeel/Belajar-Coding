@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @import 'tailwindcss';
+
+        :root {
+            --my-var: 10px;
+            --color: lightgreen;
+        }
+
+        @layer base {
+            /* adding it to tailwind base layer */
+            .layer {
+                background-color: var(--color-green-300)
+            }
+        }
+
+        @variant dark (&:where(.dark, .dark *));
+
+        @layer components {
+            /* still can be override by classes */
+            .components {
+                color: var(--color-green-300);
+
+                /* you can nest it?!?! :() */
+                a {
+                    color: red
+                }
+
+                @variant dark{
+                    background-color: var(--color-purple-300)
+                }
+
+                @variant hover{
+                    background-color: var(--color-fuchsia-400)
+                }
+            }
+        }
+
+        @utility rectangle {
+            width: 20px;
+            height: 20px;
+            background: var(--color-red-300)
+        }
+
+        /* don't know how it work :(
+         :root {
+            --colors-w: lightgreen;
+            --colors-l: aquamarine;
+        }
+
+        @utility coloru-* {
+            color: --value(--colors-*)
+        }
+
+        @utility tab-* {
+            tab-size: --value("inherit", "literal", "unset");
+        }
+
+        @utility tab-* {
+            tab-size: --value([integer]);
+            tab-size: --value([integer] * 1%);
+            tab-size: --value(integer);
+            tab-size: --value(--tab-size-*);
+        }
+
+        @utility tab-* {
+            tab-size: --value([integer], integer, --tab-size-*)
+        }
+
+        @utility opacityy {
+            opacity: calc(--value(integer) * 1&);
+            opacity: --value(--opacity-*, [percentage]);
+            line-height: --modifier(--leading-*, [length], [*]);
+            aspect-ratio: --value(--aspect-ratio-*, ratio, [ratio]);
+        } */
+
+        @custom-variant midnight { /* same */
+            &:where([theme="midnight"] *) {@slot;}
+        }
+
+        @custom-variant middust (&:where(.middust, .middust *)); /* same */
+
+
+    </style>
+    <div class="ml-[40px]">real</div>
+    <div class="[color:red]">real</div>
+    <div class="bg-[url('c_y_a_n.png')]">real</div>
+    <div class="after:content-['_\_s']">real</div>
+    <div class="text-(length:--my-var) text-(color:--color)">real</div>
+    <div class="layer">@layer</div>
+    <div class="components dark">@components <a href="">a</a></div>
+    <div class="rectangle"></div>
+    <div class="coloru-l">coloru</div>
+    <div theme="midnight">
+        <div class="midnight:bg-black w-17 text-white">midnight</div>
+    </div>
+    <div class="middust middust:bg-orange-300 w-17">middust</div>
+
+    <!-- go to react -->
+
+</html>

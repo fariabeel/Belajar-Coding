@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+<p id="demos"></p>
+
+<script>
+
+function a(a,b) {return a*b} // must be regular function
+document.getElementById("demo").innerHTML = window.a(2,2)
+// in strict mode, "this" keyword will be undefined
+
+function b () {return this} // return global object
+document.getElementById("demos").innerHTML = b()
+
+</script>
+
+</html>

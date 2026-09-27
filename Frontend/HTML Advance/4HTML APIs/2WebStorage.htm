@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Browser test for Web Storage API</h1>
+
+<div id="checking"></div> <br>
+<div id="result"></div>
+
+<script>
+const y = document.getElementById("checking");
+const x = document.getElementById("result");
+
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  y.innerHTML = "Your browser supports Web storage!";
+  // Store
+  localStorage.setItem("lastname", "Smith");
+  localStorage.setItem("bgcolor", "yellow");
+  // Retrieve
+  x.innerHTML = localStorage.getItem("lastname");
+  x.style.backgroundColor = localStorage.getItem("bgcolor");
+} else {
+  x.innerHTML = "Sorry, no Web storage support!";
+}
+
+/* 
+The syntax for removing the "lastname" localStorage item is as follows: localStorage.removeItem("lastname");
+
+Note: Name/value pairs are always stored as strings. Remember to convert them to another format when needed!
+*/
+
+function clickCounter() {
+  const x = document.getElementById("counter");
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    x.innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s)!";
+  } else {
+    x.innerHTML = "Sorry, no Web storage support!";
+  }
+}
+
+function clickCounter0() {
+  const x = document.getElementById("counter0");
+  if (typeof(Storage) !== "undefined") {
+    if (sessionStorage.clickcount) {
+      sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+    } else {
+      sessionStorage.clickcount = 1;
+    }
+    x.innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session!";
+  } else {
+    x.innerHTML = "Sorry, no Web storage support!";
+  }
+}
+
+</script>
+
+<button type="button" onclick="clickCounter()">Click counter</button>
+<p id="counter"></p>
+<!-- 
+Close the browser tab (or window), and try again, and the counter will continue to count
+-->
+
+<button type="button" onclick="clickCounter0()">Click counter</button>
+<p id="counter0"></p>
+<!-- 
+Close the browser tab (or window), and try again, and the counter is reset.
+-->
+
+</body>
+</html>
+

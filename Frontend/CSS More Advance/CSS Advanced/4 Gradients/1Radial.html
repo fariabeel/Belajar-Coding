@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+div{
+    height: 100px;
+    box-sizing: border-box;
+    padding-top: 35px;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+p {
+    height: 110px; 
+    width: 110px; 
+    float: left; 
+    color: rgb(0, 47, 255);
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 40px;
+    margin-left:1px
+}
+
+.evenly-spaced
+{background-image: radial-gradient(red,yellow,green)}
+
+
+.differently-spaced
+{background-image: radial-gradient(red 1%, yellow 20%, green 80%)}
+
+
+.circle
+{background-image: radial-gradient(circle, red, yellow, green);}
+
+
+.closest-side
+{
+    background-image: radial-gradient(closest-side at 60% 55%, red, yellow, black)
+}
+
+.farthest-side {
+    background-image: radial-gradient(farthest-side at 60% 55%, red, yellow, black)
+}
+
+.closest-corner {
+    background-image: radial-gradient(closest-corner at 60% 55%, red, yellow, black)
+}
+
+.farthest-corner {
+    background-image: radial-gradient(farthest-corner at 60% 55%, red, yellow, black);
+    float: none;
+    display: inline-block
+}
+
+.repeating {
+    background-image: repeating-radial-gradient(red, yellow 10%, green 15%)
+}
+
+</style>
+
+<div class="evenly-spaced">evenly-spaced color stops (default)</div>
+<div class="differently-spaced">differently-spaced color stops</div>
+<div class="circle">circle</div>
+
+<p class="closest-side">closest-side</p>
+<p class="farthest-side">farthest-side</p>
+<p class="closest-corner">closest-corner</p>
+<p class="farthest-corner">farthest-corner (default)</p>
+<div class="repeating">repeating</div>
+
+
+</html>

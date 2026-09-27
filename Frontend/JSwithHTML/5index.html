@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+
+    <button id="1">real</button>
+    <!-- resize the window! -->
+    <p id="a">real</p>
+    <p id="b"></p>
+
+    <div id="2">
+        <p id="c">click me</p>
+    </div>
+
+    <div id="22">
+        <p id="cc">click me</p>
+    </div>
+    
+
+    <script>
+
+
+        document.getElementById("1").addEventListener("click",function(){alert("real")})
+
+
+        document.getElementById("1").addEventListener("click",function(){document.getElementById("a").innerHTML="wow"})
+
+
+        document.getElementById("1").addEventListener("mouseover",function(){document.getElementById("1").innerHTML="wow will appear!"})
+
+        document.getElementById("1").addEventListener("mouseout",function(){document.getElementById("1").innerHTML="real"})
+
+
+        let a=["Isaac newton","nothin","Minecraft"]
+
+        window.addEventListener("resize", function(){document.getElementById("a").innerHTML=a[Math.floor(Math.random()*10/3)]})
+
+
+        document.getElementById("1").addEventListener("click",function(){b(15,15)})
+
+        function b(a,b){document.getElementById("b").innerHTML=a*b}
+
+
+        document.getElementById("2").addEventListener("click",function(){alert("div second")},false)
+        document.getElementById("c").addEventListener("click",function(){alert("p first")},false)
+
+        document.getElementById("22").addEventListener("click",function(){alert("div first")},true)
+        document.getElementById("cc").addEventListener("click",function(){alert("p second")},true)
+    </script>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+<p id="practice"></p>
+
+<script>
+const safe = RegExp.escape("[*]")
+const regex = new RegExp(safe)
+document.getElementById("demo").innerHTML = "[*]me".replace(regex, "areal")
+
+document.getElementById("practice").innerHTML = "[*]sup".replace(new RegExp(RegExp.escape("[*]")), "was")
+
+</script>
+
+</html>

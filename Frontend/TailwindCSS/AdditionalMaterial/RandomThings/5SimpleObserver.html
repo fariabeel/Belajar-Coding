@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    div{
+        transform: translate(-10px, -10px);
+        opacity: 0;
+        font-size: 30px;
+        border: 1px solid;
+        width: 100px;
+        border-radius: 10px;
+        margin: 10px;
+        text-align: center;
+        transition: all 0.5s;
+        height: 100px
+    }
+
+    .show {
+        transform: translate(0,0);
+        opacity: 1
+    }
+
+    body {
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        width: 100%;
+    }
+
+</style>
+
+<p>
+    <div class="card">card</div>
+</p>
+
+<script>
+const cards = document.querySelectorAll(".card")
+const observer = new IntersectionObserver( entries => {
+    entries.forEach( entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting)
+        // if (entry.isIntersecting) {observer.unobserve(entry.target)}
+    })
+}, {
+    // rootMargin: "-100px",
+    threshold: 1
+})
+
+cards.forEach(card => {observer.observe(card)})
+</script>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<input type="text" value="chigga" readonly> <br>
+<input type="text" value="chigga" disabled> <br>
+
+<input type="text" value="chigga" size="100">
+<!--
+size attribute works with the input types 
+text, search, tel, url, email, and password
+--> <br>
+
+<input type="text" value="chigga" maxlength="7"> <br>
+<input type="number" min="15" max="20">
+<!--
+min and max attributes work with input types number, 
+range, date, datetime-local, month, time and week.
+--> <br>
+
+<input type="file" multiple>
+<!-- email and file type can use multiple --> <br>
+
+<form>
+<input type="text" pattern="[a-d]{2}">
+<input type="submit">
+</form>
+<input type="text" placeholder="wow">
+<!--
+placeholder attributes work in  text, 
+search, url, number, tel, email, and 
+password types
+--><br>
+
+<form>
+<input type="text" required>
+<input type="submit">
+</form>
+<!-- 
+required work in text, search, url, 
+tel, email, password, date pickers, 
+number, checkbox, radio, and file types
+-->
+
+<input type="number" step="3">
+<!--
+work in number, range, date, 
+datetime-local, month, time 
+and week types
+--> <br>
+
+<input type="text" autofocus>
+<!-- focused when lage loads --> <br>
+
+<input type="image" src="https://c4.wallpaperflare.com/wallpaper/317/237/79/game-armor-background-warrior-wallpaper-preview.jpg"
+width="364"
+height="205"> <br>
+
+<input list="fantasy">
+<datalist id="fantasy">
+ <option value="knight">
+ <option value="archery">
+ <option value="caster">
+ <option value="tammer">
+ <option value="healer">
+</datalist> <br>
+
+<form method="post">
+ <input type="text" name="wow" autocomplete>
+ <input type="submit">
+</form>
+<!-- 
+autocomplete attribute works with <form> and 
+the following <input> types: text, search, url, 
+tel, email, password, datepickers, range, and color.
+-->
+
+</html>

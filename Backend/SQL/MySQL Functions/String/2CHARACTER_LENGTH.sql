@@ -1,0 +1,1 @@
+select CHARACTER_LENGTH('wassup beijing') as stringLength

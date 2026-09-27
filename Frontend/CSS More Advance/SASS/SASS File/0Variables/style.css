@@ -1,0 +1,22 @@
+/* good */
+.demo {
+  color: red;
+  background-color: aquamarine;
+  width: 100px;
+}
+
+.scope {
+  background: aquamarine;
+}
+
+.demo0 {
+  background: red;
+}
+
+.global {
+  background: lightgreen;
+}
+
+.demo1 {
+  background: lightgreen;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.translate {transform: translate(20px, 20px)}
+.rotate {transform: rotate(-30deg); position: absolute}
+.negative-rotate {transform: rotate(-30deg); position: absolute}
+
+.scale {
+    transform: scale(2, 2.2); 
+    width: 1px; 
+    margin-top: 80px
+}
+
+.negative-scale{
+    transform: scale(0.9,0.8);
+    width: 1px
+}
+
+.scaleX {transform: scaleX(2); width: 1px}
+.scaleY {transform: scaleY(2)}
+.skewX {transform: skewX(39deg)}
+.skewY {transform: skewY(40deg); position: absolute}
+.skew  {transform: skew(95deg, 6deg)} /* skew(skewX, skewY) */
+.skew-X {transform: skew(20deg)}
+.matrix {transform: matrix(-1, -0.3, 0, 1, 0, 0); position: absolute}
+/* matrix(scaleX, skewY, skewX, scaleY, translateX, translateY) */
+
+</style>
+
+<p class="translate">translate</p>
+<p class="rotate"><b>rotate</b></p>
+<p class="negative-rotate"><b>negative-rotate</b></p>
+<p class="scale">scale</p>
+<p class="negative-scale">negative-scale</p>
+<p class="scaleX">scaleX</p>
+<p class="scaleY">scaleY</p>
+<p class="skewX">skewX</p>
+<p class="skewY">skewY</p><br> <br> <br>
+<p class="skew">skew</p>
+<p class="skew-X">skew-X</p>
+<p class="matrix">matrix</p>
+
+</html>

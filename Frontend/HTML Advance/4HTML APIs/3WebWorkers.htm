@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Note: Normally web workers are not used for such simple scripts, but for more CPU intensive tasks!
+-->
+
+<div id="result"></div>
+
+<div id="counter"></div>
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+
+<script>
+const x = document.getElementById("result");
+if(typeof(Worker) !== "undefined") {
+  x.innerHTML = "Your browser support Web Workers!";
+} else {
+  x.innerHTML = "Sorry, your browser does not support Web Workers.";
+}
+
+let w;
+
+function startWorker() {
+  const x = document.getElementById("counter");
+  if(typeof(Worker) !== "undefined") {
+    if(typeof(w) == "undefined") {
+      w = new Worker("WebWorkers.js");
+    }
+    w.onmessage = function(event) {
+      x.innerHTML = event.data;
+    };
+  } else {
+    x.innerHTML = "Sorry! No Web Worker support.";
+  }
+}
+
+function stopWorker() { 
+  w.terminate();
+  w = undefined;
+}
+
+</script>
+
+</html>

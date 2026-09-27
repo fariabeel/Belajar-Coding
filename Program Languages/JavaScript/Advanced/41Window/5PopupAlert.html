@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<button onclick="window.alert('alert box')">alert</button> <br>
+<button onclick="Confirmation()">confirm</button> <br>
+<button onclick="UserInput()">input</button>
+<p id="demo">none</p>
+<button onclick="alert('real\nbreaked')">alert break</button>
+
+<script>
+
+var elem = document.getElementById('demo')
+
+function Confirmation() {
+if(window.confirm('try it') /* confirm() no window prefix */) {
+    elem.innerHTML = 'confirmed'
+} else {
+    elem.innerHTML = 'canceled'
+}
+}
+
+function UserInput() {
+let text = window.prompt("enter text:", "four") /* prompt() */
+if (text == null || text == "") {
+    elem.innerHTML = "canceled the input"
+} else {
+    elem.innerHTML = text
+}
+}
+
+</script>
+</html>

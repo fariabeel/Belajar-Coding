@@ -1,0 +1,1 @@
+postMessage('data from shortedWorker.js')

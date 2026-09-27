@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+
+<script>
+
+document.getElementById("demo").innerHTML = `
+${window.navigator.cookieEnabled} <br>
+${navigator.cookieEnabled} <br>
+${navigator.language} <br>
+${navigator.onLine} <br>
+${navigator.appName /* deprecated */} <br>
+${navigator.appCodeName /* deprecated */} <br>
+${navigator.product /* deprecated */} <br>
+${navigator.appVersion /* deprecated */} <br>
+${navigator.userAgent} <br>
+${navigator.platform /* deprecated */} <br>
+${navigator.javaEnabled() /* deprecated */} <br>
+`
+
+</script>
+</html>

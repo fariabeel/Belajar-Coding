@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+*{font-family: Arial, Helvetica, sans-serif;}
+
+input[type=text]{
+    width: 200px; 
+    padding: 10px;
+    font-size: 20px;
+    border: 2px solid;
+    border-radius: 80px;
+    outline: none /* no outline like next to element */
+}
+
+input[type=number]{
+    border: none;
+    border-top: 2px solid;
+    height: 40px;
+    background-color: rgb(202, 255, 255);
+    color: rgb(0, 119, 119);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none
+}
+
+input[type=number]:focus{
+    color: greenyellow
+}
+
+input[type=search]{
+    padding: 4px;
+    width: 1px;
+    transition: width 0.4s ease-in-out;
+    display: block
+}
+
+input[type=search]:focus {width:100%}
+
+textarea[id]{resize:none}
+
+
+</style>
+
+<input type="text">
+<input type="number"> <br> <br>
+<input type="search"> <br>
+
+<textarea id>cannot resize</textarea>
+<textarea>can resize</textarea>
+
+</html>

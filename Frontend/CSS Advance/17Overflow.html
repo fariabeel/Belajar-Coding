@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.overflow{
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    background: coral;
+    margin: 0 2px 0 0;
+}
+
+#visible{
+    overflow: visible;
+    float: left;
+}
+
+#hidden{
+    overflow: hidden;
+    float: left;
+}
+
+#scroll{
+    overflow: scroll;
+    float: left;
+    /* add a scrollbar both horizontally and vertically (even if you do not need it) */
+}
+
+#auto{
+    overflow: auto;
+    float: left;
+    /* adds scrollbars only when necessary */
+}
+
+#overflow-xy{
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+}
+
+</style>
+
+<p id="visible" class="overflow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quas dolorum, repudiandae veniam eum ad nisi saepe mollitia alias</p>
+
+<p id="hidden" class="overflow">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, enim? Dolore non tempora accusamus doloribus perspiciatis repellat sequi praesentium unde consequuntur, minima culpa iusto numquam rerum magnam commodi. Hic, perferendis!</p>
+
+<p id="scroll" class="overflow">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum facere maiores cupiditate ipsa enim non dignissimos numquam incidunt quidem, cum repudiandae? Alias quam magnam expedita saepe totam reiciendis sed amet?</p>
+
+<p id="auto" class="overflow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quia autem laudantium iure magnam modi asperiores! Itaque nostrum quisquam, sapiente, debitis dicta iste repudiandae cupiditate et labore dolores aliquid perspiciatis?</p>
+
+<p id="overflow-xy" class="overflow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam corporis dignissimos doloremque illo laudantium voluptas laboriosam incidunt placeat, sequi nam voluptatibus! Pariatur fugiat repellat, et eos repudiandae molestiae ipsam facere.</p>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, ipsam. Animi molestias distinctio consequuntur deserunt dolores officiis illum facilis impedit ipsam eius a mollitia, repudiandae ut natus, veniam aliquid quasi.</p>
+
+</html>

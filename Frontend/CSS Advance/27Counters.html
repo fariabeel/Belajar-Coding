@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+body {counter-reset: section;}
+
+p[p]::before {
+    counter-increment: section;
+    content: "number " counter(section) " "
+}
+
+div{counter-reset: section;}
+h1 {counter-reset: subsection;}
+
+h1::before {
+    counter-increment: section;
+    content: counter(section)" "
+}
+
+h2::before {
+    counter-increment: subsection;
+    content: counter(section)"."counter(subsection)" "
+}
+
+</style>
+
+<p p>p</p>
+<p p>p</p>
+<p p>p</p>
+<p p>p</p>
+<p p>p</p>
+
+<hr>
+<div>
+<h1>chapter</h1>
+<h2>real</h2>
+<h2>real</h2>
+<h1>chapter</h1>
+<h2>real</h2>
+<h2>real</h2>
+<h2>real</h2>
+</div>
+
+</html>

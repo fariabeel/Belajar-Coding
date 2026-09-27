@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style type="text/tailwindcss">
+@import "tailwindcss" important;
+
+.a {
+  a {
+    color:red
+  }
+}
+
+</style>
+
+<div class="a">text <a href="">nested</a></div>
+
+<!-- bg-color, border-radius, width-height, display, gap, padding, shadow box -->
+<div class="bg-red-500 rounded-xl size-40 flex gap-x-11 p-6 shadow-lg">
+    <p>real</p> <!-- a gap between element -->
+
+    <!-- font-size, font type(like bold), color -->
+    <p class="text-xl font-medium text-blue-500">fr</p>
+</div>
+
+<!-- bg-color, width, height, hover -->
+<div class="bg-blue-300 w-50 h-50 rounded-2xl hover:bg-purple-300"></div>
+
+<!-- display, grid-cols, media-queries -->
+<div class="grid grid-cols-2 sm:grid-cols-4">
+    <div>sss</div>
+    <div>sss</div>
+    <div>sss</div>
+    <div>sss</div>
+</div>
+
+<!-- template, filter, filter -->
+<div class="bg-yellow-300 rounded-2xl size-50 blur-sm grayscale"></div>
+<br>
+
+<!-- bg-[#arbitrary value] hex color -->
+<div class="size-50 bg-[#f07857]"></div>
+
+<!-- nice reference -->
+<div class="mt-3 flex -space-x-1 overflow-hidden">
+    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="" />
+    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+  </div>
+
+  <script>
+    let contributors = [
+      { handle: 'user1', avatarUrl: 'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80' },
+      { handle: 'user2', avatarUrl: 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80' },
+      { handle: 'user3', avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80' },
+      { handle: 'user4', avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80' },
+      { handle: 'user5', avatarUrl: 'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80' }
+    ];
+  </script>
+
+   <div class="mt-3 flex -space-x-2 overflow-hidden">
+    {#each contributors as user}
+      <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src={user.avatarUrl} alt={user.handle} />
+    {/each}
+  </div> 
+  <!-- work in React/src/main.tsx -->
+
+  <!-- background: blue !important -->
+  <div class="absolute left-4 ring-4 ring-white size-50 bg-red-400 rounded-2xl bg-blue-300!"></div>
+  <div class="size-50 bg-red-400 rounded-2xl bg-blue-300!"></div>
+
+</html>

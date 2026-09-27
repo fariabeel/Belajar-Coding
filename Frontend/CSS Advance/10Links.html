@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+#link{
+    color:red;
+}
+
+#link1:link/*unvisited*/{
+    color: aquamarine
+}
+
+#link2{
+    text-decoration-line: none;
+    background-color:rgb(227, 227, 227)
+}
+#link2:hover{
+    background-color: rgb(215, 254, 156)
+}
+
+#inline-block{
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px; /*<-----*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; /*<-----*/
+}
+
+/*
+ order rules:
+
+a:hover MUST come after a:link and a:visited
+a:active MUST come after a:hover 
+*/
+
+</style>
+
+<a id="link" href>Link</a> <br>
+<a id="link1" href="0">Link1</a> <br>
+<a id="link2" href>Link2</a> <br>
+<a id="inline-block">inline-block</a>
+
+<!-- not important -->
+<div style="font-family: Arial, Helvetica, sans-serif">
+go to the cursor example. <br>
+for good design look at more example section.
+</div>
+<a
+href="https://www.w3schools.com/css/css_link.asp">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJPZAINpYal7ohM_CfFR8yWuQfYpCdP1sCYg&s" width="40">
+</a>
+
+
+
+</html>

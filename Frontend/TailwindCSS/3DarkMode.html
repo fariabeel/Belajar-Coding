@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="bg-gray-950">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+
+    /* @custom-variant dark (&:where(.dark, .dark *)); */
+    @custom-variant custom (&:where([theme="dark"],[theme="dark"] *));
+</style>
+
+<div theme="dark" class="custom:text-purple-400 dark">dark</div>
+<div theme="dark" class="custom:text-green-300">theme dark</div>
+
+<!-- still don't know how it use -->
+<script>
+// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+document.documentElement.classList.toggle(
+  "dark",
+  localStorage.theme === "dark" ||
+    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+);
+// Whenever the user explicitly chooses light mode
+localStorage.theme = "light";
+// Whenever the user explicitly chooses dark mode
+localStorage.theme = "dark";
+// Whenever the user explicitly chooses to respect the OS preference
+localStorage.removeItem("theme");
+</script>
+
+</html>

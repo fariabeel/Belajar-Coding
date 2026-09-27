@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+    <p id="demo"></p>
+
+    <script>
+        new Worker('shortedWorker.js').onmessage = function(e) {document.getElementById('demo').innerHTML = e.data}
+    </script>
+</html>

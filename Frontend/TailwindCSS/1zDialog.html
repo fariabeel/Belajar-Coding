@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html> <!-- set to w-100% to centering dialog -->
+    
+<button id="button">dialog</button>
+<dialog id="dialog"> <!-- mx-auto my-auto to centering dialog -->
+    <form method="dialog">
+        <button>close?</button>
+    </form>
+</dialog>
+
+<script>
+    const btn = document.getElementById("button")
+    const dialog = document.getElementById("dialog")
+
+    btn.addEventListener('click', () => {dialog.showModal()})
+</script>
+</html>

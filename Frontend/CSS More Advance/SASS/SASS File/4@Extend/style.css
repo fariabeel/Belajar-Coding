@@ -1,0 +1,11 @@
+.template-button, .button1 {
+  width: 100px;
+  height: 40px;
+  background: coral;
+  border: none;
+  color: white;
+}
+
+.button1 {
+  background: gray;
+}/*# sourceMappingURL=style.css.map */

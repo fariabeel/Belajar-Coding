@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+<p id="demos"></p>
+
+<script>
+
+document.getElementById("demo").innerHTML = /(?i:real)me/.test("arealme");
+document.getElementById("demos").innerHTML = /(?i:real)me/.test("arealmE");
+// /(?i:real)me/ only in html i think
+
+</script>
+</html>

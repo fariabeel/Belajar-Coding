@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @import "tailwindcss";
+
+        @theme {
+            --color-wow-nothin: lightgreen;
+            --color-wow-nothin-0: yellow;
+            --font-poppins: 'Poppins', sans-serif;
+            /* 
+            --color-*:initial; remove all default color 
+            custom colors not affected
+            */
+            /* 
+            --*: initial; completely remove all variables
+            except custom variables
+            */
+
+            --animate-fade-in-scale: fade-in-scale 0.3s ease-out;
+            @keyframes fade-in-scale {
+                0% {opacity: 0; transform: scale(0.95);}
+                100% {opacity: 1; transform: scale(1);}
+            } /* don't add semicolon in back of this bracked */
+        }
+
+        .rectangle {
+            @apply bg-red-300 size-5 mt-1;
+        }
+
+        :root {--test:200px}
+        @theme inline {
+            --spacing-test: var(--test);
+            /* --width-test: var(--test); i dunno but also can */
+        }
+
+        /* don't really know use of it */
+        @theme static {
+            --color-wow-nothin: lightgreen;
+        }
+
+    </style>
+
+    <div class="bg-wow-nothin text-wow-nothin-0">wow</div>
+    <div style="color: var(--color-wow-nothin-0)">wow</div> <!-- to work --color must declared in class first -->
+    <div class="text-(--color-wow-nothin-0)">wow</div>
+
+    <!-- not in theme directive -->
+    <div class="text-(--color-red-300)">wow</div>
+
+    <div class="font-poppins text-2xl">font</div>
+
+    <div class="animate-fade-in-scale">real</div>
+    <div class="rectangle w-test!"></div>
+</html>

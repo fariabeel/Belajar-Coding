@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+/*sub-Chapter Background Images*/
+
+body {
+background-image: url('https://i.pinimg.com/736x/79/cc/e4/79cce49c5493b2c0a4fe79351fe1459a.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+</style>
+<body>
+
+<!-- Sub-Chapter Images -->
+
+<!-- Alt is use for shown text if browser slow -->
+
+<style>
+    
+#demo {width: 250px}
+
+</style>
+
+<img id="demo" src="https://i.pinimg.com/736x/cc/fe/af/ccfeaff53e2fada3120942721cfab185.jpg" width="5000000px">
+<!-- width not executed. already in style element --> <br>
+<!-- style is more higher but width don't in hierarchy-->
+
+
+<img src="https://i.pinimg.com/originals/fd/17/51/fd175129e200299ec0dba35fcffd87fc.gif">
+
+<a href="https://myanimelist.net" target="_blank">
+<img src="https://i.pinimg.com/originals/d6/e4/95/d6e4956bd479d6b0d08eeb8971ee3b05.gif" height="250px">
+</a> <br>
+
+<!-- Sub-Chapter Image Map -->
+
+<p>
+<img src="https://i.pinimg.com/736x/96/a2/23/96a2235070ec8ccdbf61eab4e326ccea.jpg" usemap="#workmap" height="800px">
+<img src="https://i.pinimg.com/736x/68/ae/6f/68ae6fdec139dfdd0c7209255cfecb48.jpg" usemap="#polymap" height="700px" style="float: right">
+</p>
+
+<map name="workmap">
+<area shape="circle" coords="195,180,30" href="https://chainsaw-man.fandom.com/wiki/Denji" target="_blank">
+<area shape="rect" coords="152,180,270,320" href="https://chainsaw-man.fandom.com/wiki/Denji" target="_blank">
+</map> <br>
+
+<map name="polymap">
+<area shape="poly" coords="300,55,250,55,250,140,259,140,190,240,190,350,210,350,240,240,240,680,310,680,350,200" href="https://chainsaw-man.fandom.com/wiki/Aki_Hayakawa" target="_blank">
+</map>
+
+<script>
+document.getElementById("demo").addEventListener('click',function(){alert("I'm Atomic!")})
+</script>
+
+<!-- Sub-Chapter Background Images -->
+<style>
+#img {
+background-image: url('https://i.pinimg.com/736x/05/23/30/052330373ca65f5db05970b384845861.jpg?w=0.346875&h=0.195');
+background-repeat: no-repeat;
+}
+
+</style>
+<p id="img"> Sasageyooo! </p>
+
+</body>
+</html>

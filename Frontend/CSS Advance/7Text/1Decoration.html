@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+#line{text-decoration-line:overline}
+#line1{text-decoration-line:line-through}
+#line2{text-decoration-line:underline}
+
+#line3{
+    text-decoration-line:overline line-through underline
+    /* can combine more than one value */
+}
+
+#color{
+    text-decoration-line: underline;
+    text-decoration-color: red;
+}
+
+#style{
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+}
+
+#style1{
+    text-decoration-color: red;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+}
+
+.thickness{text-decoration-line: underline}
+.thickness1{text-decoration-thickness: auto}
+.thickness2{text-decoration-thickness: 5px}
+.thickness3{text-decoration-thickness: 25%}
+
+#shorthand{
+    text-decoration: underline 2px green dotted
+    /* line required, other property optional */
+}
+
+</style>
+
+<p id="line">The quick brown fox jumped over the lazy dog</p>
+
+<p id="line1">The quick brown fox jumped over the lazy dog</p>
+
+<p id="line2">The quick brown fox jumped over the lazy dog</p>
+
+<p id="line3">The quick brown fox jumped over the lazy dog</p>
+
+<p id="color">color</p>
+
+<p id="style">style</p>
+<p id="style1">style1</p>
+
+<p class="thickness thickness1">thickness1</p>
+<p class="thickness thickness2">thickness2</p>
+<p class="thickness thickness3">thickness3</p>
+
+<p id="shorthand">shorthand</p>
+
+</html>

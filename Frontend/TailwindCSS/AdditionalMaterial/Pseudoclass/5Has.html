@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+h1:has(+ p) {color: red;}
+p:has(span) {color: blue}
+
+.div, .div0{border: 1px solid; margin: 0 500px 0 0}
+
+.div0:has(p):has(span) {color: green}
+
+.div:has(p):has(span) {color: green}
+.div:has(p) {color: green}
+.div:has(span) {color: green}
+.div:has(p,span) {color: green}
+
+
+</style>
+
+<h1>real</h1>
+<p>paragraph <span>has span</span></p>
+
+<div class="div0">
+    div0 with
+    <p>p</p>
+</div>
+
+<div class="div">
+    div with
+    <p>p</p>
+    <span>span</span>
+</div>
+
+
+</html>

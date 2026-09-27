@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.MediaQueries {font-size: 20px}
+.float {background: aquamarine; margin: 0; width: 50px}
+
+@media screen and (min-width: 800px) {
+    .MediaQueries {font-size: 50px}
+
+    .float {
+        float: left; 
+        font-size: 20px;
+        width: 70px
+    }
+    .float-end {float: none; display: inline-block}
+}
+
+.hidden {display: none}
+
+@media screen and (min-width: 219px) and (max-width: 220px), (min-width: 930px) {
+    .hidden {display: block}
+}
+
+</style>
+
+<p class="MediaQueries">MediaQueries</p>
+<p class="float">float</p>
+<p class="float">float</p>
+<p class="float">float</p>
+<p class="float float-end">float</p>
+<p class="hidden">hidden</p>
+
+</html>

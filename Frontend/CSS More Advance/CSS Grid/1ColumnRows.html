@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: rgb(212, 212, 212);
+}
+div div{background: aquamarine}
+
+.column-gap {column-gap: 50px}
+.row-gap {row-gap: 12px}
+.gap-shorthand {gap: 5px 5px} /* row, column */
+.gap-shorthand-one-value {gap: 5px}
+
+.gap {gap: 5px}
+.grid-column-start-and-end { /* attribute for child */
+    grid-column-start: 1; /* start at column line 1 */
+    grid-column-end: 3 /* ends at column line 3 */
+}
+.grid-column-start-end-shorthand {grid-column: 1/span 2} 
+/* start at line 1, span 2 columns */
+
+.grid-row-start-end { /* attribute for child */
+    grid-row-start: 1; /* start at row line 1 */
+    grid-row-end: 3 /* end at row line 3 */
+}
+.grid-row-start-end-shorthand {grid-row: 1/ span 2}
+
+</style>
+
+column-gap
+<div class="grid column-gap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div>
+
+row-gap
+<div class="grid row-gap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div>
+
+gap-shorthand
+<div class="grid gap-shorthand">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div>
+
+gap-shorthand-one-value
+<div class="grid gap-shorthand-one-value">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div><br><br>
+
+grid-column-start-and-end
+<div class="grid gap">
+    <div class="item grid-column-start-and-end">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div>
+
+grid-column-start-end-shorthand
+<div class="grid gap">
+    <div class="item grid-column-start-end-shorthand">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div><br><br>
+
+grid-row-start-end
+<div class="grid gap">
+    <div class="item grid-row-start-end">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div>
+
+grid-row-start-end-shorthand
+<div class="grid gap">
+    <div class="item grid-row-start-end-shorthand">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div>
+
+</html>

@@ -1,0 +1,3 @@
+-- delete from customers where city = 'Lirdaz'
+-- delete from customers -- don't try it
+-- drop table customers

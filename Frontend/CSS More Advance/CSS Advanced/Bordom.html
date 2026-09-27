@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+@font-face {
+    font-family: anjay;
+    src: url(RubikGlitch-Regular.ttf);
+}
+
+#demo {
+    font-family: anjay;
+    color: white;
+    background: rgb(145, 145, 145);
+    text-align: center;
+    border: 1px solid black;
+}
+
+</style>
+
+<p id="demo">a</p>
+
+<script>
+a='stairjmvn'
+document.getElementById("demo").addEventListener("mouseover", function() {document.getElementById("demo").innerHTML=`${(a[5]+a[2]+a[7]+a[3]+" "+a[4]+a[2]+a[5]+a[2]+" "+a[0]+a[6]+a[2]+a[8]+a[1]+a[2]+a[0]+a[0]).toUpperCase()}`})
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+p:hover::after {
+    content:" data id is " attr(data-id);
+}
+
+</style>
+
+<p data-id="real" id="data-saved">Hover It!</p>
+
+<output id="output"></output>
+
+<script>
+
+const p = document.querySelector("#data-saved")
+
+output = p.dataset.id
+
+document.querySelector("#output").innerHTML = output
+
+
+</script>
+
+</html>

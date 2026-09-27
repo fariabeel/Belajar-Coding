@@ -1,0 +1,21 @@
+.demo {
+    background: rgba(0, 0, 0, 0.089);
+    ul {
+        list-style-type: none;
+        li {
+            display: inline
+        }
+    }
+}
+
+.font {
+    font: { // nesting same prefix
+        family: arial; // font-family
+        size: 40px // font-size
+    }
+
+    text: {
+        align: center;
+        transform: uppercase
+    }
+}

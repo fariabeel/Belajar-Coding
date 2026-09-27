@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.ul li:nth-of-type(even) { 
+    background: lightgreen
+}
+
+.ul-dd li:nth-of-type(even) { 
+    background: lightgreen
+}
+
+.B li:nth-of-type(3) { background: lightblue }
+.An li:nth-of-type(2n) { background: lightblue }
+.An-plus-B li:nth-of-type(-n+3) { background: lightblue }
+.classes li.li:nth-of-type(even) { background: lightblue }
+
+
+
+</style>
+
+<ul class="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+
+<ul class="ul-dd">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <dd>didn't count</dd>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+<ul class="B">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+
+<ul class="An">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+
+<ul class="An-plus-B">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+
+<ul class="classes">
+    <li class="li">1</li>
+    <li>2</li>
+    <li class="li">3</li>
+    <li class="li">4</li>
+</ul>
+
+</html>

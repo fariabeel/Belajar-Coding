@@ -1,0 +1,33 @@
+// Hyphens(-) and underscores(_) are considered to be the same
+
+@mixin background_0 { // naming with background-0 have no different
+    background: coral
+}
+
+@mixin width {width: 100px; font-size: 20px}
+@mixin arguments($content, $color: lightgreen) {
+    // $color: _default value_
+     :after{
+        content: $content;
+        color: $color
+    }
+}
+
+@mixin arguments0($content, $color: lightgreen) {
+    :after {
+        content: $content;
+        color: $color
+    }
+}
+
+.mixin {
+    @include background-0; // cuzz - and _ considered same
+    color: white;
+    @include width;
+    @include arguments(' wow', yellow)
+}
+
+.mixin0 {
+    @include arguments0($color: yellow, $content: " anjay")
+    // $color: yellow, " anjay" cannot. instead " anjay", yellow
+}

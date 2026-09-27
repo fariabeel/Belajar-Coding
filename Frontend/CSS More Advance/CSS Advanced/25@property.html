@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+@property --color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: coral
+}
+
+.property {color: var(--color)}
+
+.container {background-color: var(--color)}
+.override {--color: aquamarine} /* container's child */
+.fallbacks {--color: 2222} /* not valid */
+
+.inherit {background: var(--color)}
+.parent {--color: aquamarine}
+
+@property --not-inherit-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: coral
+}
+
+.not-inherit {background: var(--not-inherit-color)}
+.parent0 {--not-inherit-color: aquamarine}
+
+@property --startColor {
+  syntax: "<color>";
+  initial-value: #EADEDB;
+  inherits: false;
+}
+
+@property --endColor {
+  syntax: "<color>";
+  initial-value: #BC70A4;
+  inherits: false;
+}
+
+.ex1 {
+  background: linear-gradient(var(--startColor), var(--endColor));
+  animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+  0%,
+  100% {
+    --startColor: #EADEDB;
+    --endColor: #BC70A4;
+  }
+  50% {
+    --startColor: #BC70A4;
+    --endColor: #BFD641;
+  }
+}
+
+#animation-gradient {height: 200px;}
+
+</style>
+
+<p class="property">property</p>
+
+<div class="container">
+    <p class="container override">override</p>
+    <p class="container fallbacks">fallbacks</p>
+</div>
+
+<div class="inherit parent">
+    inherit parent 
+    <p class="inherit child">inherit child</p>
+    </div>
+
+<div class="not-inherit parent0">
+    not-inherit parent
+    <p class="not-inherit child0">not-inherit child</p>
+</div>
+
+animation-gradient
+<div id="animation-gradient" class="ex1"></div>
+
+</html>

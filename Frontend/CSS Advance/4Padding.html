@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    #div0{
+        border: 1px solid black;
+        background: lightblue;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 250px;
+        padding-right: 10px;
+/*
+Padding is used to create space around an element's content, inside of any defined borders.
+*/
+    }
+
+    #div{
+        border: 1px solid black;
+        padding: 5px 0 5px 50%;
+        background: lightblue;
+    }
+
+    #div1{
+        border: 1px solid black;
+        padding: 30px;
+        background: lightblue;
+    }
+
+    #border-box{
+        background: lightblue;
+        width: 300px;
+        padding: 5px;
+        /* width will be 305 becuzz padding */
+    }
+
+</style>
+
+<div id="div0">div0</div> <br>
+
+<div id="div">div</div> <br>
+
+<div id="div1">div1</div> <br>
+
+<div style="width: 300px; background: lightblue;border-bottom:1px solid">300px width</div>
+<div id="border-box">without border-box</div> <br>
+
+<div style="width: 300px; background: lightblue;border-bottom:1px solid">300px width</div>
+<div id="border-box" style="box-sizing: border-box;">with border-box</div>
+
+
+
+</html>

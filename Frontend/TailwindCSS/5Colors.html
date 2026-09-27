@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @import "tailwindcss";
+        @custom-variant dark (&:where([theme="dark"],[theme="dark"] *));
+        @theme {
+            --spacing-w:40%;
+
+            /* removing fuchsia color but funcsia still */
+            --color-fuchsia-*: initial;
+        }
+
+        .different {
+            color: var(--color-green-300);
+        }
+
+        .nice {
+            color: --alpha(var(--color-emerald-500) / 60%)
+        }
+    </style>
+    <!-- the lowest 50 the highest 950 -->
+    <div class="bg-red-400">
+        <div class="text-white">real</div>
+        <div class="text-white/40">real</div>
+        <div class="text-white/(--spacing-w)">real</div>
+        <div class="text-white/[40%]">real</div>
+        <div class="different">wow</div>
+    </div>
+
+    <div class="nice">nice</div>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+#box{
+    float: left;
+    padding: 50px;
+    width: 33.33%;
+    box-sizing: border-box;
+}
+
+/* 
+You can easily create three floating boxes side by side. However, when you add something that enlarges the width of each box (e.g. padding or borders), the box will break. The box-sizing property allows us to include the padding and border in the box's total width (and height), making sure that the padding stays inside of the box and that it does not break. 
+
+you learned how to float boxes side by side with an equal width. However, it is not easy to create floating boxes with equal heights. A quick fix however, is to set a fixed height, like in the example below
+*/
+
+#box1 /* box 1 and box 2 */ {
+  float: left;
+  width: 50%;
+  padding: 50px;
+  height: 300px;
+  box-sizing: border-box;
+}
+
+#clearfix{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* 
+However, this is not very flexible. It is ok if you can guarantee that the boxes will always have the same amount of content in them. But many times, the content is not the same. If you try the example above on a mobile phone, you will see that the second box's content will be displayed outside of the box. This is where CSS3 Flexbox comes in handy - as it can automatically stretch boxes to be as long as the longest box
+*/
+
+.flex-div {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: DodgerBlue;
+}
+
+.flex-box {
+  background-color: #f1f1f1;
+  width: 50%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+</style>
+
+<p id="box" style="background-color:#bbb">box</p>
+<p id="box" style="background-color:#ccc">box</p>
+<p id="box" style="background-color:#ddd">box</p>
+
+<div id="clearfix">
+    <div id="box1" style="background-color:#bbb">
+        <h2>box 1</h2>
+        <p>some content, some content, some content</p>
+    </div>
+    <div id="box1" style="background-color:#ccc">
+        <h2>box 2</h2>
+        <p>some content, some content, some content</p>
+        <p>some content, some content, some content</p>
+        <p>some content, some content, some content</p>
+    </div>
+</div> <br>
+
+<div class="flex-div">
+    <div class="flex-box">Box 1 - This is some text to make sure that the content gets really tall. This is some text to make sure that the content gets really tall.</div>
+    <div class="flex-box">Box 2 - My height will follow Box 1.</div>
+</div>
+
+</html>

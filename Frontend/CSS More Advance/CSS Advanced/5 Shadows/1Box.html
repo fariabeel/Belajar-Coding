@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+/* default color of the shadow is the current text-color. */
+
+html {
+    height: 900px
+}
+
+p{
+    background: coral;
+    width: 200px;
+    height: 100px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+}
+
+.shadow {box-shadow: 10px 10px}
+.shadow-color {box-shadow: 10px 10px lightgreen}
+.blur {box-shadow: 10px 10px 5px lightgreen}
+.spread-radius {box-shadow: 10px 10px 5px 12px lightgreen}
+.spread-radius-decrease {box-shadow: 10px 10px 5px -3px lightgreen}
+
+.inset {
+    box-shadow: 10px 10px inset; /* inner shadow */
+    padding: 10px 0 0 15px; 
+    box-sizing: border-box
+}
+
+.multiple {
+    background: none;
+    border: 1px solid;
+    box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
+    display: block;
+    margin: auto;
+}
+
+div.card {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin: auto
+}
+
+div.header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 40px;
+}
+
+div.container {
+  padding: 10px;
+}
+
+</style>
+
+<p class="shadow">shadow</p>
+<p class="shadow-color">shadow-color</p>
+<p class="blur">blur</p>
+<p class="spread-radius">spread-radius</p>
+<p class="spread-radius-decrease">spread-radius-decrease</p>
+<p class="inset">inset</p>
+<p class="multiple">multiple</p> <br> <br>
+
+<div class="card">
+  <div class="header">
+    <h1>1</h1>
+  </div>
+
+  <div class="container">
+    <j>January 1, 2021</j>
+  </div>
+</div>
+
+</html> 

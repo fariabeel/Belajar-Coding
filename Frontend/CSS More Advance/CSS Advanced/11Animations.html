@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+html{height: 1200px}
+
+/* just copy to other document if confuse */
+
+@keyframes keyframes {from {background: none} to {background: red}}
+
+#keyframes {
+    animation-name: keyframes; 
+    animation-duration: 2s;
+    background: lightgreen
+}
+
+@keyframes percentage {
+    0% {background: none}
+    12.5% {background: lightgoldenrodyellow}
+    25% {background: lightcoral}
+    37.5% {background: lightsalmon}
+    50% {background: lightgreen}
+    62.5% {background: lightslategray}
+    75% {background: aquamarine}
+    87.5% {background: lightyellow}
+    100% {background: none}
+}
+
+.percentage {
+    animation-name: percentage;
+    animation-duration: 3.5s;
+}
+
+@keyframes relative {
+    0% {background: none; top: 0; left: 0;}
+    25% {background: lightcoral; top: 0px; left: 100px}
+    50% {background: lightgreen; top: 100px; left: 100px}
+    75% {background: aquamarine; top: 100px; left: 0px}
+    100% {background: none; top: 0px; left: 0px}
+}
+
+.short{
+    background: none;
+    height: 50px;
+    width: 60px;
+    box-sizing: border-box;
+    padding-top: 13px;
+    text-align: center;
+    position: relative;
+    animation-duration: 2s;
+    animation-name: forwards-backwards
+}
+
+.relative {animation-name: relative}
+.delayed {animation-delay: 0.2s;animation-name: relative}
+
+.negative-delay {
+    animation-duration: 4s;
+    animation-delay: -2s;
+    animation-name: relative
+}
+
+@keyframes forwards-backwards
+{
+    0% {left: 0px; background: none}
+    50% {left: 100px; background: lightgreen}
+    100% {left: 0px; background: none}
+}
+
+.iteration {animation-iteration-count: 3}
+.infinite {animation-iteration-count: infinite}
+
+.short0{
+    background: none;
+    height: 50px;
+    width: 60px;
+    box-sizing: border-box;
+    padding-top: 13px;
+    text-align: center;
+    position: relative;
+    animation-duration: 2s;
+    animation-name: relative
+}
+
+.iteration0{animation-iteration-count: 2}
+.reverse {animation-direction: reverse} /* normal value is default */
+.alternate {animation-direction: alternate}
+.alternate-reverse {animation-direction: alternate-reverse}
+
+.timing-function {animation-timing-function: ease}
+/* 
+The animation-timing-function property can have the following values:
+
+ease - Specifies an animation with a slow start, then fast, then end slowly (this is default)
+linear - Specifies an animation with the same speed from start to end
+ease-in - Specifies an animation with a slow start
+ease-out - Specifies an animation with a slow end
+ease-in-out - Specifies an animation with a slow start and end
+cubic-bezier(n,n,n,n) - Lets you define your own values in a cubic-bezier function
+*/
+
+@keyframes forwards-backwards0
+{
+    0% {left: 0px; background: aquamarine}
+    100% {left: 100px; background: lightsalmon}
+}
+
+@keyframes forwards-backwards1
+{
+    0% {left: 0px; background: aquamarine}
+    100% {left: 100px}
+}
+.short1{
+    height: 50px;
+    width: 60px;
+    box-sizing: border-box;
+    padding-top: 13px;
+    text-align: center;
+    position: relative;
+    animation-duration: 2s;
+    animation-name: forwards-backwards0;
+}
+
+.forwards {
+    animation-fill-mode: forwards; 
+    background: lightsalmon;
+    animation-name: forwards-backwards1;
+    animation-delay: 1s;
+}
+
+.backwards {
+    animation-fill-mode: backwards; 
+    background: lightsalmon;
+    animation-name: forwards-backwards1;
+    animation-delay: 1s;
+}
+
+.both {
+    animation-fill-mode: both; 
+    background: lightsalmon;
+    animation-name: forwards-backwards1;
+    animation-delay: 1s;
+}
+
+@keyframes shorthand{
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+
+.shorthand{
+    height: 50px;
+    width: 60px;
+    position: relative;
+    animation: shorthand 3s infinite alternate linear 2s
+    /* name, duration, iteration, direction, timing, delay */
+}
+
+</style>
+
+<p id="keyframes">keyframes</p>
+<p class="percentage">percentage</p>
+<p class="relative short">relative</p>
+<p class="delayed short">delayed</p>
+<p class="negative-delay short">negative-delay</p>
+<p class="iteration short">iteration</p>
+<p class="infinite short">infinite</p>
+
+<p class="relative short">normal</p>
+<p class="reverse short0">reverse</p>
+<p class="alternate short0 iteration0">alternate</p>
+<p class="alternate-reverse short0 iteration0">alternate-reverse</p>
+
+<p class="timing-function short">timing-function</p>
+<p class="forwards short1">forwards</p>
+<p class="backwards short1">backwards</p> 
+<p class="both short1">both</p>
+
+<p class="shorthand">shorthand</p>
+</html>

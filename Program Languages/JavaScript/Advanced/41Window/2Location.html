@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+<button>button</button>sdsd
+
+<script>
+
+document.getElementById("demo").innerHTML = `
+${window.location.href} <br>
+${location.href} <br>
+${location.hostname} <br>
+${location.pathname} <br>
+${location.protocol} <br>
+${location.port} <br>
+`
+button = document.getElementsByTagName("button")[0]
+button.addEventListener("click",function() {
+    location.assign("0Window.html")
+})
+
+</script>
+</html>

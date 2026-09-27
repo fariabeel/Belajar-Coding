@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<button id="regButton">RegFunc</button>
+<button id="arrButton">ArrFunc</button>
+<p id="demo"></p>
+
+<script>
+
+function regFunc() {
+    document.getElementById("demo").innerHTML += this + "<br>"
+    // this represents the object that calls the func
+}
+let arrFunc = () => {
+    document.getElementById("demo").innerHTML += this + "<br>"
+    // this represents the owner calls the func
+}
+window.addEventListener("load",regFunc)
+window.addEventListener("load",arrFunc)
+
+let element = e => document.getElementById(e)
+
+element("regButton").addEventListener("click",regFunc)
+element("arrButton").addEventListener("click",arrFunc)
+
+element("demo")
+
+</script>
+
+</html>

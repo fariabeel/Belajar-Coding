@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demos"></p>
+
+<script>
+
+let el = document.getElementById("demos")
+
+// automatic convert
+el.innerHTML = 
+`
+${{word: "real"}} <br>
+${[1,2,3]} <br>
+${new Date()} <br>
+${123} <br>
+${true} <br>
+${false}
+`
+</script>
+
+</html>

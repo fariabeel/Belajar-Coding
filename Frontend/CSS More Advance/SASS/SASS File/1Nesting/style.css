@@ -1,0 +1,16 @@
+.demo {
+  background: rgba(0, 0, 0, 0.089);
+}
+.demo ul {
+  list-style-type: none;
+}
+.demo ul li {
+  display: inline;
+}
+
+.font {
+  font-family: arial;
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.div {
+    border-bottom: 1px dotted black;
+    display: inline-block;
+}
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    background: white;
+    color: white;
+    left: 60px;
+    width: 50px;
+    text-align: center;
+    height: 26px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding-top: 3px;
+    transition: background 1s, visibility 1s
+}
+
+/* arrow */
+.tooltip::before {
+    content: '';
+    border: 9px solid;
+    border-color: transparent white transparent transparent;
+    position: absolute;
+    right: 47px;
+    top: 4px;
+    transition: border 1s, visibility 1s;
+}
+
+.div:hover .tooltip {
+    visibility: visible; 
+    background: black;
+}
+.div:hover .tooltip::before {
+    visibility: visible; 
+    border-color: transparent black transparent transparent;
+}
+
+/* sample */
+.arrow {
+    border: 10px solid;
+    border-color: green yellow red blue;
+    position: absolute;
+}
+
+</style>
+
+<div class="div"> hover
+    <span class="tooltip">tooltip</span>
+</div> <br> <br>
+
+<span class="arrow"></span>
+<br>
+<br>
+<br><br><br>
+<p style="
+border: 100px solid;
+border-color: red transparent transparent transparent;
+display: inline
+"></p>
+
+</html>

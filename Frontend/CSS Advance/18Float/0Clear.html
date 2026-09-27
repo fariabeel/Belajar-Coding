@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+#float{float: left;}
+#with-clear{clear: left;}
+
+/* 
+clear property values:
+none
+left
+right
+both
+inherit
+*/
+
+.div{
+    border: 3px solid #4CAF50;
+    padding: 5px
+}
+#img{float: right}
+#clearfix{overflow: auto}
+
+#modern-clearfix::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+</style>
+
+<p id="float">without clear</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sequi placeat ex rem temporibus reiciendis, quaerat quia ullam quis obcaecati quae delectus ab consequatur aliquid aut dolore laudantium ut nisi!</p>
+
+<p id="float">with clear</p>
+<p id="with-clear">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta veritatis ipsa cum quia aperiam nisi amet sapiente sed molestias est fugit cumque corporis, quos provident consequuntur? Magni a quisquam rem.</p>
+
+<p>without clearfix</p>
+<div class="div">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit fugit quis, modi architecto distinctio ut et, praesentium iste adipisci enim consequatur ratione consectetur voluptatum placeat aliquid omnis repudiandae! Mollitia, eligendi? <img src="../sqpurple.gif" width="100" id="img"></div>
+
+<p style="clear:right">with clearfix</p>
+<div id="clearfix" class="div">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit fugit quis, modi architecto distinctio ut et, praesentium iste adipisci enim consequatur ratione consectetur voluptatum placeat aliquid omnis repudiandae! Mollitia, eligendi? <img src="../sqpurple.gif" width="100" id="img"></div>
+
+<p style="clear:right">modern clearfix</p>
+<div id="modern-clearfix" class="div">this clearfix safer to use <img src="../sqpurple.gif" width="100" id="img"></div>
+
+</html>

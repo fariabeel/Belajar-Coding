@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<!--
+The HTML <form> element can contain one or 
+more of the following form elements that 
+explained in material subject
+-->
+
+<label>Radio</label>
+<input type="radio" name="a">
+
+<label for="radio">Radio</label> 
+<input id="radio" name="a" type="radio"> <br>
+Click the label
+<br> <br>
+
+<label for="select">Select:</label> <br>
+<select id="select" name="select" size="2" multiple>
+ <option value="0">0</option>
+ <option value="0">1</option>
+ <option value="0">2</option>
+ <option value="0">3</option>
+ <option value="0">4</option>
+ <option value="0">5</option>
+ <option value="0">6</option>
+</select> <br>
+hold Ctrl to pick double
+<br><br>
+
+<fieldset>
+ <legend>Title</legend>
+ <input type="text">
+</fieldset> <br> <br>
+
+<input list="wow">
+<datalist id="wow">
+ <option value="0">
+ <option value="1">
+ <option value="2">
+</datalist> <br> <br>
+
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+0
+<input type="range" id="a" name="a" value="50">
+100 +
+<input type="number" id="b" name="b" value="50">
+=
+<output name="x" for="a b">P.Diddy</output>
+</form>
+
+</html>

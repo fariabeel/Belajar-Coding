@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+p{padding: 5px;}
+
+#calc{
+    background-color: coral;
+    width: 500px;
+}
+
+#calc0{ /* calculating between two values or more */
+    background-color: coral;
+    width: calc(510px - 500px + 100px);
+}
+
+#max{ /* choose the biggest */
+    background-color: coral;
+    width: max(100px, 500px)
+}
+
+#max0{
+    background-color: coral;
+    width: max(10px, 100px)
+}
+
+#min{ /* choose the smallest */
+    background-color: coral;
+    width: min(10000px, 500px, 250px)
+}
+
+#min0{
+    background-color: coral;
+    width: min(10px, 100px, 3000px)
+}
+
+</style>
+
+<p id="calc">calc</p>
+<p id="calc0">calc0</p>
+<p id="max">max</p>
+<p id="max0">max0</p>
+<p id="min">min</p>
+<p id="min0">min0</p>
+
+</html>

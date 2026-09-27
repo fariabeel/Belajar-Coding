@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<!-- syntax: var(--name, value(fallbacks)) -->
+<style>
+
+*{margin-bottom: 5px}
+
+:root {
+    --wow: lightgreen;
+    --width: 100px;
+    --height: 40px
+}
+
+.var {
+    /* overrided by mediaQueries */
+    background: var(--wow);
+    width: var(--width);
+    height: var(--height)
+}
+
+.override {
+    --wow: aquamarine; /* actually local override */
+    background: var(--wow)
+}
+
+.adding-local-variable {
+    --local-variable: lightblue;
+    background: var(--local-variable);
+}
+
+.mediaQueries {--font-size: 100px}
+.mediaQueries {font-size: var(--font-size)}
+
+@media screen and (max-width: 600px) {
+    .mediaQueries {font-size: 50px}
+    :root {--wow: coral}
+}
+
+</style>
+
+<div class="var">var</div>
+<div class="override">override</div>
+<div class="adding-local-variable">adding-local-variable</div>
+<div style="background: var(--wow)">real</div>
+
+<div class="mediaQueries">mediaQueries</div>
+
+<script>
+    var r = document.querySelector(':root')
+    var rs = getComputedStyle(r)
+    button = () => alert(rs.getPropertyValue('--wow'))
+</script>
+
+<button onclick="button()">get --wow value</button>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+/* learn alignment */
+
+#margin{
+    border: 3px solid #73AD21;
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+    /* 
+    Center aligning has no effect if the width property is not set (or set to 100%). 
+    */
+    text-align: center;
+}
+
+img{
+    margin: auto;
+    display: block;
+    /* 
+    To center an image, set left and right margin to auto, and make it into a block element. 
+    */
+}
+
+#absolute{
+    position: absolute;
+    right: 0px;
+    text-align: center;
+}
+
+#padding{
+    margin-top: 170px;
+    border: 3px solid #73AD21;
+    padding: 30px;
+    text-align: center;  
+}
+
+#line-height{
+    line-height: 200px;
+    height: 200px;
+    border: 3px solid #73AD21;
+    text-align: center;
+}
+
+#line-height p {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#transform{
+    height: 80px;
+    position: relative;
+    border: 3px solid #73AD21; 
+}
+
+#transform p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  border: 3px solid #73AD21; 
+}
+
+</style>
+
+<p id="margin">margin</p>
+<img src="Shinzou.png" width="100">
+
+<p id="absolute">absolute cinema 
+    <img src="https://pbs.twimg.com/media/GOSgHIcWgAAg8Mb.jpg" width="150">
+</p>
+
+<p id="padding">padding</p>
+
+<div id="line-height">
+    <p>line-height</p>
+</div> <br>
+
+<div id="transform">
+    <p>transform</p>
+</div> <br>
+
+<div id="flex">
+    <p>flex</p>
+</div>
+
+<!-- open the 18th file -->
+</html>

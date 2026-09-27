@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="overflow-x-hidden w-[100%]">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+    @import "tailwindcss";
+
+    @custom-variant fuchsia (&:where(.fuchsia));
+
+    .demo {
+        @variant fuchsia {
+            @apply bg-fuchsia-400
+        }
+        color: aquamarine;
+    }
+    
+</style>
+
+<p class="demo fuchsia">real</p>
+</html>

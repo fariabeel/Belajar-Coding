@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+/* 
+selector::pseudo-element { property: value;} 
+A CSS pseudo-element is used to style specific parts of an element.
+*/
+
+.firstline::first-line {color: blue}
+/* 
+can only be applied to block-level elements.
+properties apply to the ::first-line pseudo-element:
+
+font properties
+color properties
+background properties
+word-spacing
+letter-spacing
+text-decoration
+vertical-align
+text-transform
+line-height
+clear 
+
+The single-colon syntax was used for both pseudo-classes and pseudo-elements in CSS2 and CSS1.
+*/
+
+.firstletter::first-letter {font-size: xx-large}
+/* 
+::first-letter pseudo-element can only be applied to block-level elements.
+The following properties apply to the ::first-letter pseudo- element: 
+
+font properties
+color properties 
+background properties
+margin properties
+padding properties
+border properties
+text-decoration
+vertical-align (only if "float" is "none")
+text-transform
+line-height
+float
+clear 
+*/
+p#firstletter0::first-letter {font-size: xx-large}
+
+.before::before {content: url("sqpurple.gif") " "}
+.after::after {content: " " url("sqpurple.gif")}
+
+::selection {color: red; background-color: yellow}
+/* select some text to know selection */
+
+.opacity{opacity: 0.5}
+.opacity-hover:hover{opacity:1}
+.opacity-hover0:hover{opacity: 0.5}
+
+#transparent-box {
+    border: 1px solid; 
+    background-color: yellow; 
+    opacity: 0.5
+}
+
+</style>
+
+<p class="firstline">first line <br> second line</p>
+<p class="firstletter">First letter</p>
+<div style="border: 1px solid">
+    <p id="firstletter0">First </p>letter 
+    <p id="firstletter0">First </p>letter
+</div>
+
+<p class="firstline firstletter"> First line <br> Second line <br> Third line </p>
+
+<p class="before after">before and after</p>
+
+<ul>
+    <li>affect by marker pseudo class</li>
+    <li>list</li>
+</ul>
+
+<ol>
+    <li>list</li>
+    <li>list</li>
+</ol>
+
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWZjd3Awd3phOHMyZXdmcmZjd3poZGRsYzc1cmR6MmdqY2Vid284cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ENOgXeHxaYK2Xjumie/giphy.gif" class="opacity" height="145">
+<img src="https://media.tenor.com/Iyw1GGH8azUAAAAe/absolute-cinema.png" class="opacity opacity-hover" height="145">
+<img src="https://media.tenor.com/O5lKQSRbsL0AAAAe/ girls-und-panzer-absolute-cinema.png" class="opacity-hover0"  height="145" >
+
+<div id="transparent-box">
+    <p>transparent</p>
+</div>
+
+</html>

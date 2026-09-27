@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<input id="data" type="number" min="10" max="500">
+<button onclick="Validation()">ok</button>
+<p id="demo">-</p>
+
+<input type="number" id="data0" min="10" max="500" required>
+<button onclick="Validation0()">ok</button>
+<p id="demos">-</p>
+
+<script>
+
+function Validation() {
+    const inp = document.getElementById("data")
+    if (!inp.checkValidity()) {
+        document.getElementById("demo").innerHTML = inp.validationMessage
+    } else {
+        document.getElementById("demo").innerHTML = "input is ok"
+    }
+}
+
+function Validation0() {
+    let elem = document.getElementById("demos")
+    let validateElem = document.getElementById("data0")
+
+    if (validateElem.validity.rangeOverflow) {
+        elem.innerHTML = "too large"
+    } 
+    if (validateElem.validity.rangeUnderflow) {
+        elem.innerHTML = "too small"
+    } else {
+        elem.innerHTML = "input is ok"
+    }
+    
+}
+
+</script>
+</html>

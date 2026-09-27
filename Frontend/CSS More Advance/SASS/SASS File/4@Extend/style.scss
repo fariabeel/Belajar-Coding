@@ -1,0 +1,12 @@
+.template-button {
+    width: 100px;
+    height: 40px;
+    background: coral;
+    border: none;
+    color: white;
+}
+
+.button1 {
+    @extend .template-button;
+    background: gray
+}

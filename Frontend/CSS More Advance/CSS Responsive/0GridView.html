@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+/* resize it */
+
+* {
+    box-sizing: border-box; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    'header header header header header' 
+    'menu main main main right' 
+    'footer footer footer  footer  footer';
+    height: 740px;
+}
+
+header {
+    display: flex;
+    grid-area: header;
+    background: purple;
+    color: white;
+    height: 60px;
+    font-size: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 10px 5px 10px;
+}
+
+.menu { /* don't use menu semantic element */
+    grid-area: menu;
+    margin: 5px;
+    margin-left: 10px;
+    padding: 10px;
+}
+.menu li {
+    background: #33b5e5;
+    color: white;
+    margin-bottom: 5px;
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    list-style-position: inside;
+    list-style-type: none;
+
+}
+.menu ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    grid-area: main;
+    margin: 5px;
+    padding: 10px
+}
+main h2 {
+    margin-bottom: 10px;
+    font-size: 30px
+}
+main p {margin-bottom: 10px}
+
+.right {
+    grid-area: right;
+    margin: 5px;
+    margin-right: 10px;
+    padding: 10px;
+    border: 2px solid #0099cc;
+    height: 200px
+}
+.right li {
+    background: none;
+    color: black;
+    list-style-type: disc;
+    list-style-position:outside;
+    margin-bottom: 20px;
+}
+.right h3 {
+    margin-bottom: 27px
+}
+
+footer {
+    grid-area: footer;
+    background: #0099cc;
+    color: white;
+    margin: 5px 10px 10px 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (orientation: portrait) {
+    .menu {display: none}
+    .grid-container {
+        grid-template-areas:
+        'header header header header header'
+        'main main main main main'
+        'right right right right right'
+        'footer footer footer footer footer'
+    }
+    header {grid-area: header}
+    main {grid-area: main}
+    .right {grid-area: right}
+    footer {grid-area: footer}
+}
+
+</style>
+
+<div class="grid-container">
+    <header>
+        Header
+    </header>
+    <div class="menu">
+        <ul>
+            <li>wow</li>
+            <li>wow</li>
+            <li>wow</li>
+        </ul>
+    </div>
+    <main>
+        <h2>Dawg</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Sunt fugiat sit nam eaque voluptatem nulla, saepe officia explicabo, corrupti ipsa voluptas</p>
+        <p>impedit voluptate harum odio, nobis iusto fugit dolorum Libero? lorem</p>
+    </main>
+    <div class="right">
+        <h3>Facts:</h3>
+        <ul>
+            <li>Lorem ipsum dolor sit amet consectetur</li>            
+            <li>Lorem ipsum dolor sit amet consectetur</li>            
+        </ul>
+    </div>
+    <footer>
+        footer
+    </footer>
+</div>
+
+</html>

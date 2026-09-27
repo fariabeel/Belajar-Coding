@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss"> 
+    ol, ul { margin-left: 25px } 
+
+    /* @custom-variant dark (&:where(.dark, .darkk *)); */
+    /* @custom-variant dark (&:where([data-theme="dark"],[data-theme="dark"] *)); */
+
+    @custom-variant customClass (&[data-ui~="mwehehe"]);
+
+    </style>
+
+    <div class="dark"> <div class="dark:bg-purple-800">reall</div> </div>
+<div class="darkk"> <div class="dark:bg-purple-800">real</div> </div>
+<div data-theme="dark"> <div class="dark:bg-purple-800">real</div> </div>
+
+<div class="opacity-60 contrast-more:opacity-100 contrast-less:opacity-30">a div with contrast-more</div>
+
+<p>there's a hidden elemen</p>
+<div class="hidden forced-colors:block">forced-color hidden elemen</div>
+<div class="not-forced-colors:hidden forced-colors:block">not forced colors but hidden</div>
+<br>
+
+<div class="bg-green-300 invert inverted-colors:bg-yellow-200">inverted color</div>
+<button class="bg-green-300 pointer-fine:w-100 pointer-coarse:w-20">button</button>
+
+<div class="any-pointer-coarse any-pointer-fine pointer-none any-pointer-none">what use of it?</div>
+<br>
+
+<div class="landscape:hidden">hidden in landscape</div>
+<div class="portrait:hidden">hidden in potrait</div>
+<div class="noscript:bg-red-300">if no scirpt bg implemented</div>
+<br>
+
+<div class="print:hidden">visible if not print</div>
+<div class="hidden print:block">visible in print</div>
+<br>
+
+<!-- specific value -->
+<div class="text-blue-300 supports-[color:red]:text-yellow-200">yellow if supported</div>
+<div class="not-supports-[background:real]:text-purple-400">if not support will be purple</div>
+
+<!-- just for unspecific value -->
+<div class="supports-flex:text-blue-300">if support will be blue</div>
+<div class="not-supports-drug:text-red-400">if not support will be red</div> <br> 
+
+ <button popovertarget="popover" class="bg-red-300 rounded-lg">popover button</button>
+<!-- :( -->
+<div popover id="popover" class="opacity-0 starting:open:opacity-0">it's popover</div> <br> <br>
+
+<div data-active class="data-active:bg-red-400 w-30">data actived</div>
+<div class="data-active:bg-yellow-400 w-30">not actived</div>
+<div data-wow class="data-wow:bg-purple-600 w-30">wow</div> <br>
+
+<div data-roar="wow" class="data-[roar=wow]:bg-green-400 w-30">data approved</div>
+<div data-roar="SorryYoureNotSigma" class="data-[roar=wow]:bg-green-400 bg-red-400 w-30">not approved</div>
+<div data-ui="mwehehe" class="customClass:underline">underlined</div> <br>
+
+  <div class="group ltr:ml-3 rtl:mr-3">
+    <p class="text-gray-700 group-hover:text-rose-500 ...">gg</p>
+    <p class="text-gray-500 group-hover:text-fuchsia-900 ...">gg</p>
+  </div>
+
+  <details class="open:bg-gray-200">
+    <summary>wow</summary>
+    summary default is "details"
+  </details>
+
+  <!-- popover will be in the top screen cuzz tailwind -->
+  <button popovertarget="secondPopover" class="bg-gray-400 rounded-lg">popover button</button>
+  <div popover id="secondPopover" class="opacity-0 open:opacity-100">it's second popover</div> <br> <br>
+
+  <div>
+    <span>Lorem ipsum dolor,</span>
+    <span inert class="inert:opacity-50">sit amet consectetur adipisicing elit. Obcaecati sequi quas voluptatem recusandae ipsa! Architecto cupiditate sapiente asperiores est, totam ex error blanditiis, deleniti doloribus quos ratione quaerat ab quia!</span>
+  </div> <br>
+
+  <div>
+    <h2>Categories</h2>
+    <!-- I don't know the difference use of * and ** -->
+    <ul class="
+    *:bg-blue-100 
+    **:rounded-full 
+    *:w-10 
+    **:text-center
+    *:text-blue-500
+    inline-grid grid-cols-3
+    *:data-real:bg-red-100
+    ">
+      <!-- child cannot -->
+      <li class="bg-red-300">1</li><li data-real>2</li><li>3</li><li>4</li><li>5</li>
+      <li>6</li>
+      
+    </ul>
+  </div>
+
+  <div class="[&_p]:bg-red-300 w-10 border-1 border-solid">
+    <p>real</p>
+    <br>
+    <p>real</p>
+  </div> <br>
+
+  <p class="[@supports(display:grid)]:bg-red-300 w-8">real</p>
+
+&nbsp;
+</html>

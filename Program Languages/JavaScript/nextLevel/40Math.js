@@ -1,0 +1,28 @@
+console.log(Math.PI)
+console.log(Math.E)
+console.log(Math.SQRT2)
+console.log(Math.SQRT1_2)
+console.log(Math.LN2)
+console.log(Math.LN10)
+console.log(Math.LOG2E)
+console.log(Math.LOG10E)
+
+console.log(Math.round(2.5))
+console.log(Math.ceil(2.1))
+console.log(Math.floor(2.9))
+console.log(Math.trunc(4.3)) // returns the integer part of arg
+
+console.log(Math.sign(4))
+console.log(Math.sign(-4))
+console.log(Math.sign(0))
+
+console.log(Math.pow(2, 25))
+console.log(Math.sqrt(64))
+console.log(Math.abs(-4.7))
+console.log(Math.sin(90 * Math.PI / 180))
+console.log(Math.cos(0 * Math.PI / 180))
+console.log(Math.min(54,3,5,43,454,234,234,23))
+console.log(Math.max(54,3,5,43,454,234,234,23))
+console.log(Math.log(2))
+console.log(Math.log2(33554432))
+console.log(Math.log10(10000))

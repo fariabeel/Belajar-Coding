@@ -1,0 +1,12 @@
+console.log(Number.EPSILON)
+console.log(Number.MAX_VALUE)
+console.log((6).MAX_VALUE) // undefined
+console.log(Number.MIN_VALUE)
+console.log(Number.MAX_SAFE_INTEGER)
+console.log(Number.MIN_SAFE_INTEGER)
+console.log(Number.POSITIVE_INFINITY)
+console.log(1 / 0)
+console.log(Number.NEGATIVE_INFINITY)
+console.log(-1 / 0)
+console.log(Number.NaN)
+console.log(1 - "wow")

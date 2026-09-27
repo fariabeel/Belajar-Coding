@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+html {
+    width: 510px; 
+    overflow-x: hidden; 
+    font-family: arial;
+    margin: auto
+}
+
+button{
+    width: 90px;
+    height: 40px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    margin-top: 5px
+}
+
+.green {background:#04AA6D; color: white}
+.blue {background:hsl(195, 100%, 36%); color: white}
+.red {background:#f44336; color: white}
+.grey {background:#e7e7e7; color: black}
+.black {background:#555555; color: white}
+
+.size {font-size: 10px}
+.size1 {font-size: 12px}
+.size2 {font-size: 16px}
+.size3 {font-size: 20px}
+.size4 {font-size: 24px}
+
+.rounded {border-radius: 2px}
+.rounded1 {border-radius: 4px}
+.rounded2 {border-radius: 8px}
+.rounded3 {border-radius: 12px}
+.rounded4 {border-radius: 50%}
+
+.border {border: 1px solid #04AA6D}
+.border1 {border: 1px solid #008CBA}
+.border2 {border: 1px solid #f44336}
+.border3 {border: 1px solid #e7e7e7}
+.border4 {border: 1px solid #555555}
+
+.hover:hover {border: 1px solid #04AA6D; background: white; color: black}
+
+.hover1:hover {border: 1px solid #008CBA; background: white; color: black}
+
+.hover2:hover {border: 1px solid #f44336; background: white; color: black}
+
+.hover3:hover {border: 1px solid #e7e7e7; background: white; color: black}
+
+.hover4:hover {border: 1px solid #555555; background: white; color: black}
+
+
+.hover0:hover {background: #04AA6D; border: none; color:white}
+.hover01:hover {background: #008CBA; border: none; color:white}
+.hover02:hover {background: #f44336; border: none; color:white}
+.hover03:hover {background: #e7e7e7; border: none; color:black}
+.hover04:hover {background: #555555; border: none; color:white}
+
+.button {
+    width: 232px;
+    background: #04AA6D;
+    color: white;
+}
+
+.shadow {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.shadow-hover {
+
+    transition: box-shadow 0.2s
+}
+
+.shadow-hover:hover {box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}
+
+.not-allowed {
+    cursor: not-allowed; 
+    opacity: 0.6; display: block;
+    width: 468px
+}
+
+.button-groups {
+    width: 117px;
+    background: #04AA6D;
+    color: white;
+}
+
+.group {float: left;}
+.group:hover {background: #008655}
+
+.bordered {
+    border: 1px solid black; 
+    border-collapse: collapse;
+    border-right: none;
+    margin-bottom: 6px
+}
+.borderright {border-right: 1px solid black}
+
+.vertical {display: block; margin: 0px auto}
+.vertical:hover {background: #008655}
+
+.centering{
+    width: 486px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.img {
+    background: url(
+    https://www.w3schools.com/css/img_lights.jpg) no-repeat;
+    width: 350px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.img-button {
+    width: 110px;
+    border-radius: 10px;
+    font-size: 15px
+}
+.img-button:hover {background: black; color: white}
+
+.double-angle {
+    background: #f4511e;
+    color: white;
+    width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+    float: left;
+    margin-top: 3px
+}
+
+.double-angle span:after {
+    content: "\00bb";
+    opacity: 0;
+    transition: all 0.1s;
+    position: absolute;
+    left: 120px
+}
+
+.double-angle span {transition: padding 0.3s}
+.double-angle:hover span {padding-right: 20px}
+.double-angle:hover span:after {left: 132px; opacity: 1}
+
+
+.fade {
+    background: #04AA6D;
+    color: white;
+    width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 30px;
+    transition: background 0.4s;
+    float: left;
+    margin-top: 3px
+}
+.fade:hover {background:#03945f}
+
+.ripple {
+    background: #04AA6D;
+    color: white;
+    width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    border-radius: 10px;
+    font-size: 30px;
+    transition-duration: 0.4s;
+    margin-top: 3px
+}
+.ripple:hover {background:#03945f}
+
+.ripple:after{
+    content: "";
+    background: white;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s;
+    border-radius: 10px;
+    padding: 50px 75px 50px 75px;
+}
+
+.ripple:active:after {
+    padding: 0;
+    opacity: 1;
+    transition: 0s;
+}
+
+.pressing-button {
+    background: #04AA6D;
+    color: white;
+    width: 150px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 25px;
+    box-shadow: 0 9px #999;
+    position: relative;
+    left: -149px;
+}
+
+.pressing-button:hover {background:#03945f}
+.pressing-button:active {
+    top: 4px;
+    box-shadow: 0 5px #999;
+}
+
+</style>
+
+<button class="green">green</button>
+<button class="blue">blue</button>
+<button class="red">red</button>
+<button class="grey">grey</button>
+<button class="black">black</button>
+
+<button class="green size">green</button>
+<button class="blue size1">blue</button>
+<button class="red size2">red</button>
+<button class="grey size3">grey</button>
+<button class="black size4">black</button>
+
+<button class="green rounded">green</button>
+<button class="blue rounded1">blue</button>
+<button class="red rounded2">red</button>
+<button class="grey rounded3">grey</button>
+<button class="black rounded4">black</button>
+
+<button class="border rounded3">green</button>
+<button class="border1 rounded3">blue</button>
+<button class="border2 rounded3">red</button>
+<button class="border3 rounded3">grey</button>
+<button class="border4 rounded3">black</button>
+
+<button class="green rounded3 hover">green</button>
+<button class="blue rounded3 hover1">blue</button>
+<button class="red rounded3 hover2">red</button>
+<button class="grey rounded3 hover3">grey</button>
+<button class="black rounded3 hover4">black</button>
+
+<button class="border rounded3 hover0">green</button>
+<button class="border1 rounded3 hover01">blue</button>
+<button class="border2 rounded3 hover02">red</button>
+<button class="border3 rounded3 hover03">grey</button>
+<button class="border4 rounded3 hover04">black</button>
+
+<button class="shadow button">shadow</button>
+<button class="shadow-hover button">shadow-hover</button>
+
+<button class="not-allowed button">not-allowed</button>
+
+<button class="group button-groups">button</button>
+<button class="group button-groups">button</button>
+<button class="group button-groups">button</button>
+<button class="group button-groups">button</button>
+
+<button class="group button-groups bordered">button</button>
+<button class="group button-groups bordered">button</button>
+<button class="group button-groups bordered">button</button>
+<button class="group button-groups bordered borderright">button</button>
+
+<button class="vertical button-groups">button</button>
+<button class="vertical button-groups">button</button>
+<button class="vertical button-groups">button</button>
+<button class="vertical button-groups">button</button>
+
+<span>
+    <div class="centering">
+        <div class="img">
+            <button class="img-button">button</button>
+        </div>
+    </div>
+</span>
+
+<p class="double-angle"><span>double-angle</span></p>
+<p class="fade">Fade</p>
+<div class="ripple">ripple</div>
+
+<p class="pressing-button">click</p>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    
+    <style>
+
+        .input:focus-visible {
+            background-color: yellow;
+        }
+
+        label { display: block }
+        label:focus-within {
+            font-weight: bold;
+        }
+
+        form {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        form:focus-within {
+            background-color: lightblue;
+        }</style>
+
+    </style>
+
+    <input type="text" class="input"> <br>
+    <label> wow <input type="text"></label>
+    <form>
+        <label for=""><input type="text"></label>
+    </form>
+    
+</html>

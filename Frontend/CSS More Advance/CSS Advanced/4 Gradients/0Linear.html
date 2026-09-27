@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+div{
+    height: 100px;
+    box-sizing: border-box;
+    padding-top: 35px;
+    text-align: center;
+    margin-bottom: 2px;
+}
+.default {
+    background-image: linear-gradient(rgb(139, 190, 173), rgb(133, 233, 133));}
+
+.to-right {
+    background-image: linear-gradient(to right,rgb(139, 190, 173), rgb(133, 233, 133));
+}
+
+.to-bottom-right {
+    background-image: linear-gradient(to bottom right,rgb(139, 190, 173), rgb(133, 233, 133), green);
+}
+
+.angles
+{
+    background-image: linear-gradient(180deg,rgb(139, 190, 173), rgb(133, 233, 133))
+}
+
+.rainbow {
+  background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+}
+
+.rgba {
+    background-image: linear-gradient(rgba(127, 255, 212, 0), aquamarine) /* transparent to opaque */
+}
+
+.repeat {
+    background-image: repeating-linear-gradient(90deg, rgba(127, 255, 212, 0) 0px, aquamarine 100px)
+}
+
+.stripes {
+  background-image: repeating-linear-gradient(45deg, aquamarine 0px, aquamarine 10px, white 10px, white 20px);
+}
+
+</style>
+
+<div class="default">top-bottom (default)</div>
+<div class="to-right">to-right</div>
+<div class="to-bottom-right">to-bottom-right</div>
+<div class="angles">angles</div>
+<div class="rainbow">rainbow</div>
+<div class="rgba">rgba</div>
+<div class="repeat">repeat</div>
+<div class="stripes">stripes</div>
+
+</html>

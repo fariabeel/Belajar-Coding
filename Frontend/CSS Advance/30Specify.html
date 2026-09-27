@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.p{color: blue} /* more higher */
+p {color: red}
+
+#span{color: green} /* more higher */
+.span{color: blue}
+span{color: red;}
+
+div{color: green !important;}
+div{color: blue !important;}
+</style>
+
+<p class="p">p with class p</p>
+<span id="span" class="span">span with id and class span</span>
+<br>
+
+<span id="span" class="span"
+style="color: coral"
+>span with id and class span</span> <br> <br>
+<!-- inline style more higher --> 
+ 
+<div>div</div> <br>
+
+ look at the specifity hierarchy for about hierarchy <br> <br>
+
+</html>

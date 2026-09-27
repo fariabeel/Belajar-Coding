@@ -1,0 +1,2 @@
+-- drop table if exists germanpersons;
+-- truncate table germanpersons;

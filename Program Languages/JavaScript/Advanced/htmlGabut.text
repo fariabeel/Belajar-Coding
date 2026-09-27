@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+    <input type="text" id="text">
+    <button id="save">save</button>
+    <button id="remove">remove</button>
+    <p id="demo"></p>
+
+<script src="MyLibraryGw.js"></script>
+<script type="module">
+elem('save').addEventListener('click',function() {
+    localStorage.setItem('data',elem('text').value)
+    Demo(localStorage.getItem('data'))
+})
+
+elem('remove').addEventListener('click',function() {
+    localStorage.removeItem('data')
+})
+
+
+
+</script>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<input type="number" name="" id="input" max="0">
+<button id="button">ok</button>
+<p id="demo">-</p>
+<input type="number" name="" id="1nput" min="0">
+<button id="autton">ok</button>
+
+<script src="MyLibraryGw.js"></script>
+<script>
+Button('click',function() {
+    if(elem('input').checkValidity()) {
+        Demo("received")
+    } else {
+        Demo(elem('input').validationMessage)
+    }
+})
+
+Autton('click',function() {
+    let input = elem('1nput')
+    if(input.checkValidity()) {
+        Demo('received')
+    } else {
+        Demo(input.validationMessage)
+    }
+})
+
+
+</script>
+
+</html>

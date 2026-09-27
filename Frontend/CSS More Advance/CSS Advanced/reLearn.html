@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+div {
+    display: grid;
+    grid-template-columns: 40px 40px 40px;
+    height: 120px;
+    grid-template-areas: 'a b c' 'd e f' 'g h i'
+}
+
+p {
+    margin: 0;
+    border: 1px solid
+}
+
+.item {
+    grid-area: 2/2;
+    align-self: end
+}
+</style>
+
+<div>
+    <p class="item">1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+</div>
+
+</html>

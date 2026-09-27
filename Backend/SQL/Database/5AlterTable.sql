@@ -1,0 +1,10 @@
+-- alter table customers add Email varchar(225);
+-- alter table customers drop email;
+-- alter table customers rename column name to anjass;
+-- alter table customers modify Email varchar(100) not null;
+-- alter table Germany add constraint CHK_Country check (country='germany');
+-- alter table germany rename to anjass;
+-- alter table anjass add birthdate date;
+-- alter table anjass alter column birthdate year; SQL
+-- alter table anjass modify column birthdate year;
+-- alter table anjass drop column birthdate;

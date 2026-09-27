@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+<p id="demos"></p>
+
+<script>
+
+localStorage.setItem("storage", "localStorage")
+document.getElementById("demo").innerHTML = localStorage.getItem("storage")
+
+sessionStorage.setItem("storage", "sessionStorage")
+document.getElementById("demos").innerHTML = sessionStorage.getItem("storage")
+
+</script>
+</html>

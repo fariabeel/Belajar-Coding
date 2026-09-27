@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+#descendant-selector p {color: blue}
+/*                  ^ combinator is space
+The descendant combinator matches all elements that are descendants of a specified element.
+*/
+
+#child-selector > p{color: blue}
+/*              ^ combinator
+The child combinator selects all elements that are the children of a specified element.
+*/
+
+#adjecent-sibling-selector + p {
+    color: blue
+}
+/* 
+The next sibling combinator is used to select an element that is directly after another specific element.
+
+Sibling elements must have the same parent element, and "adjacent" means "immediately following". 
+*/
+
+#general-sibling-selector ~ p {
+    color: blue
+}
+/* 
+The subsequent-sibling combinator selects all elements that are next siblings of a specified element. 
+*/
+
+</style>
+
+<div id="descendant-selector">
+    <p>descendant</p>
+    <span><p>test</p></span>
+</div> <br>
+
+
+<div id="child-selector">
+    <p>child</p>
+    <span><p>test</p></span>
+</div> <br>
+
+<div style="border: 1px solid;">
+<p style="text-align: center;">next sibling selector</p>
+<div id="adjecent-sibling-selector">div</div>
+<p>p</p>
+<div id="adjecent-sibling-selector">div</div>
+<span>span</span>
+<p>p</p>
+
+<div style="border: 1px solid">
+    <p style="text-align: center;">parent</p>
+    <div id="adjecent-sibling-selector">div</div>
+    <p>p</p>
+    <div id="adjecent-sibling-selector">div</div>
+    <span>span</span>
+    <p>p</p>
+    <div id="adjecent-sibling-selector">div</div>
+</div>
+<p>p (not selected cuzz not same parent)</p>
+</div>
+
+<div id="general-sibling-selector">general sibling</div>
+
+<p>blue</p>
+
+<div style="border: 1px solid">
+    <p>nor blue</p>
+</div>
+
+<p>blue</p>
+
+<p>blue</p>
+
+</html>

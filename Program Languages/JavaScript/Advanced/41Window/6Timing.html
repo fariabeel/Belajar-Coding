@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<button onclick="
+elem.innerHTML = 'wait' // not declaring it to use in global
+
+timing = window.setTimeout(
+    function() {
+        alert('setTimeout')
+        elem.innerHTML = '-'
+    },1000
+    )
+    ">Timing</button> <br>
+
+<button onclick="
+window.clearTimeout(timing)
+elem.innerHTML = '-'
+">Stop Execution</button>
+
+<p id="demo">-</p>
+
+<button onclick="DayCount()">Interval</button>
+
+<script>
+elem = document.getElementById('demo')
+
+DayCount = Counter()
+function Counter() {
+    let counting = 0
+    return function() {
+        if (counting === 0) {
+            counting = 1
+            interval = window.setInterval(function() {
+                elem.innerHTML = new Date().toLocaleTimeString()
+            })
+        } else {
+            counting = 0
+            clearInterval(interval)
+            elem.innerHTML = "-"
+        }
+    }
+}
+
+</script>
+</html>

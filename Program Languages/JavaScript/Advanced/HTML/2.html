@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<p id="demo"></p>
+<p id="demos"></p>
+<p onclick="this.innerHTML = this">Click Me</p>
+
+<script>
+// this thing also work in strict mode
+document.getElementById("demo").innerHTML = this
+
+// this thing not work in strict mode (undefined)
+function global() {return this}
+document.getElementById("demos").innerHTML = global()
+
+</script>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.p {
+    overflow: hidden;
+    white-space: nowrap;
+    border: 1px solid;
+    width: 200px
+}
+
+.clip {text-overflow: clip}
+.ellipsis {text-overflow: ellipsis}
+.p:hover {overflow: visible}
+
+
+.no-break {width: 11em; border: 1px solid}
+.break {
+    width: 11em;
+    border: 1px solid;
+    word-wrap: break-word;
+}
+
+.wordbreak {width: 140px; border: 1px solid}
+.keep-all {word-break: keep-all}
+.break-all {word-break: break-all}
+
+.horizontal {writing-mode: horizontal-tb}
+.vertical-rl {writing-mode: vertical-rl}
+.vertical-lr {writing-mode: vertical-lr}
+
+</style>
+
+<p class="p clip"><b>clip</b> This is some long text that will not fit in the box</p>
+<p class="p ellipsis"><b>ellipsis</b> This is some long text that will not fit in the box</p>
+
+<p class="no-break"><b>no-break</b> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+<p class="break"><b>break</b> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+
+<p class="wordbreak keep-all"><b>keep-all</b> This paragraph contains some text. This line will-break-at-hyphens</p>
+<p class="wordbreak break-all"><b>break-all</b> This paragraph contains some text. This line will-break-at-hyphens</p>
+
+<p class="horizontal">horizontal (default)</p>
+<p class="vertical-rl">vertical-rl</p> <br>
+<p class="vertical-lr">vertical-lr</p>
+
+</html>

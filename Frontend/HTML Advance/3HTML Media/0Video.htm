@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<video width="420" controls autoplay muted id="video">
+ <source src="../[Kusonime] Mecha-ude - 01 [1080p].mkv" type="video/mp4">
+Your browser does not support the video tag.
+</video> <br>
+
+<button onclick="PlayPause()">Play/Pause</button>
+<button onclick="Bigger()">Bigger</button>
+<button onclick="Smaller()">Smaller</button>
+<button onclick="Normal()">Normal</button>
+
+<script>
+
+var video = document.getElementById("video");
+
+function PlayPause() {
+if (video.paused) {video.play()} else {video.pause()}
+}
+
+function Bigger(){video.width=560;}
+function Smaller(){video.width=320;}
+function Normal(){video.width=420;}
+
+</script> <br>
+
+more information in W3Schools
+
+</html>

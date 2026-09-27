@@ -1,0 +1,1 @@
+-- backup database customdb to disk = 'D:\FileDummy' SQL

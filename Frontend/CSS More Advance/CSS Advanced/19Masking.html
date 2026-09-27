@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+#image {
+    height: 300px;
+    width: 300px;
+    object-fit: none;
+    object-position: 50% 10%
+}
+
+.mask {
+    mask-image: url(w3logo.png);
+    mask-repeat: no-repeat;
+}
+
+.mask0 {
+    background: url(https://r4.wallpaperflare.com/wallpaper/678/88/18/archer-natus-original-characters-long-hair-fire-wallpaper-f29bda4542eef9123dc658c631067ddb.jpg);
+    width: 340px;
+    height: 200px;
+    background-position: 70% 0;
+    mask-image: linear-gradient(black, transparent);
+}
+
+.circle {
+    background: url(https://r4.wallpaperflare.com/wallpaper/678/88/18/archer-natus-original-characters-long-hair-fire-wallpaper-f29bda4542eef9123dc658c631067ddb.jpg);
+    width: 340px;
+    height: 200px;
+    background-position: 70% 0;
+    mask-image: radial-gradient(circle, black 50%, rgba(0,0,0,0.5) 50%)
+}
+
+.ellipse {
+    background: url(https://r4.wallpaperflare.com/wallpaper/678/88/18/archer-natus-original-characters-long-hair-fire-wallpaper-f29bda4542eef9123dc658c631067ddb.jpg);
+    width: 340px;
+    height: 200px;
+    background-position: 70% 0;
+    mask-image: radial-gradient(ellipse, black 50%, rgba(0,0,0,0.5) 50%)
+}
+
+</style>
+
+<div class="mask">
+    <img src="https://r4.wallpaperflare.com/wallpaper/678/88/18/archer-natus-original-characters-long-hair-fire-wallpaper-f29bda4542eef9123dc658c631067ddb.jpg" id="image">
+</div>
+
+<div class="mask0">mask0</div>
+<div class="circle">circle</div>
+<div class="ellipse">ellipse</div>
+
+<svg width="600" height="400"> <!-- i dont know, just copy paste it -->
+  <mask id="svgmask1">
+    <polygon fill="#ffffff" points="200 0, 400 400, 0 400"></polygon>
+  </mask>
+  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://r4.wallpaperflare.com/wallpaper/678/88/18/archer-natus-original-characters-long-hair-fire-wallpaper-f29bda4542eef9123dc658c631067ddb.jpg" mask="url(#svgmask1)"></image>
+</svg>
+
+</html>

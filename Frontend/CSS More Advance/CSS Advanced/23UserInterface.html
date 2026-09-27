@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.resizeable-horizontal {
+    resize: horizontal;
+    overflow: auto;
+    width: 100px;
+    background: coral
+}
+
+.resizeable-vertical {
+    resize: vertical; 
+    overflow: auto;
+    width: 100px;
+    background: coral
+}
+
+.resizeable {
+    resize: both; 
+    overflow: auto;
+    width: 100px;
+    background: coral
+}
+
+.unresizeable {resize: none}
+
+</style>
+
+<div class="resizeable-horizontal">resizeable-horizontal</div>
+<div class="resizeable-vertical">resizeable-vertical</div>
+<div class="resizeable">resizeable</div>
+<textarea name="" id="" class="unresizeable">unresizeable</textarea>
+
+</html>

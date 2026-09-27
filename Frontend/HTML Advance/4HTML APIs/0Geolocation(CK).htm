@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<p id="demo"></p>
+<button onclick="getLocation()">Get</button>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+ if (navigator.geolocation) {
+   navigator.geolocation.getCurrentPosition(showPosition, error);
+ } else {x.innerHTML= "Geolocation is not supported"}
+}
+
+function showPosition(position) {
+ x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+}
+
+function error() {
+  alert("Sorry, no position available.");
+}
+
+
+function errore(error) {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+
+</script>
+
+<h1>HTML Geolocation</h1>
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo0"></p>
+
+<script>
+const y = document.getElementById("demo0");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(success, error);
+  } else { 
+    y.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+    
+function success(position) {
+    y.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+
+function error(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      y.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      y.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      y.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      y.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+</script>
+
+</html> 
+

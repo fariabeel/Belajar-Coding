@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+*{font-family: Arial, Helvetica, sans-serif}
+
+p[values] {
+    /* support section */
+    background: aquamarine;
+    height: 100px;
+    width: 100px; 
+    box-sizing: border-box;
+    padding: 38px 10px;
+}
+
+p[p] {border-radius: 10px;}
+/* 
+border-radius = shorthand property for the border-top-left-radius, border-top-right-radius, border-bottom-right-radius border-bottom-left-radius properties. 
+*/
+
+p[four] {border-radius: 4px 10px 20px 50px}
+/*top: right-left, bottom: left-right */
+p[three] {border-radius: 2px 60px 30px}
+/* top right, top left and bottom right, bottom left*/
+p[two] {border-radius: 10px 30px}
+
+p[elliptical] {background: yellowgreen}
+p[zero] {border-radius: 15px / 50px}
+p[one] {border-radius: 50px / 15px}
+p[twoo] {border-radius: 50%}
+
+</style>
+
+<p p values style="background: rgb(250, 197, 178)">p</p>
+<p four values>four-values</p>
+<p three values>three-values</p>
+<p two values>two-values</p>
+
+<p elliptical values zero>elliptical</p>
+<p elliptical values one>elliptical</p>
+<p elliptical values twoo>elliptical</p>
+
+</html>

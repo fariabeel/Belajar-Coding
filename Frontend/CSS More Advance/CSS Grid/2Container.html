@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+* {font-family: Arial, Helvetica, sans-serif}
+p {text-align: center}
+div[class*="grid-template-columns"] {margin-bottom: 10px}
+
+/* grid-template-columns */
+
+.grid-template-columns {
+    display: grid;
+    grid-template-columns: 20px 20px 20px
+}
+
+.grid-template-columns-auto {
+    display: grid;
+    grid-template-columns: auto auto auto
+}
+
+.grid-template-columns-mixed {
+    display: grid;
+    grid-template-columns: 10px auto 10px;
+}
+.grid-template-columns-mixed div {background: aquamarine; margin: 1px}
+
+.grid-template-columns-fraction {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr; 
+}
+.grid-template-columns-fraction div {background: aquamarine; margin: 1px}
+
+/* grid-template-rows */
+
+.grid-template-rows {
+    display: grid;
+    grid-template-rows: 30px 40px /* 
+    the next rows use auto(default) value 
+    */;
+}
+.grid-template-rows div {background: aquamarine; margin: 1px}
+
+/* justify-content */
+
+.grid-template-columns-justify {
+    display: grid;
+    grid-template-columns: 20px 20px;
+    text-align: center
+}
+.grid-template-columns-justify div {background: aquamarine; margin: 1px;}
+
+.space-evenly {justify-content: space-evenly}
+.space-around {justify-content: space-around}
+.space-between {justify-content: space-between}
+.center {justify-content: center}
+.start {justify-content: start} /* maybe default value */
+.end {justify-content: end}
+
+
+.grid-template-columns-align {
+    display: grid;
+    grid-template-columns: 20px 20px;
+    text-align: center;
+    height: 80px;
+    background: rgba(127, 255, 212, 0.411)
+} 
+.grid-template-columns-align div {background: aquamarine; margin: 1px}
+
+.center0 {align-content: center}
+.space-evenly0 {align-content: space-evenly}
+.space-around0 {align-content: space-around}
+.space-between0 {align-content: space-between}
+.start0 {align-content: start}
+.end0 {align-content: end}
+
+.shorthand {place-content: end center}
+/* align value end, justify value center */
+.shorthand0 {place-content: center} /* both value center */
+
+</style>
+
+<p>grid-template-columns</p>
+
+<div class="grid-template-columns">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+</div>
+
+<div class="grid-template-columns-auto">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+</div>
+
+<div class="grid-template-columns-mixed">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+</div>
+
+<div class="grid-template-columns-fraction">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+</div>
+
+<p>grid-template-rows</p>
+<div class="grid-template-rows">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+
+<p>justify-content</p>
+<div class="grid-template-columns-justify space-evenly">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-justify space-around">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-justify space-between">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-justify center">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-justify start">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-justify end">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<p>align-content</p>
+<div class="grid-template-columns-align center0">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-align space-evenly0">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-align space-around0">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-align space-between0">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-align start0">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-align end0">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+
+<p>place-content (shorthand align-content and justify-content)</p>
+<div class="grid-template-columns-align shorthand">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+<div class="grid-template-columns-align shorthand0">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+
+</html>

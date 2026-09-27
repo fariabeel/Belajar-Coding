@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<p class="demo"></p>
+
+<script type="module"> // without type="module" import cannot
+import { toHtml } from "../29ModulesIntro.js"
+
+document.getElementsByClassName("demo")[0].innerHTML = toHtml()
+// cannot in real browser without HTTP(s) protocol
+// it's operate in strictmode by default
+
+</script>
+
+</html>

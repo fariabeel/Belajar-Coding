@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+div div {background: aquamarine}
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 2px;
+    height: 100px
+}
+
+.item {grid-column: 2/ 4; grid-row: 2/ 4}
+/* start line-column/row  ~  end line-column/row  ~  */
+
+.shorthand {grid-area: 1/1/3/3}
+/* grid-row-start / grid-column-start / grid-row-end / grid-column-end. */
+
+.grid-template-areas {grid-template-areas: 'wow wow wow'}
+.grid-area {grid-area: wow}
+
+.period-signs {grid-template-areas: 'real real . .' 'real real . .'}
+/* period signs represent items with no name A.K.A columns */
+.grid-area0 {grid-area: real}
+
+.template-webpage {
+    grid-template-areas: 
+    'header header header'
+    'menu main right'
+    'menu footer footer'
+}
+
+.header {grid-area: header}
+.menu {grid-area: menu}
+.main {grid-area: main}
+.right {grid-area: right}
+.footer {grid-area: footer}
+
+/* grid-item-order */
+.item0 {grid-area: 2/3}
+.item1 {grid-area: 1/1}
+/* grid-area: rows place/order, column place/order */
+
+/* justify-self */
+.justify {justify-self:center}
+.justify0 {justify-self: right}
+/* alignment row axis */
+
+/* align-self */
+.align {align-self:center}
+.align0 {align-self: start}
+.align1 {align-self: end}
+/* alignment column axis */
+
+</style>
+
+item (look at child code)
+<div class="grid">
+    <div class="item">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div> <br><br>
+
+shorthand (look at child code)
+<div class="grid">
+    <div class="shorthand">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div> <br><br> 
+
+grid-area (look at child code)
+<div class="grid grid-template-areas">
+    <div class="grid-area">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div> <br><br>
+
+period-signs (look at child code)
+<div class="grid period-signs">
+    <div class="grid-area0">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div> <br><br>
+
+template-webpage (look at child code)
+<div class="grid template-webpage">
+    <div class="header">header</div>
+    <div class="menu">menu</div>
+    <div class="main">main</div>
+    <div class="right">right</div>
+    <div class="footer">footer</div>
+</div> <br><br>
+
+grid-item-order (look at child code)
+<div class="grid">
+    <div class="item0">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div class="item1">5</div>
+    <div>6</div>
+</div> <br><br>
+
+justify-self (look at child code)
+<div class="grid">
+    <div class="justify">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div class="justify0">5</div>
+    <div>6</div>
+</div> <br><br>
+
+align-self (look at child code)
+<div class="grid">
+    <div class="align">1</div>
+    <div>2</div>
+    <div class="align0">3</div>
+    <div>4</div>
+    <div class="align1">5</div>
+    <div>6</div>
+</div> <br><br>
+
+</html>

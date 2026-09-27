@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Border</title>
+        <style>
+            .border{
+                border: 2px solid brown;
+                border-bottom-width: 4px;
+            }
+            #above-solid{
+                border-top-width: 4px;
+                border-top-style: solid;
+            }
+            #left-solid{
+                border-left-width: 4px;
+                border-left-style: solid;
+                border-color: blueviolet;
+            }
+            #bottom-dotted{
+                border-left-width: 4px;
+                border-bottom-style: dotted;
+                border-color: crimson;
+            }
+            #left-double{
+                border-left-width: 4px;
+                border-left-style: double;
+                border-color: crimson;
+            }
+            #right-dashed{
+                border-right-width: 4px;
+                border-right-style: dashed;
+                border-color: crimson;
+            }
+            .border0{
+                /* 20px untuk atas bawah, 5px untuk kiri kanan */
+                border-width:20px 5px;
+                border-color: darkgreen;
+                border-style: solid;
+            }
+            .border1{
+                border-color: darkgreen;
+                border-style: solid;
+                /* the order is above, right, bottom, left */
+                border-width: 5px 25px 10px 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="border">Border Style</h1>
+        <p id="above-solid">Border solid above side</p>
+        <p id="left-solid">Border solid left side</p>
+        <p id="bottom-dotted">Border solid left side</p>
+        <p id="left-double">Border solid left side</p>
+        <p id="right-dashed">Border solid left side</p>
+        <h2 class="border0">border size</h2>
+        <h2 class="border1">border size</h2>
+    </body>
+</html>
