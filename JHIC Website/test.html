@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMAN 17 Surabaya - Sekolah Unggulan Berprestasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --text: #333;
+    --text-light: #7f8c8d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Header Styles */
+.top-bar {
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info span {
+    margin-right: 20px;
+}
+
+.contact-info i {
+    margin-right: 5px;
+}
+
+.social-media a {
+    color: white;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: var(--secondary);
+}
+
+nav {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.logo-text h1 {
+    font-size: 20px;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.logo-text p {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu > li {
+    position: relative;
+    margin-left: 25px;
+}
+
+.menu > li > a {
+    font-weight: 500;
+    color: var(--dark);
+    transition: color 0.3s ease;
+    padding: 10px 0;
+    position: relative;
+}
+
+.menu > li > a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary);
+    transition: width 0.3s ease;
+}
+
+.menu > li > a:hover:after,
+.menu > li > a.active:after {
+    width: 100%;
+}
+
+.menu > li > a:hover,
+.menu > li > a.active {
+    color: var(--secondary);
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(10px);
+}
+
+.menu > li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.submenu li a:hover {
+    background-color: var(--light);
+    color: var(--secondary);
+    padding-left: 20px;
+}
+
+.mobile-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.slide-content h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.slide-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: 1px #45b4ff solid;
+    outline-offset: 1px
+}
+
+.dot.active {
+    background-color: #45b4ff;
+}
+
+/* Quick Links Section */
+.quick-links {
+    padding: 60px 0;
+    background-color: var(--light);
+}
+
+.link-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.link-box:hover {
+    transform: translateY(-10px);
+}
+
+.link-box i {
+    font-size: 40px;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.link-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.link-box p {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.link-box a {
+    color: var(--secondary);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.link-box a:hover {
+    color: var(--primary);
+}
+
+.link-box a i {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+}
+
+.about .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.about p {
+    margin-bottom: 20px;
+}
+
+.achievements {
+    display: flex;
+    margin: 30px 0;
+    gap: 20px;
+}
+
+.achievement-item {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light);
+    border-radius: 5px;
+    flex: 1;
+}
+
+.achievement-item .number {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--secondary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.achievement-item .label {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* News Section */
+.news {
+    padding: 60px 0;
+    background-color: var(--light);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    color: var(--primary);
+}
+
+.view-all {
+    color: var(--secondary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.view-all:hover {
+    color: var(--primary);
+}
+
+.view-all i {
+    margin-left: 5px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+}
+
+.news-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.1);
+}
+
+.news-image .date {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: var(--secondary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.news-content p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: var(--secondary);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--primary);
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 80px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.overlay p {
+    font-size: 14px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 80px 0;
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.testimonial-slider {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.testimonial {
+    display: none;
+    padding: 0 20px;
+}
+
+.testimonial.active {
+    display: block;
+}
+
+.quote {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.quote:before,
+.quote:after {
+    content: '"';
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+}
+
+.quote:before {
+    top: -20px;
+    left: -20px;
+}
+
+.quote:after {
+    bottom: -40px;
+    right: -20px;
+}
+
+.author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.author img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--secondary);
+}
+
+.author h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.author p {
+    font-size: 14px;
+    color: var(--light);
+}
+
+/* Footer */
+.footer-top {
+    background-color: #1a252f;
+    color: white;
+    padding: 60px 0;
+}
+
+.footer-top .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.footer-col h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+.footer-col p {
+    color: #bdc3c7;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: var(--secondary);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #bdc3c7;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+.footer-col ul li a:hover {
+    color: var(--secondary);
+    padding-left: 5px;
+}
+
+.footer-news-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.footer-news-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.footer-news-content a {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.footer-news-content a:hover {
+    color: var(--secondary);
+}
+
+.footer-news-content span {
+    color: #bdc3c7;
+    font-size: 12px;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.newsletter-form button {
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #2980b9;
+}
+
+.footer-bottom {
+    background-color: #0e151b;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.copyright {
+    color: #bdc3c7;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    font-size: 14px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .about .container {
+        flex-direction: column;
+    }
+    
+    .about-content,
+    .about-image {
+        flex: none;
+        width: 100%;
+    }
+    
+    .about-image {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+    
+    .menu.active {
+        display: flex;
+    }
+    
+    .menu > li {
+        margin: 0;
+        padding: 10px 20px;
+    }
+    
+    .submenu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        width: 100%;
+        box-shadow: none;
+        display: none;
+    }
+    
+    .menu > li:hover .submenu {
+        transform: none;
+    }
+    
+    .submenu.active {
+        display: block;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+    
+    .slide-content {
+        left: 5%;
+        max-width: 90%;
+    }
+    
+    .slide-content h2 {
+        font-size: 28px;
+    }
+    
+    .quick-links .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .top-bar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-info {
+        margin-bottom: 10px;
+    }
+    
+    .quick-links .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-top .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom .container {
+        flex-direction: column;
+    }
+    
+    .footer-links {
+        margin-top: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> (021) 1234567</span>
+                    <span><i class="fas fa-envelope"></i> info@sman1majujaya.sch.id</span>
+                </div>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <img src="LOGO-SMAN-17-SBY.png" alt="Logo SMAN 17 Surabaya">
+                    <div class="logo-text">
+                        <h1>SMAN 17 Surabaya</h1>
+                        <p>Sekolah Unggulan Berprestasi</p>
+                    </div>
+                </div>
+                <ul class="menu">
+                    <li><a href="#" class="active">Beranda</a></li>
+                    <li><a href="#">Profil</a>
+                        <ul class="submenu">
+                            <li><a href="#">Sejarah</a></li>
+                            <li><a href="#">Visi Misi</a></li>
+                            <li><a href="#">Struktur Organisasi</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Akademik</a></li>
+                    <li><a href="#">Siswa</a></li>
+                    <li><a href="#">Guru & Staff</a></li>
+                    <li><a href="#">Berita</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="slider">
+            <div class="slide active">
+                <img src="BANG-J-01.jpg" alt="Kegiatan Belajar Mengajar">
+                <div class="slide-content">
+                    <h2>Selamat datang di SMAN 17 Surabaya</h2>
+                    <p>Sekolah unggulan yang membentuk generasi unggul yang berkarakter dan berprestasi</p>
+                    <a href="#" class="btn">Selengkapnya</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="WhatsApp-Image-2024-07-14-at-18.28.39-870x416.jpeg" alt="Ekstrakurikuler">
+                <div class="slide-content">
+                    <h2>Pengembangan Bakat dan Minat Siswa</h2>
+                    <p>Berbagai kegiatan ekstrakurikuler untuk mengasah kreativitas dan talenta</p>
+                    <a href="#" class="btn">Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <section class="quick-links">
+        <div class="container">
+            <div class="link-box">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Kalender Akademik</h3>
+                <p>Jadwal kegiatan sekolah tahun 2023/2024</p>
+                <a href="#">Lihat Jadwal <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="link-box">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Penerimaan Siswa Baru</h3>
+                <p>Informasi pendaftaran siswa baru</p>
+                <a href="#">Daftar Sekarang <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="link-box">
+                <i class="fas fa-book"></i>
+                <h3>E-Learning</h3>
+                <p>Sistem pembelajaran online</p>
+                <a href="#">Masuk <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="link-box">
+                <i class="fas fa-newspaper"></i>
+                <h3>Berita Terkini</h3>
+                <p>Update informasi seputar sekolah</p>
+                <a href="#">Baca Berita <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Tentang SMAN 17 Surabaya</h2>
+                <p>SMAN 17 Surabaya adalah sekolah unggulan yang telah berdiri sejak tahun 1985. Kami berkomitmen untuk memberikan pendidikan terbaik dengan fasilitas modern dan tenaga pengajar yang berkualitas.</p>
+                <p>Dengan berbagai prestasi di tingkat nasional maupun internasional, kami terus berinovasi dalam metode pembelajaran untuk menciptakan lulusan yang kompeten dan berkarakter.</p>
+                <div class="achievements">
+                    <div class="achievement-item">
+                        <span class="number">25+</span>
+                        <span class="label">Prestasi Nasional</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="number">98%</span>
+                        <span class="label">Kelulusan</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="number">50+</span>
+                        <span class="label">Guru Berprestasi</span>
+                    </div>
+                </div>
+                <a href="#" class="btn">Baca Selengkapnya</a>
+            </div>
+            <div class="about-image">
+                <img src="about-school.jpg" alt="Gedung SMAN 17 Surabaya">
+            </div>
+        </div>
+    </section>
+
+    <section class="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>Berita & Pengumuman</h2>
+                <a href="#" class="view-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="news1.jpg" alt="Berita 1">
+                        <span class="date">15 Mar 2023</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Siswa SMAN 17 Surabaya Juara Olimpiade Matematika Nasional</h3>
+                        <p>Tim olimpiade matematika SMAN 17 Surabaya berhasil meraih medali emas dalam kompetisi tingkat nasional yang diselenggarakan di Jakarta.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="news2.jpg" alt="Berita 2">
+                        <span class="date">10 Mar 2023</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Pembukaan Pendaftaran Siswa Baru TA 2023/2024</h3>
+                        <p>Pendaftaran siswa baru tahun ajaran 2023/2024 dibuka mulai 1 April 2023. Persyaratan dan informasi lengkap dapat dilihat di halaman PPDB.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="news3.jpg" alt="Berita 3">
+                        <span class="date">5 Mar 2023</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Workshop Pengembangan Kurikulum Merdeka Belajar</h3>
+                        <p>Guru-guru SMAN 17 Surabaya mengikuti workshop implementasi kurikulum merdeka belajar untuk meningkatkan kualitas pembelajaran.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Galeri Kegiatan</h2>
+                <a href="#" class="view-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="gallery1.jpg" alt="Kegiatan 1">
+                    <div class="overlay">
+                        <h3>Studi Lapangan</h3>
+                        <p>Kunjungan ke Museum Nasional</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery2.jpg" alt="Kegiatan 2">
+                    <div class="overlay">
+                        <h3>Pentas Seni</h3>
+                        <p>Pagelaran tahunan siswa</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery3.jpg" alt="Kegiatan 3">
+                    <div class="overlay">
+                        <h3>Olahraga</h3>
+                        <p>Kejuaraan basket antar sekolah</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery4.jpg" alt="Kegiatan 4">
+                    <div class="overlay">
+                        <h3>Ekskul Robotik</h3>
+                        <p>Latihan pembuatan robot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Apa Kata Mereka?</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <div class="quote">
+                        <p>"SMAN 17 Surabaya memberikan pendidikan yang seimbang antara akademik dan karakter. Saya sangat bangga menjadi bagian dari sekolah ini."</p>
+                    </div>
+                    <div class="author">
+                        <img src="student1.jpg" alt="Alumni">
+                        <h4>Budi Santoso</h4>
+                        <p>Alumni 2020, Mahasiswa UI</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="quote">
+                        <p>"Fasilitas yang lengkap dan guru-guru yang kompeten membuat proses belajar mengajar menjadi sangat menyenangkan dan efektif."</p>
+                    </div>
+                    <div class="author">
+                        <img src="student2.jpg" alt="Siswa">
+                        <h4>Anita Rahayu</h4>
+                        <p>Siswa Kelas XII IPA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-col">
+                    <h3>Tentang Kami</h3>
+                    <p>SMAN 17 Surabaya adalah sekolah unggulan dengan berbagai prestasi di tingkat nasional dan internasional.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan No. 123, Kota Maju Jaya</p>
+                        <p><i class="fas fa-phone"></i> (021) 1234567</p>
+                        <p><i class="fas fa-envelope"></i> info@sman1majujaya.sch.id</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Link Cepat</h3>
+                    <ul>
+                        <li><a href="#">Profil Sekolah</a></li>
+                        <li><a href="#">Penerimaan Siswa Baru</a></li>
+                        <li><a href="#">Kalender Akademik</a></li>
+                        <li><a href="#">E-Learning</a></li>
+                        <li><a href="#">Galeri Foto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Berita Terkini</h3>
+                    <div class="footer-news">
+                        <div class="footer-news-item">
+                            <img src="news-thumb1.jpg" alt="Berita">
+                            <div class="footer-news-content">
+                                <a href="#">Siswa Raih Medali Olimpiade</a>
+                                <span>15 Mar 2023</span>
+                            </div>
+                        </div>
+                        <div class="footer-news-item">
+                            <img src="news-thumb2.jpg" alt="Berita">
+                            <div class="footer-news-content">
+                                <a href="#">Pendaftaran Siswa Baru Dibuka</a>
+                                <span>10 Mar 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Dapatkan informasi terbaru dari kami dengan berlangganan newsletter.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Alamat Email Anda">
+                        <button type="submit">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright">
+                    <p>&copy; 2023 SMAN 17 Surabaya. Semua Hak Dilindungi.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat & Ketentuan</a>
+                    <a href="#">Peta Situs</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+document.querySelector('.mobile-menu').addEventListener('click', function() {
+    document.querySelector('.menu').classList.toggle('active');
+});
+
+// Hero Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(n) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => showSlide(index));
+});
+
+// Auto slide change
+setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 5000);
+
+// Testimonial Slider
+let currentTestimonial = 0;
+const testimonials = document.querySelectorAll('.testimonial');
+
+function showTestimonial(n) {
+    testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+    
+    currentTestimonial = (n + testimonials.length) % testimonials.length;
+    testimonials[currentTestimonial].classList.add('active');
+}
+
+// Auto testimonial change
+setInterval(() => {
+    showTestimonial(currentTestimonial + 1);
+}, 7000);
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Sticky header on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('nav');
+    header.classList.toggle('sticky', window.scrollY > 0);
+});
+    </script>
+</body>
+</html>

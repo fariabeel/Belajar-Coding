@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <style>
+
+        /* best practice */
+        @keyframes Loading {
+            0% { 
+                transform: translate(-50%, -50%) scale(0.5); 
+                opacity: 0;
+            }
+            80% { 
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+            100%{
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1
+            }
+        }
+
+        html {
+            cursor: none
+        }
+
+        /* best practice */
+        .baller {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: Loading 1s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.1s
+        }
+
+        .dot {
+            width: 4px;
+            height: 4px;
+            background-color: gray;
+            border-radius: 50%;
+        }
+    </style>
+
+    <div class="baller"><div class="dot"></div></div>
+
+    <script>
+        const baller = document.querySelector(".baller");
+        
+        // best practice
+        baller.addEventListener('animationend', () => {
+            window.addEventListener("mousemove", (e) => {
+            const x = e.clientX - window.innerWidth / 2;
+            const y = e.clientY - window.innerHeight / 2;
+            baller.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        });
+        })
+    </script>
+</html>

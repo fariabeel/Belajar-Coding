@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    
+    .unShow {
+        visibility: hidden;
+        transform: translateX(30px)
+    }
+    .show {
+        visibility: visible;
+        transform: translateX(0px);
+    }
+
+</style>
+
+<script>
+    div = document.createElement('div')
+    div.textContent = "div"
+    html = document.getElementsByTagName('html')[0]
+    div.style = `
+    font-size: 40px;
+    border: 1px solid;
+    width: 80px;
+    border-radius: 15px;
+    margin: 10px;
+    text-align: center;
+    transition: 150ms;
+     `
+
+     div.classList.add("unShow")
+
+    for (let i = 0; i < 30; i++) {
+        html.appendChild(div.cloneNode(true))
+    }
+
+    divsGroup = document.querySelectorAll("div")
+    
+    observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle("show", entry.isIntersecting)
+        })
+    })
+
+    divsGroup.forEach(div => {
+        observer.observe(div)
+    })
+
+</script>
+</html>

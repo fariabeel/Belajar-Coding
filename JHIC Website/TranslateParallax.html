@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <style>
+
+html {
+    height: 1400px
+}
+
+.block {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    position: fixed;
+    top: 50%;
+    left: -100px;
+    transition: 0.3s;
+}
+
+    </style>
+
+on scroll animation
+<div class="block"></div>
+
+<script>
+
+const block = document.querySelector(".block")
+
+window.addEventListener("scroll", () => {
+    const x = window.scrollY;
+    block.style.transform = `translateX(${x}px)`;
+})
+
+
+</script>
+
+</html>
